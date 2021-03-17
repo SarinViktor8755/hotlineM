@@ -1,0 +1,33 @@
+apply plugin: 'java'
+sourceCompatibility = 1.6
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+sourceSets.main.java.srcDirs = [ "src/" ]
+project.ext.mainClassName = "com.ServerLauncher"
+
+task run(dependsOn: classes, type: JavaExec) {
+    main = project.mainClassName
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    ignoreExitValue = true
+}
+
+task createSarin_v(type: Jar) {
+    from files(sourceSets.main.output.classesDir)
+    from files(sourceSets.main.output.resourcesDir)
+    from {configurations.compile.collect {zipTree(it)}}
+
+    manifest {
+        attributes 'Main-Class': project.mainClassName
+    }
+}
+
+dependencies {
+    compile project(path: ':core')
+}
+
+eclipse.project {
+    name = appName + "-server"
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"

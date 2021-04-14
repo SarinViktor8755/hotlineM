@@ -126,6 +126,10 @@ public class BoxObject { // Боксовый обьект верхнего ур�
         this.color = color;
     }
 
+    public boolean isGorisont(){
+        return !corner;
+    }
+
 
     @Override
     public String toString() {

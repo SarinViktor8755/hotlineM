@@ -435,8 +435,10 @@ public class PoolBlood {
     }
 
     public void addBulletOtherPlayerPistol(int id) {
+
         Vector2 p = new Vector2(mainGaming.getHero().getOtherPlayers().getXplayToId(id), mainGaming.getHero().getOtherPlayers().getYplayToId(id));
         Vector2 cook = new Vector2(10, 10);
+        mainGaming.getHero().getLith().startBulletFlash(p.x,p.y); ///вспышка
         cook.setAngle(mainGaming.getHero().getOtherPlayers().getRotationToId(id));
         Vector2 delta = new Vector2(cook);
         delta.rotate(20).scl(70);
@@ -447,6 +449,7 @@ public class PoolBlood {
     public void addBulletOtherPlayerShootGun(int id) {
         Vector2 p = new Vector2(mainGaming.getHero().getOtherPlayers().getXplayToId(id), mainGaming.getHero().getOtherPlayers().getYplayToId(id));
         Vector2 cook = new Vector2(10, 10);
+        mainGaming.getHero().getLith().startBulletFlash(p.x,p.y); ///вспышка
         cook.setAngle(mainGaming.getHero().getOtherPlayers().getRotationToId(id));
         Vector2 delta = new Vector2(cook);
         for (int i = -10; i < 10; i += 4) {

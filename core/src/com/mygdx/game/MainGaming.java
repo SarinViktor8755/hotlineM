@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.FillViewport;
@@ -35,6 +36,8 @@ public class MainGaming implements Screen {
     private MainClient mainClient;
     private ZombiKiller zk;
     private Camera camera;
+
+    private World world;
 
     private SpriteBatch batch;
     private GameSpace gSpace;
@@ -77,6 +80,8 @@ public class MainGaming implements Screen {
     @Override
     public void show() {
         this.startScreen = new StartScreen(zk);
+
+        this.world = new World(new Vector2(0,0),true);
                 //zk.setScreen(startScreen);
                 //        System.out.println("------------");
                 //        System.out.println(Gdx.graphics.getWidth());
@@ -145,6 +150,7 @@ public class MainGaming implements Screen {
         gHero.draw(batch, 1);
         this.renderAim();
         getHero().getPoolBlood().renderAd(getBatch(), this);
+        getHero().getLith().renderLights(camera); // освещение
         batch.end();
         //System.out.println(delta);
         hud.update(delta);
@@ -219,6 +225,10 @@ public class MainGaming implements Screen {
         gSpace.dispose();
     }
 
+    public World getWorld() {
+        return world;
+    }
+
     public AudioEngine getAudioEngine() {
         return audioEngine;
     }
@@ -262,4 +272,6 @@ public class MainGaming implements Screen {
     public IndexMap getIndexMap() {
         return indexMap;
     }
+
+
 }

@@ -317,4 +317,7 @@ public class IndexMap {
         return new Vector2(x, y);
     }
 
+    public HashMap<Integer, BoxObject> getTopQualityMap_Box() {
+        return topQualityMap_Box;
+    }
 }

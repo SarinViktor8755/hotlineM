@@ -14,7 +14,7 @@ import com.mygdx.game.BloodBullet.PoolBlood;
 import com.mygdx.game.Characters.Animation.AnimationPers;
 import com.mygdx.game.ClientNetWork.SteckApi.RequestStock;
 import com.mygdx.game.HUDAudio.HelperScreen;
-import com.mygdx.game.Lighting.Lighting;
+import com.mygdx.game.Lighting.B2lights;
 import com.mygdx.game.MainGaming;
 import com.mygdx.game.Service.OperationVector;
 
@@ -44,7 +44,7 @@ public class MainCharacter extends Actor {
     public int fragWithLife;
     public int myPositionTablica;
     private Weapons weapons;
-    private Lighting lighting;
+  //  private Lighting lighting;
     private ArrayList<TextureRegion> maksTexture;
 
     private HelperScreen helperScreen;
@@ -58,6 +58,7 @@ public class MainCharacter extends Actor {
     }
 
     private Color myColorGelet;
+    private B2lights lith;
 
 
 //    public int fragWithLife;
@@ -104,7 +105,7 @@ public class MainCharacter extends Actor {
         globalAlpha = 1;
         this.myPositionTablica = 0; // Моя позиция в таблице
         this.weapons = new Weapons();
-        this.lighting = new Lighting(mg);
+        //this.lighting = new Lighting(mg);
 
         this.maksTexture = new ArrayList<TextureRegion>();
         for (int i = 1; i < 6; i++) {
@@ -112,6 +113,7 @@ public class MainCharacter extends Actor {
         }
 
         this.helperScreen = new HelperScreen(this.mg);
+        lith = new B2lights(mg);
 
 
     }
@@ -184,7 +186,7 @@ public class MainCharacter extends Actor {
 
             otherPlayers.getPlayerToID(mg.getMainClient().getMyIdConnect()).updateCoordinatPleyer((int) position.x, (int) position.y, (int) cookAngle.angle());
             renderPlayers(animationPers);
-            lighting.renderLighting(batch);
+        //    lighting.renderLighting(batch);
             //mg.getIndexMap().renderFakePerspektiveLaier();
             // mg.getAssetsManagerGame().getProgress();
             // Gdx.app.log("Asset  ", String.valueOf(mg.getAssetsManagerGame().getProgress()));
@@ -216,7 +218,7 @@ public class MainCharacter extends Actor {
 
 
         }
-        lighting.updateLighting(delta);
+     //   lighting.updateLighting(delta);
         super.act(delta);
         movement(delta);
         mg.getHero().getOtherPlayers().upDateDeltaTimeAllPlayer(delta); // обновление времени всех сетевых пользователей для анимации
@@ -237,6 +239,11 @@ public class MainCharacter extends Actor {
         if (animationPers.isRedyToAttack()) { // смена оружия после анимации
             this.weapons.updateWeapon();
         }
+
+        lith.upDateLights(this.position.x, this.position.y, this.cookAngle.angle());
+
+//        if (velocity.len2() > 250000)шаги
+//            mg.getAudioEngine().addNewSoundStepToPleyerFromID(mg.getMainClient().getMyIdConnect());
     }
 
     private void movement(float delta) { // ldb;tybt
@@ -285,6 +292,7 @@ public class MainCharacter extends Actor {
         //System.out.println("addAnimationAttackPipe");
         int x = (int) (position.x + cookAngle.x * 80);
         int y = (int) (position.y + cookAngle.y * 80);
+        //mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20,position.y + cookAngle.x * 20); ///вспышка
         mg.getAudioEngine().pleySoundKickStick();
         mg.getMainClient().getOutStock().addStockInQuery(new RequestStock(// отправить на сервер
                 mg.getMainClient().getAndUpdateRealTime(), 1,
@@ -293,9 +301,15 @@ public class MainCharacter extends Actor {
         ));
     }
 
+    public B2lights getLith() {
+        return lith;
+    }
+
     public void attackPistol(int id) {  // добавленеи анимации удара + отправка на сервер сообщение о нанесение удара атака
         int x = (int) (position.x + cookAngle.x * 20);  // начальное положение выстрела
         int y = (int) (position.y + cookAngle.y * 20);
+
+        mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20,position.y + cookAngle.x * 20); ///вспышка
         int cookAngle = (int) (getCookAngle().angle());  // направление
         mg.getMainClient().getOutStock().addStockInQuery(new RequestStock(// отправить на сервер
                 mg.getMainClient().getAndUpdateRealTime(), 2,
@@ -322,7 +336,7 @@ public class MainCharacter extends Actor {
         getOtherPlayers().getPlayerToID(id).getAnimatonBody().addAnimationAttackShotgun();// добавляем анимацию
         int x = (int) (position.x + cookAngle.x * 20);  // начальное положение выстрела
         int y = (int) (position.y + cookAngle.y * 20);
-
+        mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20,position.y + cookAngle.x * 20); ///вспышка
         int cookAngle = (int) (getCookAngle().angle());  // направление
 
         mg.getAudioEngine().pleySoundKickShotgun();

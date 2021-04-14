@@ -42,9 +42,6 @@ public class ZombiKiller extends Game {
         };
     }
 
-
-
-
     public boolean isAndroid(){
         if(tip == 1) return true; return false;
     }
@@ -63,8 +60,6 @@ public class ZombiKiller extends Game {
     }
 
     public void getPauseScreen(){
-
-        //this.mGaming.dispose();
         this.pauseScreen = new com.mygdx.game.Pause.PauseScreen(this,true);
         this.setScreen(this.pauseScreen);
     }

@@ -3,30 +3,30 @@
 
     <item
         is-multidex="true"
+        jar="C:\Users\Виктор\.gradle\caches\modules-2\files-2.1\com.esotericsoftware\kryonet\2.22.0-RC1\2f25f7250a3096a8d1b8182946f6572d90d280d0\kryonet-2.22.0-RC1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="28.0.3"
+        sha1="2f25f7250a3096a8d1b8182946f6572d90d280d0">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\kryonet-2.22.0-RC1_494e2a515ea0601d2b1a30d92ee766967ce6226e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Distr\Asdk\extras\android\m2repository\com\android\support\support-annotations\25.2.0\support-annotations-25.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="28.0.3"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\support-annotations-25.2.0_4cc47735e5be12938d2767b30f5f513fca19c91c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="D:\game\HotLine\android\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="28.0.3"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_3c2a12de9455ca808786285f7a7c7d7947502014\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Виктор\.android\build-cache\9e23d4a9ab8d3fa51347ac8aeb204383724fec15\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="28.0.3"
-        sha1="30576312640d492fce6c26859372f1b511e271ef">
-        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3b6f5ac75f1beaa60c7f730f1f5f174c049daa79\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Виктор\.gradle\caches\modules-2\files-2.1\com.esotericsoftware.minlog\minlog\1.2\59bfcd171d82f9981a5e242b9e840191f650e209\minlog-1.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="28.0.3"
-        sha1="59bfcd171d82f9981a5e242b9e840191f650e209">
-        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\minlog-1.2_7ea47e8f06ee8bc9b644191c2b2e6c72aa47b8a5\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -39,12 +39,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Виктор\.android\build-cache\fb71eaa7a561829ca7920c949f2fe90a898a2b26\output\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Виктор\.android\build-cache\ef6c271c547c9b0a378a44915741a116e45dd6a3\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="28.0.3"
-        sha1="cad6f251cba07624f49b0c5b6287731a3c9957b8">
-        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\classes_83b71fe4dfd604d87ccee0578c47b18b892e2705\classes.dex" />
+        sha1="7cf5def5a11365487219b912b2a7ba8ad26f9917">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\classes_c6c1610d957cd71cc4e3186fcc77f55d6392e68c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-freetype\1.9.8\d92b5b8beab10e3b3c0dd836d4fc186f95e7ea4b\gdx-freetype-1.9.8.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="28.0.3"
+        sha1="d92b5b8beab10e3b3c0dd836d4fc186f95e7ea4b">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\gdx-freetype-1.9.8_b2ff1ff3045baa70dc5317207fc2b07c5fcca15f\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -57,12 +66,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Виктор\.android\build-cache\ece5972f5bc0bccb5ad5805a6af0c7115927cbf5\output\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Виктор\.android\build-cache\3d1d037156676bfeb338b29077794470fb49f8b8\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="28.0.3"
-        sha1="00e57da8e7efba5e0aead2d3c76201d86918a0d1">
-        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b8639ae5b030eafbcbed85050c7f4fb7410fb81b\classes.dex" />
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\classes_6b79c99d3d412e64a33caea17c12fd10c9e8dd86\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -84,21 +93,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Виктор\.android\build-cache\dace4fed3686e8180918501204b7aaa5b2165558\output\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Виктор\.android\build-cache\1549caa88e4646de17d4f330de50130c0d336ab4\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="28.0.3"
-        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
-        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6f7a847d521d305377373901532d13601e069b63\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Виктор\.android\build-cache\c0d2476f7bb3b5412388bc96473a8554137413e1\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="28.0.3"
-        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
-        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3603fb9bb93b9db9eaf0b0515d8ee06f8819687e\classes.dex" />
+        sha1="d1a80b23cc4097106a3f4914928e700ac3c5b2ed">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\classes_7798b0712a46a40d204eba71f8416af6470bfe2f\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -111,21 +111,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Виктор\.gradle\caches\modules-2\files-2.1\com.esotericsoftware\jsonbeans\0.7\de977f0875708eddd154f2a4c3a3f58a13ef297\jsonbeans-0.7.jar"
-        jumboMode="true"
+        jar="C:\Users\Виктор\.android\build-cache\dace4fed3686e8180918501204b7aaa5b2165558\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="28.0.3"
-        sha1="0de977f0875708eddd154f2a4c3a3f58a13ef297">
-        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\jsonbeans-0.7_ca43ff8bef19d951e5968e5e11c67c6b30753ea6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Виктор\.android\build-cache\3d1d037156676bfeb338b29077794470fb49f8b8\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="28.0.3"
-        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
-        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6b79c99d3d412e64a33caea17c12fd10c9e8dd86\classes.dex" />
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\classes_6f7a847d521d305377373901532d13601e069b63\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -138,12 +129,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Виктор\.android\build-cache\ef6c271c547c9b0a378a44915741a116e45dd6a3\output\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Виктор\.gradle\caches\modules-2\files-2.1\com.esotericsoftware.kryo\kryo\2.24.0\c6b206e80cfd97e66a1364003724491c757b92f\kryo-2.24.0.jar"
+        jumboMode="false"
         optimize="true"
         revision="28.0.3"
-        sha1="7cf5def5a11365487219b912b2a7ba8ad26f9917">
-        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c6c1610d957cd71cc4e3186fcc77f55d6392e68c\classes.dex" />
+        sha1="0c6b206e80cfd97e66a1364003724491c757b92f">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\kryo-2.24.0_77c69847b5fa548ad1c73579778fac493b4dc472\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -153,6 +144,15 @@
         revision="28.0.3"
         sha1="87c0ea803b69252868d09308b4618f766f135a96">
         <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\objenesis-2.1_89ce10effed110038aeda3ea69e40ff88004c5d6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.gradle\caches\modules-2\files-2.1\org.objenesis\objenesis\2.1\87c0ea803b69252868d09308b4618f766f135a96\objenesis-2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="28.0.3"
+        sha1="87c0ea803b69252868d09308b4618f766f135a96">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\objenesis-2.1_89ce10effed110038aeda3ea69e40ff88004c5d6\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -174,12 +174,201 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Виктор\.gradle\caches\modules-2\files-2.1\com.esotericsoftware.kryo\kryo\2.24.0\c6b206e80cfd97e66a1364003724491c757b92f\kryo-2.24.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.3"
+        sha1="0c6b206e80cfd97e66a1364003724491c757b92f">
+        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\kryo-2.24.0_77c69847b5fa548ad1c73579778fac493b4dc472\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.android\build-cache\28f100fb41c4be3ab0633ed83db51ad029d87dbe\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="28.0.3"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\classes_2eaf551e723df567b25783aa4dff360066e5a8b9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.gradle\caches\modules-2\files-2.1\com.esotericsoftware\jsonbeans\0.7\de977f0875708eddd154f2a4c3a3f58a13ef297\jsonbeans-0.7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="28.0.3"
+        sha1="0de977f0875708eddd154f2a4c3a3f58a13ef297">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\jsonbeans-0.7_ca43ff8bef19d951e5968e5e11c67c6b30753ea6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.android\build-cache\9e23d4a9ab8d3fa51347ac8aeb204383724fec15\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.3"
+        sha1="30576312640d492fce6c26859372f1b511e271ef">
+        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3b6f5ac75f1beaa60c7f730f1f5f174c049daa79\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.gradle\caches\modules-2\files-2.1\com.esotericsoftware.minlog\minlog\1.2\59bfcd171d82f9981a5e242b9e840191f650e209\minlog-1.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.3"
+        sha1="59bfcd171d82f9981a5e242b9e840191f650e209">
+        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\minlog-1.2_7ea47e8f06ee8bc9b644191c2b2e6c72aa47b8a5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.gradle\caches\modules-2\files-2.1\com.esotericsoftware.minlog\minlog\1.2\59bfcd171d82f9981a5e242b9e840191f650e209\minlog-1.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="28.0.3"
+        sha1="59bfcd171d82f9981a5e242b9e840191f650e209">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\minlog-1.2_7ea47e8f06ee8bc9b644191c2b2e6c72aa47b8a5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.android\build-cache\fb71eaa7a561829ca7920c949f2fe90a898a2b26\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.3"
+        sha1="cad6f251cba07624f49b0c5b6287731a3c9957b8">
+        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\classes_83b71fe4dfd604d87ccee0578c47b18b892e2705\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-backend-android\1.9.8\84024cd60ad6f26370891fbcd17de9f0167e662\gdx-backend-android-1.9.8.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="28.0.3"
+        sha1="084024cd60ad6f26370891fbcd17de9f0167e662">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\gdx-backend-android-1.9.8_f430341ac81f300ed67de4bbaf10360c927195d1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.android\build-cache\ece5972f5bc0bccb5ad5805a6af0c7115927cbf5\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.3"
+        sha1="00e57da8e7efba5e0aead2d3c76201d86918a0d1">
+        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b8639ae5b030eafbcbed85050c7f4fb7410fb81b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.android\build-cache\dace4fed3686e8180918501204b7aaa5b2165558\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.3"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6f7a847d521d305377373901532d13601e069b63\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.android\build-cache\c0d2476f7bb3b5412388bc96473a8554137413e1\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.3"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3603fb9bb93b9db9eaf0b0515d8ee06f8819687e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.android\build-cache\c0d2476f7bb3b5412388bc96473a8554137413e1\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="28.0.3"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\classes_3603fb9bb93b9db9eaf0b0515d8ee06f8819687e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx\1.9.8\a35a0076fbce873f9c2d5a1a1c8066244231bb3c\gdx-1.9.8.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="28.0.3"
+        sha1="a35a0076fbce873f9c2d5a1a1c8066244231bb3c">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\gdx-1.9.8_e49da5bbf7489c6509be602c8242eb83c237abf6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.gradle\caches\modules-2\files-2.1\com.esotericsoftware\jsonbeans\0.7\de977f0875708eddd154f2a4c3a3f58a13ef297\jsonbeans-0.7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.3"
+        sha1="0de977f0875708eddd154f2a4c3a3f58a13ef297">
+        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\jsonbeans-0.7_ca43ff8bef19d951e5968e5e11c67c6b30753ea6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.android\build-cache\3d1d037156676bfeb338b29077794470fb49f8b8\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.3"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6b79c99d3d412e64a33caea17c12fd10c9e8dd86\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.android\build-cache\ece5972f5bc0bccb5ad5805a6af0c7115927cbf5\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="28.0.3"
+        sha1="00e57da8e7efba5e0aead2d3c76201d86918a0d1">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\classes_b8639ae5b030eafbcbed85050c7f4fb7410fb81b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.android\build-cache\fb7b15d9d3f836371bcd398fa254824c92642b9c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="28.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\classes_7b78094b89f8eca850bc5c0587e0d638c40cb53a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.android\build-cache\9e23d4a9ab8d3fa51347ac8aeb204383724fec15\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="28.0.3"
+        sha1="30576312640d492fce6c26859372f1b511e271ef">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\classes_3b6f5ac75f1beaa60c7f730f1f5f174c049daa79\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.android\build-cache\ef6c271c547c9b0a378a44915741a116e45dd6a3\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.3"
+        sha1="7cf5def5a11365487219b912b2a7ba8ad26f9917">
+        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c6c1610d957cd71cc4e3186fcc77f55d6392e68c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Виктор\.gradle\caches\modules-2\files-2.1\com.esotericsoftware\kryonet\2.22.0-RC1\2f25f7250a3096a8d1b8182946f6572d90d280d0\kryonet-2.22.0-RC1.jar"
         jumboMode="true"
         optimize="true"
         revision="28.0.3"
         sha1="2f25f7250a3096a8d1b8182946f6572d90d280d0">
         <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\kryonet-2.22.0-RC1_494e2a515ea0601d2b1a30d92ee766967ce6226e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Виктор\.android\build-cache\fb71eaa7a561829ca7920c949f2fe90a898a2b26\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="28.0.3"
+        sha1="cad6f251cba07624f49b0c5b6287731a3c9957b8">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\classes_83b71fe4dfd604d87ccee0578c47b18b892e2705\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\PortableGit\hotlineM\core\build\libs\core-1.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="28.0.3"
+        sha1="ce3882fb4d2ce603567c1c1c20c96fe2753d669d">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\4\core-1.2_7682484e456581c96e03d0002c9c2cca06f019d6\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -192,12 +381,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Виктор\.gradle\caches\modules-2\files-2.1\com.esotericsoftware.kryo\kryo\2.24.0\c6b206e80cfd97e66a1364003724491c757b92f\kryo-2.24.0.jar"
-        jumboMode="true"
+        jar="C:\Users\Виктор\.android\build-cache\8cf38425421411c6928e122cd18ae2cbc083a369\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="28.0.3"
-        sha1="0c6b206e80cfd97e66a1364003724491c757b92f">
-        <dex dex="D:\game\HotLine\android\build\intermediates\transforms\dex\debug\folders\1000\10\kryo-2.24.0_77c69847b5fa548ad1c73579778fac493b4dc472\classes.dex" />
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\10\classes_d702da31e1eab1119f5825fa128c7702943e58b3\classes.dex" />
     </item>
 
 </items>

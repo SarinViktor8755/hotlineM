@@ -24,7 +24,7 @@ android {
         exclude 'META-INF/robovm/ios/robovm.xml'
     }
     defaultConfig {
-        applicationId "com.HotLine.Team.Battle"
+        applicationId "com.mygdx.game.Deathmatch"
         minSdkVersion 24
         targetSdkVersion 29
         multiDexEnabled true

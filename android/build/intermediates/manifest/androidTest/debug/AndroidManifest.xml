@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.HotLine.Team.Battle.test">
+    package="com.mygdx.game.Deathmatch.test">
 
     <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="29" />
 
@@ -9,8 +9,8 @@
     </application>
 
     <instrumentation android:name="android.test.InstrumentationTestRunner"
-                     android:targetPackage="com.HotLine.Team.Battle"
+                     android:targetPackage="com.mygdx.game.Deathmatch"
                      android:handleProfiling="false"
                      android:functionalTest="false"
-                     android:label="Tests for com.HotLine.Team.Battle"/>
+                     android:label="Tests for com.mygdx.game.Deathmatch"/>
 </manifest>

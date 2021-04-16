@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Apr 14 14:35:12 GMT+06:00 2021
+#Thu Apr 15 16:25:28 GMT+06:00 2021
 122.file=D\:\\PortableGit\\hotlineM\\android\\build\\intermediates\\assets\\release\\fonts\\font.fnt
 60.set=ANDROID_RESOURCE
 52.set=ASSET

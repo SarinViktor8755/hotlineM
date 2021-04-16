@@ -6,7 +6,9 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.MainGaming;
 
@@ -18,7 +20,7 @@ import box2dLight.RayHandler;
 
 
 public class B2lights {
-    private World world;
+//    private World world;
 
     private box2dLight.PointLight pointLightHero;
     private ObFromLight object;
@@ -32,17 +34,17 @@ public class B2lights {
 
     public B2lights(MainGaming mg) {
         //Gdx.app.log("Gdx version", com.badlogic.gdx.Version.VERSION);
-        this.world = mg.getWorld();
+//        this.world = mg.getWorld();
         pointLightsList = new ArrayList<box2dLight.PointLight>();
         RayHandler.useDiffuseLight(true);
-        this.rayHandlerHero = new RayHandler(this.world);
-        object = new ObFromLight(this.world); // припятсвия
-        object.crearBodys(mg.getIndexMap().getTopQualityMap_Box());
+        this.rayHandlerHero = new RayHandler(new World(new Vector2(0,0),true));
+//        object = new ObFromLight(this.world); // припятсвия
+//        object.crearBodys(mg.getIndexMap().getTopQualityMap_Box());
         box2dLight.PointLight pl;
 
         for (int i = 0; i < 5000; i += 1000) {
             for (int j = 0; j < 5000; j += 1000) {
-                pl = new box2dLight.PointLight(rayHandlerHero, 8, getColorFromPoint(), 1300, j, i);
+                pl = new box2dLight.PointLight(rayHandlerHero, 8, getColorFromPoint(), 2300, j, i);
                  pl.setIgnoreAttachedBody(false);
        //
                 pointLightsList.add(pl);
@@ -50,15 +52,15 @@ public class B2lights {
         }
 
         pointLightHero = new box2dLight.PointLight(rayHandlerHero, 4, Color.WHITE, 700, 0, 0); /// свитильник героя
-        coneLightHero = new ConeLight(rayHandlerHero, 65, Color.WHITE, 1500, 0, 0, 90, 60);
+        coneLightHero = new ConeLight(rayHandlerHero, 65, Color.WHITE, 800, 0, 0, 90, 60);
 //
         buletFlash = new BuletFlash(rayHandlerHero);
 
 
-        for (Body cars : object.getBodyList()) {
-            pl = new box2dLight.PointLight(rayHandlerHero, 8, getColorFromPoint(), 1500, cars.getPosition().x, cars.getPosition().y);
-            pl.attachToBody(cars);
-        }
+//        for (Body cars : object.getBodyList()) {
+//            pl = new box2dLight.PointLight(rayHandlerHero, 8, getColorFromPoint(), 1500, cars.getPosition().x, cars.getPosition().y);
+//            pl.attachToBody(cars);
+//        }
 
         rayHandlerHero.setAmbientLight(.7f);
        // rayHandlerHero.setShadows();
@@ -79,13 +81,13 @@ public class B2lights {
 
 
     public void upDateLights(float xHero, float yHero, float align) {
-        world.step(1 / 60f, 1, 1);
+//        world.step(1 / 60f, 1, 1);
         coneLightHero.setPosition(xHero, yHero);
         pointLightHero.setPosition(xHero, yHero);
         coneLightHero.setDirection(align);
         buletFlash.upDate();
         if(MathUtils.randomBoolean(.02f))
-        coneLightHero.setDistance(MathUtils.random(1300,2100));
+        coneLightHero.setDistance(MathUtils.random(500,1000));
     }
 
     public void renderLights(Camera camera) {

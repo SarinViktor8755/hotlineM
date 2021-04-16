@@ -146,6 +146,7 @@ public class AnimationPers {
 
 
     private TextureRegion getAnimationBodyFromStick(int idAnimation, boolean flip) {
+
         if (idAnimation == 1) {
             if (flip) {
                 return flipTextIvertY(kick_corpse.get(5));

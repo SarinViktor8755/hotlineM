@@ -367,7 +367,7 @@
         jumboMode="false"
         optimize="true"
         revision="28.0.3"
-        sha1="ce3882fb4d2ce603567c1c1c20c96fe2753d669d">
+        sha1="562d6256d48756ef63eda8a8645fc8d4e1d1b67c">
         <dex dex="D:\PortableGit\hotlineM\android\build\intermediates\transforms\dex\release\folders\1000\4\core-1.2_7682484e456581c96e03d0002c9c2cca06f019d6\classes.dex" />
     </item>
     <item

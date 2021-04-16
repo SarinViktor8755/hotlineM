@@ -21,6 +21,7 @@ import com.mygdx.game.Service.OperationVector;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 
+import java.util.HashMap;
 import java.util.Iterator;
 
 /**
@@ -44,7 +45,8 @@ public class MainCharacter extends Actor {
     public int fragWithLife;
     public int myPositionTablica;
     private Weapons weapons;
-  //  private Lighting lighting;
+    TextureRegion tr;
+    //  private Lighting lighting;
     private ArrayList<TextureRegion> maksTexture;
 
     private HelperScreen helperScreen;
@@ -59,6 +61,8 @@ public class MainCharacter extends Actor {
 
     private Color myColorGelet;
     private B2lights lith;
+
+    private HashMap<String,Integer> dk;
 
 
 //    public int fragWithLife;
@@ -90,6 +94,7 @@ public class MainCharacter extends Actor {
     }
 
     public MainCharacter(MainGaming mg) {
+        this.createDk();
         this.mg = mg;
         this.position = new Vector2(0, 0);
         this.startRespawn(position);
@@ -111,11 +116,21 @@ public class MainCharacter extends Actor {
         for (int i = 1; i < 6; i++) {
             this.maksTexture.add(mg.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("mask" + i));
         }
-
         this.helperScreen = new HelperScreen(this.mg);
-        lith = new B2lights(mg);
 
 
+            lith = new B2lights(mg);
+
+
+
+    }
+
+    private void createDk(){
+        this.dk = new HashMap<String, Integer>();
+        dk.put("hit1",0);
+        dk.put("hit2",15);
+        dk.put("hit3",30);
+        dk.put("hit4",45);
     }
 
     public Weapons getWeapons() {
@@ -127,7 +142,7 @@ public class MainCharacter extends Actor {
         if (this.getColor() != null)
             return this.getColor();
         int id = mg.getMainClient().getMyIdConnect();
-        float r,g,b;
+        float r, g, b;
         r = Math.abs(MathUtils.sin(id));
         g = Math.abs(MathUtils.cos(id));
         b = Math.abs(MathUtils.cos(r - g));
@@ -167,8 +182,10 @@ public class MainCharacter extends Actor {
             mg.getIndexMap().renderTopQualityMap();
             if (live) {
                 //System.out.println("::::::::::::: "+ getCorrectionAngleBody());
+
                 batch.draw(animationPers.getTextureLegsFromId(mg.getMainClient().getMyIdConnect()), (int) (position.x - 125), (int) (position.y - 125), 125, 125, 250, 250, 1, 1, velocity.angle());
-                batch.draw(animationPers.getTextureBodyFromId(mg.getMainClient().getMyIdConnect()), (int) (position.x - 125), (int) (position.y - 125), 125, 125, 250, 250, 1.375f, 1.375f, cookAngle.angle() + getCorrectionAngleBody());
+                tr = animationPers.getTextureBodyFromId(mg.getMainClient().getMyIdConnect());
+                batch.draw(tr, (int) (position.x - 125), (int) (position.y - 125), 125, 125, 250, 250, 1.375f, 1.375f, cookAngle.angle() + getCorrectionAngleBody(tr));
             }
 
             int key = mg.getMainClient().getMyIdConnect();
@@ -181,12 +198,12 @@ public class MainCharacter extends Actor {
 
 //            mg.getBatch().setColor(1, 1, 1, 1);
             /////////////
-           // mg.getBatch().draw(animationPers.getTextureVestFromId(key, this.getWeapons().getWeapon(), (position.x - 125), (position.y - 125), 125, 125, 250, 250, 1.375f, 1.375f, this.getRotation());   // gelet
+            // mg.getBatch().draw(animationPers.getTextureVestFromId(key, this.getWeapons().getWeapon(), (position.x - 125), (position.y - 125), 125, 125, 250, 250, 1.375f, 1.375f, this.getRotation());   // gelet
 
 
             otherPlayers.getPlayerToID(mg.getMainClient().getMyIdConnect()).updateCoordinatPleyer((int) position.x, (int) position.y, (int) cookAngle.angle());
             renderPlayers(animationPers);
-        //    lighting.renderLighting(batch);
+            //    lighting.renderLighting(batch);
             //mg.getIndexMap().renderFakePerspektiveLaier();
             // mg.getAssetsManagerGame().getProgress();
             // Gdx.app.log("Asset  ", String.valueOf(mg.getAssetsManagerGame().getProgress()));
@@ -195,10 +212,11 @@ public class MainCharacter extends Actor {
         }
     }
 
-    private float getCorrectionAngleBody() {
+    private float getCorrectionAngleBody(TextureRegion tr) {
         try {
-            //System.out.println(mg.getHero().getOtherPlayers().getTacktPlayer(mg.getMainClient().getMyIdConnect()));
-            return MathUtils.sinDeg(mg.getHero().getOtherPlayers().getTacktPlayer(mg.getMainClient().getMyIdConnect()) * 10) * 3;
+            float k = 0;
+            k = dk.get(tr.toString()); System.out.println(k);
+            return MathUtils.sinDeg(mg.getHero().getOtherPlayers().getTacktPlayer(mg.getMainClient().getMyIdConnect()) * 10) * 3 + k;
         } catch (NullPointerException e) {
             return 0;
         }
@@ -218,7 +236,7 @@ public class MainCharacter extends Actor {
 
 
         }
-     //   lighting.updateLighting(delta);
+        //   lighting.updateLighting(delta);
         super.act(delta);
         movement(delta);
         mg.getHero().getOtherPlayers().upDateDeltaTimeAllPlayer(delta); // обновление времени всех сетевых пользователей для анимации
@@ -240,7 +258,11 @@ public class MainCharacter extends Actor {
             this.weapons.updateWeapon();
         }
 
-        lith.upDateLights(this.position.x, this.position.y, this.cookAngle.angle());
+
+        try {
+            lith.upDateLights(this.position.x, this.position.y, this.cookAngle.angle());
+        }catch (Exception e){}
+
 
 //        if (velocity.len2() > 250000)шаги
 //            mg.getAudioEngine().addNewSoundStepToPleyerFromID(mg.getMainClient().getMyIdConnect());
@@ -292,7 +314,11 @@ public class MainCharacter extends Actor {
         //System.out.println("addAnimationAttackPipe");
         int x = (int) (position.x + cookAngle.x * 80);
         int y = (int) (position.y + cookAngle.y * 80);
-        //mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20,position.y + cookAngle.x * 20); ///вспышка
+//        try {
+//            mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20,position.y + cookAngle.x * 20); ///вспышка
+//        }catch (Exception e){}
+
+
         mg.getAudioEngine().pleySoundKickStick();
         mg.getMainClient().getOutStock().addStockInQuery(new RequestStock(// отправить на сервер
                 mg.getMainClient().getAndUpdateRealTime(), 1,
@@ -308,8 +334,9 @@ public class MainCharacter extends Actor {
     public void attackPistol(int id) {  // добавленеи анимации удара + отправка на сервер сообщение о нанесение удара атака
         int x = (int) (position.x + cookAngle.x * 20);  // начальное положение выстрела
         int y = (int) (position.y + cookAngle.y * 20);
-
-        mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20,position.y + cookAngle.x * 20); ///вспышка
+//        try {
+//            mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20,position.y + cookAngle.x * 20); ///вспышка
+//        }catch (Exception e){}
         int cookAngle = (int) (getCookAngle().angle());  // направление
         mg.getMainClient().getOutStock().addStockInQuery(new RequestStock(// отправить на сервер
                 mg.getMainClient().getAndUpdateRealTime(), 2,
@@ -336,9 +363,10 @@ public class MainCharacter extends Actor {
         getOtherPlayers().getPlayerToID(id).getAnimatonBody().addAnimationAttackShotgun();// добавляем анимацию
         int x = (int) (position.x + cookAngle.x * 20);  // начальное положение выстрела
         int y = (int) (position.y + cookAngle.y * 20);
-        mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20,position.y + cookAngle.x * 20); ///вспышка
+//        try{
+//            mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20,position.y + cookAngle.x * 20); ///вспышка
+//        }catch (Exception e){}
         int cookAngle = (int) (getCookAngle().angle());  // направление
-
         mg.getAudioEngine().pleySoundKickShotgun();
         mg.getMainClient().getOutStock().addStockInQuery(new RequestStock(// отправить на сервер
                 mg.getMainClient().getAndUpdateRealTime(), 3,

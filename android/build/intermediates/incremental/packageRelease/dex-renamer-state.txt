@@ -1,4 +1,4 @@
-#Fri Apr 16 08:54:38 GMT+06:00 2021
+#Thu Apr 22 13:47:03 GMT+06:00 2021
 file.9=D\:\\PortableGit\\hotlineM\\android\\build\\intermediates\\transforms\\dex\\release\\folders\\1000\\10\\classes_2eaf551e723df567b25783aa4dff360066e5a8b9\\classes.dex
 base.10=D\:\\PortableGit\\hotlineM\\android\\build\\intermediates\\transforms\\dex\\release\\folders\\1000\\10\\classes_83b71fe4dfd604d87ccee0578c47b18b892e2705
 file.8=D\:\\PortableGit\\hotlineM\\android\\build\\intermediates\\transforms\\dex\\release\\folders\\1000\\10\\minlog-1.2_7ea47e8f06ee8bc9b644191c2b2e6c72aa47b8a5\\classes.dex

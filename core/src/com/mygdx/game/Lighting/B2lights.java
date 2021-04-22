@@ -20,7 +20,7 @@ import box2dLight.RayHandler;
 
 
 public class B2lights {
-//    private World world;
+    private World world;
 
     private box2dLight.PointLight pointLightHero;
     private ObFromLight object;
@@ -34,12 +34,12 @@ public class B2lights {
 
     public B2lights(MainGaming mg) {
         //Gdx.app.log("Gdx version", com.badlogic.gdx.Version.VERSION);
-//        this.world = mg.getWorld();
+        this.world = mg.getWorld();
         pointLightsList = new ArrayList<box2dLight.PointLight>();
         RayHandler.useDiffuseLight(true);
         this.rayHandlerHero = new RayHandler(new World(new Vector2(0,0),true));
-//        object = new ObFromLight(this.world); // припятсвия
-//        object.crearBodys(mg.getIndexMap().getTopQualityMap_Box());
+        object = new ObFromLight(this.world); // припятсвия
+        object.crearBodys(mg.getIndexMap().getTopQualityMap_Box());
         box2dLight.PointLight pl;
 
         for (int i = 0; i < 5000; i += 1000) {
@@ -57,13 +57,13 @@ public class B2lights {
         buletFlash = new BuletFlash(rayHandlerHero);
 
 
-//        for (Body cars : object.getBodyList()) {
-//            pl = new box2dLight.PointLight(rayHandlerHero, 8, getColorFromPoint(), 1500, cars.getPosition().x, cars.getPosition().y);
-//            pl.attachToBody(cars);
-//        }
+        for (Body cars : object.getBodyList()) {
+            pl = new box2dLight.PointLight(rayHandlerHero, 8, getColorFromPoint(), 1500, cars.getPosition().x, cars.getPosition().y);
+            pl.attachToBody(cars);
+        }
 
         rayHandlerHero.setAmbientLight(.7f);
-       // rayHandlerHero.setShadows();
+        rayHandlerHero.setShadows(true);
     }
 
 
@@ -81,7 +81,7 @@ public class B2lights {
 
 
     public void upDateLights(float xHero, float yHero, float align) {
-//        world.step(1 / 60f, 1, 1);
+        world.step(1 / 60f, 1, 1);
         coneLightHero.setPosition(xHero, yHero);
         pointLightHero.setPosition(xHero, yHero);
         coneLightHero.setDirection(align);
@@ -93,9 +93,9 @@ public class B2lights {
     public void renderLights(Camera camera) {
         rayHandlerHero.setCombinedMatrix((OrthographicCamera) camera);
         rayHandlerHero.updateAndRender();
-//        float a = MathUtils.random(1f);
+        float a = MathUtils.random(1f);
 //        System.out.println(a);
-//        rayHandlerHero.setAmbientLight(a);
+        rayHandlerHero.setAmbientLight(a);
     }
 
 

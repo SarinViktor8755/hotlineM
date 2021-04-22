@@ -453,11 +453,11 @@ public class PoolBlood {
     public void addBulletOtherPlayerShootGun(int id) {
         Vector2 p = new Vector2(mainGaming.getHero().getOtherPlayers().getXplayToId(id), mainGaming.getHero().getOtherPlayers().getYplayToId(id));
         Vector2 cook = new Vector2(10, 10);
-//        try {
-//            mainGaming.getHero().getLith().startBulletFlash(p.x,p.y); ///вспышка
-//        }catch (Exception e){
-//
-//        }
+        try {
+            mainGaming.getHero().getLith().startBulletFlash(p.x,p.y); ///вспышка
+        }catch (Exception e){
+
+        }
 
         cook.setAngle(mainGaming.getHero().getOtherPlayers().getRotationToId(id));
         Vector2 delta = new Vector2(cook);

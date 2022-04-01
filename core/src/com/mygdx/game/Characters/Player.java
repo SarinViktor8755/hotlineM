@@ -13,7 +13,8 @@ public class Player {
     private Color color;
     private boolean viseble;
     private int weapons;
-    Integer nom_mask;
+    private Integer nom_mask;
+    private String NikName;
 
     public long getUpdateTime() {
         return updateTime;
@@ -42,9 +43,10 @@ public class Player {
         r = Math.abs(MathUtils.sin(id));
         g = Math.abs(MathUtils.cos(id));
         b = Math.abs(MathUtils.cos(r - g));
-        this.color = new Color(r, g, b, r + b + .5f);
+        this.color = ColorPalyer.getColorfromId(id);
         this.viseble = false;
         this.weapons = 1;
+        NikName = "null";
     }
 
     public int getWeapons() {
@@ -110,6 +112,14 @@ public class Player {
     public Player setX(int x) {
         this.x = x;
         return this;
+    }
+
+    public String getNikName() {
+        return NikName;
+    }
+
+    public void setNikName(String nikName) {
+        NikName = nikName;
     }
 
     public int getX() {

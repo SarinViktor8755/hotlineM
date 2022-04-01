@@ -3,6 +3,7 @@ package com.mygdx.game.Characters;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+
 import com.mygdx.game.Characters.Animation.AnimatonBody;
 
 import java.util.ConcurrentModificationException;
@@ -69,6 +70,15 @@ public class OtherPlayers {
     public int getYplayToId(int id) {
         return getPlayerToID(id).getY();
     }
+
+    public String getNikName(int id){
+        return getPlayerToID(id).getNikName();
+    }
+
+    public void setNikName(int id, String name){
+        getPlayerToID(id).setNikName(name);
+    }
+
 
     public int getRotationToId(int id) {
         return getPlayerToID(id).getRot();
@@ -155,7 +165,6 @@ public class OtherPlayers {
     }
 
     //////////////////////////////
-
 
 
 

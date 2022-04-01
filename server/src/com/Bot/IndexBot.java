@@ -4,6 +4,7 @@ import com.Bot.Map.IndexMap;
 import com.GameServer;
 import com.badlogic.gdx.math.MathUtils;
 
+import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -81,6 +82,54 @@ public class IndexBot extends Thread {
 
     public IndexMap getIndexMap() {
         return indexMap;
+    }
+
+
+    static String getNikNameGen() {
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Bubba");
+        names.add("Honey");
+        names.add("Bo");
+        names.add("Sugar");
+        names.add("Doll");
+        names.add("Peach");
+        names.add("Snookums");
+        names.add("Queen");
+        names.add("Ace");
+        names.add("Punk");
+        names.add("Sugar");
+        names.add("Gump");
+        names.add("Rapunzel");
+        names.add("Teeny");
+        names.add("MixFix");
+        names.add("BladeMight");
+        names.add("Rubogen");
+        names.add("Lucky");
+        names.add("Tailer");
+        names.add("IceOne");
+        names.add("Sugar");
+        names.add("Gump");
+        names.add("Rapunzel");
+        names.add("Teeny");
+        names.add("MixFix");
+        names.add("BladeMight");
+        names.add("Rubogen");
+        names.add("Lucky");
+        names.add("Tailer");
+        names.add("IceOne");
+        names.add("TrubochKa");
+        names.add("HihsheCKA");
+        names.add("R2-D2");
+        names.add("Breha Organa");
+        names.add("Yoda");
+        names.add("Obi-Wan Kenob");
+        names.add("C-3PO");
+        names.add("Darth Sidious");
+        names.add("Darth Vader");
+        names.add("Boba Fett");
+        names.add("Sarin");
+        names.add("Sasha");
+        return names.get(MathUtils.random(names.size() - 1)) + "@Bot";
     }
 
 

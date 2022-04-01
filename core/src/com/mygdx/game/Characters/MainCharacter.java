@@ -4,12 +4,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-
 import com.mygdx.game.BloodBullet.PoolBlood;
 import com.mygdx.game.Characters.Animation.AnimationPers;
 import com.mygdx.game.ClientNetWork.SteckApi.RequestStock;
@@ -20,7 +21,6 @@ import com.mygdx.game.Service.OperationVector;
 
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
-
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -51,6 +51,8 @@ public class MainCharacter extends Actor {
 
     private HelperScreen helperScreen;
 
+    private BitmapFont textFont;
+
     public Color getMyColorGelet() {
         return myColorGelet;
     }
@@ -62,7 +64,7 @@ public class MainCharacter extends Actor {
     private Color myColorGelet;
     private B2lights lith;
 
-    private HashMap<String,Integer> dk;
+    private HashMap<String, Integer> dk;
 
 
 //    public int fragWithLife;
@@ -103,7 +105,7 @@ public class MainCharacter extends Actor {
         this.cookAngle = new Vector2(1, 0);
         this.animationPers = new AnimationPers(mg);
         this.otherPlayers = new OtherPlayers();
-        this.poolBlood = new PoolBlood(mg, 350);
+        this.poolBlood = new PoolBlood(mg);
         this.live = true;
         deathValleyTime = 0;
         //this.getOtherPlayers().cleaningSnapShots();
@@ -118,17 +120,21 @@ public class MainCharacter extends Actor {
         }
         this.helperScreen = new HelperScreen(this.mg);
 
-            lith = new B2lights(mg);
+        lith = new B2lights(mg);
+
+        textFont = new BitmapFont();
+        textFont.setColor(Color.WHITE);
+        textFont.setUseIntegerPositions(true);
 
 
     }
 
-    private void createDk(){
+    private void createDk() {
         this.dk = new HashMap<String, Integer>();
-        dk.put("hit1",0);
-        dk.put("hit2",15);
-        dk.put("hit3",30);
-        dk.put("hit4",45);
+        dk.put("hit1", 0);
+        dk.put("hit2", 15);
+        dk.put("hit3", 30);
+        dk.put("hit4", 45);
     }
 
     public Weapons getWeapons() {
@@ -260,7 +266,8 @@ public class MainCharacter extends Actor {
 
         try {
             lith.upDateLights(this.position.x, this.position.y, this.cookAngle.angle());
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
 
 
 //        if (velocity.len2() > 250000)шаги
@@ -314,8 +321,9 @@ public class MainCharacter extends Actor {
         int x = (int) (position.x + cookAngle.x * 80);
         int y = (int) (position.y + cookAngle.y * 80);
         try {
-            mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20,position.y + cookAngle.x * 20); ///вспышка
-        }catch (Exception e){}
+            mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20, position.y + cookAngle.x * 20); ///вспышка
+        } catch (Exception e) {
+        }
 
 
         mg.getAudioEngine().pleySoundKickStick();
@@ -334,8 +342,9 @@ public class MainCharacter extends Actor {
         int x = (int) (position.x + cookAngle.x * 20);  // начальное положение выстрела
         int y = (int) (position.y + cookAngle.y * 20);
         try {
-            mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20,position.y + cookAngle.x * 20); ///вспышка
-        }catch (Exception e){}
+            mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20, position.y + cookAngle.x * 20); ///вспышка
+        } catch (Exception e) {
+        }
         int cookAngle = (int) (getCookAngle().angle());  // направление
         mg.getMainClient().getOutStock().addStockInQuery(new RequestStock(// отправить на сервер
                 mg.getMainClient().getAndUpdateRealTime(), 2,
@@ -362,9 +371,10 @@ public class MainCharacter extends Actor {
         getOtherPlayers().getPlayerToID(id).getAnimatonBody().addAnimationAttackShotgun();// добавляем анимацию
         int x = (int) (position.x + cookAngle.x * 20);  // начальное положение выстрела
         int y = (int) (position.y + cookAngle.y * 20);
-        try{
-            mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20,position.y + cookAngle.x * 20); ///вспышка
-        }catch (Exception e){}
+        try {
+            mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20, position.y + cookAngle.x * 20); ///вспышка
+        } catch (Exception e) {
+        }
         int cookAngle = (int) (getCookAngle().angle());  // направление
         mg.getAudioEngine().pleySoundKickShotgun();
         mg.getMainClient().getOutStock().addStockInQuery(new RequestStock(// отправить на сервер
@@ -439,7 +449,7 @@ public class MainCharacter extends Actor {
         return acceleration;
     }
 
-    public void renderPlayers(AnimationPers animationPers) {
+    public void renderPlayers(AnimationPers animationPers) { // drugie igroki
         try {
             //mg.getBatch().setColor(1,.7f,.8f,1);
             Iterator<Integer> iter = mg.getHero().getOtherPlayers().getPlayersList().keySet().iterator();
@@ -454,6 +464,7 @@ public class MainCharacter extends Actor {
 
                 //for ()
                 Integer key = iter.next();
+                System.out.println(MathUtils.sin(key));
                 if (mg.getMainClient().getMyIdConnect() == key || (mg.getHero().getOtherPlayers().getXplayToId(key) == 0))
                     continue; //или это я же - иил у нас кент в загашнике на позиции - 0
                 try {
@@ -476,7 +487,8 @@ public class MainCharacter extends Actor {
                             1.375f, 1.375f,
                             mg.getHero().getOtherPlayers().getRotationToId(key)); // telo
 
-                    mg.getBatch().setColor(getOtherPlayers().getPlayerToID(key).getColor());
+                    mg.getBatch().setColor(Color.GREEN);
+
                     //if(viseble)mg.getBatch().setColor(mg.getHero().getOtherPlayers().getColorPfromId(key));
                     mg.getBatch().draw(animationPers.getTextureVestFromId(key, getOtherPlayers().getPlayerToID(key).getWeapons()), (xz - 125), (yz - 125), 125, 125, 250, 250, 1.375f, 1.375f, mg.getHero().getOtherPlayers().getRotationToId(key));   // gelet
                     mg.getBatch().setColor(1, 1, 1, 1);
@@ -487,19 +499,87 @@ public class MainCharacter extends Actor {
                                 250, 250,
                                 1.375f, 1.375f, mg.getHero().getOtherPlayers().getRotationToId(key)); // mask
                 } catch (NullPointerException e) {
-                    System.out.println("rener other");
+                    //System.out.println("rener other");
                     //e.printStackTrace();
                 }
 
             }
         } catch (ConcurrentModificationException exception) {
-            System.out.println("rener other");
+            // System.out.println("rener other");
+
             //exception.printStackTrace();
         }
         mg.getBatch().setColor(1, 1, 1, 1);
-
+        randerNikNameOtherPlayers(mg.getBatch());
 
     }
+
+    private void randerNikNameOtherPlayers(SpriteBatch spriteBatch) {
+        Iterator<Integer> iter = mg.getHero().getOtherPlayers().getPlayersList().keySet().iterator();
+        while (iter.hasNext()) {
+            Integer key = iter.next();
+            int xz = mg.getHero().getOtherPlayers().getXplayToId(key);
+            int yz = mg.getHero().getOtherPlayers().getYplayToId(key);
+
+            textFont.draw(spriteBatch, mg.getHero().getOtherPlayers().getNikName(key) +"  "+ key, xz, yz);
+
+        }
+
+    }
+
+    static String getNikNameGen(int id) {
+        if (id < 0) id = id * -1;
+        ArrayList<String> names = new ArrayList<String>();
+        names.add("Bubba");
+        names.add("Honey");
+        names.add("Bo");
+        names.add("Sugar");
+        names.add("Doll");
+        names.add("Peach");
+        names.add("Snookums");
+        names.add("Queen");
+        names.add("Ace");
+        names.add("Punk");
+        names.add("Sugar");
+        names.add("Gump");
+        names.add("Rapunzel");
+        names.add("Teeny");
+        names.add("MixFix");
+        names.add("BladeMight");
+        names.add("Rubogen");
+        names.add("Lucky");
+        names.add("Tailer");
+        names.add("IceOne");
+        names.add("Sugar");
+        names.add("Gump");
+        names.add("Rapunzel");
+        names.add("Teeny");
+        names.add("MixFix");
+        names.add("BladeMight");
+        names.add("Rubogen");
+        names.add("Lucky");
+        names.add("Tailer");
+        names.add("IceOne");
+        names.add("TrubochKa");
+        names.add("HihsheCKA");
+        names.add("R2-D2");
+        names.add("Breha Organa");
+        names.add("Yoda");
+        names.add("Obi-Wan Kenob");
+        names.add("C-3PO");
+        names.add("Darth Sidious");
+        names.add("Darth Vader");
+        names.add("Boba Fett");
+        names.add("Sarin");
+        names.add("Sasha");
+
+        System.out.println(id);
+        while (id >= names.size()) {
+            id = id / 2;
+        }
+        return names.get(id) + "@Bot";
+    }
+
 
     public boolean makeHit() {
         if (!isLive()) return false;

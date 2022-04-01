@@ -150,9 +150,9 @@ public class MainGaming implements Screen {
         gHero.draw(batch, 1);
         this.renderAim();
         getHero().getPoolBlood().renderAd(getBatch(), this);
-        try {
-            getHero().getLith().renderLights(camera); // освещение
-        }catch (Exception e){}
+//        try {
+//            getHero().getLith().renderLights(camera); // освещение
+//        }catch (Exception e){}
 
         batch.end();
         //System.out.println(delta);

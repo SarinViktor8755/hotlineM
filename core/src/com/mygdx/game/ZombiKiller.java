@@ -13,10 +13,10 @@ public class ZombiKiller extends Game {
     public AssetManager assetsManagerGame;
 
     static public final int WHIDE_SCREEN = 720;
-    static public final int HIDE_SCREEN = 1280;
+    static public final int HIDE_SCREEN = 1520;
+//    static public final int WHIDE_SCREEN = (int)(720 * .8);
+//    static public final int HIDE_SCREEN = (int)(1520 * .8);
 
-//    static public final int HIDE_SCREEN = 2340;
-//    static public final int WHIDE_SCREEN = 1080;
     public byte tip = 0;
     private AdAds adMod;
 
@@ -25,7 +25,7 @@ public class ZombiKiller extends Game {
     private LoadingScreen loadingScreen;
     private StartScreen startScreen;
 
-    public ZombiKiller(int tip,AdAds adMod) {
+    public ZombiKiller(int tip, AdAds adMod) {
 
         this.adMod = adMod;
         this.tip = (byte) tip;
@@ -42,11 +42,12 @@ public class ZombiKiller extends Game {
         };
     }
 
-    public boolean isAndroid(){
-        if(tip == 1) return true; return false;
+    public boolean isAndroid() {
+        if (tip == 1) return true;
+        return false;
     }
 
-    public void watchAds(){
+    public void watchAds() {
         this.adMod.show();
     }
 
@@ -59,52 +60,51 @@ public class ZombiKiller extends Game {
 
     }
 
-    public void getPauseScreen(){
-        this.pauseScreen = new com.mygdx.game.Pause.PauseScreen(this,true);
+    public void getPauseScreen() {
+        this.pauseScreen = new com.mygdx.game.Pause.PauseScreen(this, true);
         this.setScreen(this.pauseScreen);
     }
 
-    public void getPauseScreen(int PauseTime){
+    public void getPauseScreen(int PauseTime) {
         //System.out.println("Pause Screen");
         mGaming.getMainClient().client.stop();
         boolean ad = true;
-        if(mGaming.getTimeInGame() < 40) ad = false;
-        this.pauseScreen = new PauseScreen(this, PauseTime,ad);
+        if (mGaming.getTimeInGame() < 40) ad = false;
+        this.pauseScreen = new PauseScreen(this, PauseTime, ad);
         this.setScreen(this.pauseScreen);
     }
 
-    public void getLoadingScreen(){
+    public void getLoadingScreen() {
         loadingScreen = new LoadingScreen(this);
         this.setScreen(loadingScreen);
     }
 
-    public void loarToGame(){
+    public void loarToGame() {
         this.loadingScreen.dispose();
         this.mGaming = new MainGaming(this);
 
-       // this.setScreen(this.mGaming);
+        // this.setScreen(this.mGaming);
     }
 
-    public void getMainGaming(){
+    public void getMainGaming() {
         //if(this.loadingScreen != null) this.loadingScreen.dispose();
-        if(this.pauseScreen != null) this.pauseScreen.dispose();
+        if (this.pauseScreen != null) this.pauseScreen.dispose();
         this.mGaming = new MainGaming(this);
         this.setScreen(this.mGaming);
         //this.setScreen(this.startScreen);
     }
 
-    public void getMainGameScreen(){
+    public void getMainGameScreen() {
         this.setScreen(this.mGaming);
     }
 
-    public Screen getMainGameScreen(boolean flag){
-        return  this.mGaming;
+    public Screen getMainGameScreen(boolean flag) {
+        return this.mGaming;
     }
 
     public void render() {
         super.render(); // важно!
     }
-
 
 
 }

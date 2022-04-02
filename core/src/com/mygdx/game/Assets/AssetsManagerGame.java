@@ -9,10 +9,12 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.utils.GdxNativesLoader;
 
 public class AssetsManagerGame {
 
     static public final AssetManager loadAllAsset(AssetManager assetManager) {
+        GdxNativesLoader.load();
         assetManager.load("pauseAsset/pause", TextureAtlas.class);
         assetManager.finishLoading();
         assetManager.load("character/character", TextureAtlas.class);
@@ -45,6 +47,7 @@ public class AssetsManagerGame {
         assetManager.load("voice/voice5.ogg", Sound.class);
         assetManager.load("audio/lostPrimuschestvo.ogg", Sound.class);
         assetManager.load("fonts/font.fnt", BitmapFont.class);
+        assetManager.load("audio/music.ogg", Sound.class);
         assetManager.finishLoading();
         return assetManager;
     }

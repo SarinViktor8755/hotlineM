@@ -115,6 +115,7 @@ public class MainGaming implements Screen {
         textureAim = getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("aim");
         this.timeInGame = 0;
         renderStartScreen = new RenderStartScreen(zk,camera,viewport,getBatch());
+        audioEngine.musicGame.pleyMusic();
     }
 
     public float getTimeInGame() {

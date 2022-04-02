@@ -15,10 +15,12 @@ public class AudioEngine {
     MainGaming mainGaming;
     ConcurrentHashMap<Integer, Float> stepCounter;
     private boolean keyFot;
+    public MusicGame musicGame;
 
     public AudioEngine(MainGaming mainGaming) {
         this.mainGaming = mainGaming;
         stepCounter = new ConcurrentHashMap<Integer, Float>();
+        musicGame = new MusicGame();
         //this.soundKickStick = mainGaming.getAssetsManagerGame().get();
 //        this.soundKickStick = soundKickStick;
 //        this.soundTrampFot = soundTrampFot;
@@ -94,11 +96,13 @@ public class AudioEngine {
     }
 
     public void pleyYouWin(){
+        musicGame.stopMusic();
         Sound sound = mainGaming.getAssetsManagerGame().get("audio/win.ogg", Sound.class);
         long id = sound.play();
     }
 
     public void pleyYouLoose(){
+        musicGame.stopMusic();
         Sound sound = mainGaming.getAssetsManagerGame().get("audio/loose.ogg", Sound.class);
         long id = sound.play();
     }

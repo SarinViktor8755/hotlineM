@@ -66,7 +66,6 @@ public class ZombiKiller extends Game {
     }
 
     public void getPauseScreen(int PauseTime) {
-        //System.out.println("Pause Screen");
         mGaming.getMainClient().client.stop();
         boolean ad = true;
         if (mGaming.getTimeInGame() < 40) ad = false;

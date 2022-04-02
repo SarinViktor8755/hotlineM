@@ -15,6 +15,7 @@ import com.mygdx.game.BloodBullet.PoolBlood;
 import com.mygdx.game.Characters.Animation.AnimationPers;
 import com.mygdx.game.ClientNetWork.SteckApi.RequestStock;
 import com.mygdx.game.HUDAudio.HelperScreen;
+import com.mygdx.game.HUDAudio.MusicGame;
 import com.mygdx.game.Lighting.B2lights;
 import com.mygdx.game.MainGaming;
 import com.mygdx.game.Service.OperationVector;
@@ -31,8 +32,8 @@ import java.util.Iterator;
 public class MainCharacter extends Actor {
     MainGaming mg;
 
-    AnimationPers animationPers;
 
+    AnimationPers animationPers;
     private Vector2 cookAngle; // навправление тела
     private Vector2 acceleration; // навправление движения
     private Vector2 position; // позиция
@@ -65,6 +66,8 @@ public class MainCharacter extends Actor {
     private B2lights lith;
 
     private HashMap<String, Integer> dk;
+
+
 
 
 //    public int fragWithLife;
@@ -112,7 +115,8 @@ public class MainCharacter extends Actor {
         globalAlpha = 1;
         this.myPositionTablica = 0; // Моя позиция в таблице
         this.weapons = new Weapons();
-        //this.lighting = new Lighting(mg);
+      //  this.lighting = new Lighting(mg);
+
 
         this.maksTexture = new ArrayList<TextureRegion>();
         for (int i = 1; i < 6; i++) {
@@ -125,6 +129,8 @@ public class MainCharacter extends Actor {
         textFont = new BitmapFont();
         textFont.setColor(Color.WHITE);
         textFont.setUseIntegerPositions(true);
+
+        if (mg.isLighting_vailable_box2d()) lith = new B2lights(mg);
 
 
     }
@@ -207,7 +213,7 @@ public class MainCharacter extends Actor {
 
             otherPlayers.getPlayerToID(mg.getMainClient().getMyIdConnect()).updateCoordinatPleyer((int) position.x, (int) position.y, (int) cookAngle.angle());
             renderPlayers(animationPers);
-            //    lighting.renderLighting(batch);
+              lighting.renderLighting(batch);
             //mg.getIndexMap().renderFakePerspektiveLaier();
             // mg.getAssetsManagerGame().getProgress();
             // Gdx.app.log("Asset  ", String.valueOf(mg.getAssetsManagerGame().getProgress()));
@@ -464,7 +470,7 @@ public class MainCharacter extends Actor {
 
                 //for ()
                 Integer key = iter.next();
-                System.out.println(MathUtils.sin(key));
+            //    System.out.println(MathUtils.sin(key));
                 if (mg.getMainClient().getMyIdConnect() == key || (mg.getHero().getOtherPlayers().getXplayToId(key) == 0))
                     continue; //или это я же - иил у нас кент в загашнике на позиции - 0
                 try {
@@ -487,12 +493,18 @@ public class MainCharacter extends Actor {
                             1.375f, 1.375f,
                             mg.getHero().getOtherPlayers().getRotationToId(key)); // telo
 
-                    mg.getBatch().setColor(Color.GREEN);
 
+
+//Color.BROWN
+//Color.GREEN
+//Color.ROYAL
+//Color.RED
                     //if(viseble)mg.getBatch().setColor(mg.getHero().getOtherPlayers().getColorPfromId(key));
-                    mg.getBatch().draw(animationPers.getTextureVestFromId(key, getOtherPlayers().getPlayerToID(key).getWeapons()), (xz - 125), (yz - 125), 125, 125, 250, 250, 1.375f, 1.375f, mg.getHero().getOtherPlayers().getRotationToId(key));   // gelet
+                   // setColor(getOtherPlayers().getPlayerToID(key).getColor());
+                    mg.getBatch().setColor(getOtherPlayers().getPlayerToID(key).getColor());
+                    mg.getBatch().draw(animationPers.getTextureVestFromId(key, getOtherPlayers().getPlayerToID(key).getWeapons()), (xz - 125), (yz - 125), 125, 125, 250, 250, 1.375f, 1.375f, mg.getHero().getOtherPlayers().getRotationToId(key));   // gelet желет
                     mg.getBatch().setColor(1, 1, 1, 1);
-                    if (key < 0)
+                    if (key < 0) // маска
                         mg.getBatch().draw(maksTexture.get(mg.getHero().getOtherPlayers().getMaskToID(key - 1)),
                                 (xz - 125), (yz - 125),
                                 125, 125,
@@ -517,12 +529,14 @@ public class MainCharacter extends Actor {
     private void randerNikNameOtherPlayers(SpriteBatch spriteBatch) {
         Iterator<Integer> iter = mg.getHero().getOtherPlayers().getPlayersList().keySet().iterator();
         while (iter.hasNext()) {
+            try {
+
+
             Integer key = iter.next();
             int xz = mg.getHero().getOtherPlayers().getXplayToId(key);
             int yz = mg.getHero().getOtherPlayers().getYplayToId(key);
-
             textFont.draw(spriteBatch, mg.getHero().getOtherPlayers().getNikName(key) +"  "+ key, xz, yz);
-
+            }catch (ConcurrentModificationException e){}
         }
 
     }
@@ -573,7 +587,7 @@ public class MainCharacter extends Actor {
         names.add("Sarin");
         names.add("Sasha");
 
-        System.out.println(id);
+      //  System.out.println(id);
         while (id >= names.size()) {
             id = id / 2;
         }

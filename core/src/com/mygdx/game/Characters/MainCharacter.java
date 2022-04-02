@@ -68,12 +68,6 @@ public class MainCharacter extends Actor {
     private HashMap<String, Integer> dk;
 
 
-
-
-//    public int fragWithLife;
-//    public int myPositionTablica;
-//    private int weapons;
-
     private float globalAlpha;
 
 
@@ -85,9 +79,7 @@ public class MainCharacter extends Actor {
         getOtherPlayers().getPlayersList().clear();
     }
 
-//    public Weapon getWeapon() {
-//        return weapon;
-//    }
+
 
     public boolean isLive() {
         return live;
@@ -130,7 +122,7 @@ public class MainCharacter extends Actor {
         textFont.setColor(Color.WHITE);
         textFont.setUseIntegerPositions(true);
 
-        if (mg.isLighting_vailable_box2d()) lith = new B2lights(mg);
+
 
 
     }
@@ -213,7 +205,7 @@ public class MainCharacter extends Actor {
 
             otherPlayers.getPlayerToID(mg.getMainClient().getMyIdConnect()).updateCoordinatPleyer((int) position.x, (int) position.y, (int) cookAngle.angle());
             renderPlayers(animationPers);
-              lighting.renderLighting(batch);
+
             //mg.getIndexMap().renderFakePerspektiveLaier();
             // mg.getAssetsManagerGame().getProgress();
             // Gdx.app.log("Asset  ", String.valueOf(mg.getAssetsManagerGame().getProgress()));

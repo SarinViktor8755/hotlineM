@@ -83,7 +83,7 @@ public class PoolBlood {
         textureRegions.put(31, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("tr9g"));
         textureRegions.put(32, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("tr2g"));
         textureRegions.put(33, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("tr3g"));
-        textureRegions.put(34, textureRegions.get(31));
+        textureRegions.put(34, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("tr9g"));
         textureRegions.put(35, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("tr4g"));
 
         textureRegions.put(37, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("tr5g"));// без гооловы
@@ -226,10 +226,11 @@ public class PoolBlood {
                 ejectionBlood(MathUtils.random(7, 14), x, y, angel); // направление
 
                 int nomer_texture = MathUtils.random(1, 4);
+                getPoolBlood(x, y, textureRegions.get(60), 1, 1); // luga
                 getCorpse(x, y, textureRegions.get(nomer_texture), MathUtils.random(0, 350), MathUtils.random(0, 350), textureRegions.get(nomer_texture + 30), player); // telo
                 //желет
                 if (player < 0) getPoolMask(x, y, player);
-                getPoolBlood(x, y, textureRegions.get(60), 1, 1); // luga
+
                 return;
             }
 

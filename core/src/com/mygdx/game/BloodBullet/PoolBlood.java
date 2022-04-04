@@ -2,6 +2,7 @@ package com.mygdx.game.BloodBullet;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -20,7 +21,7 @@ public class PoolBlood {
     private ArrayDeque<Blood> myPriorityQueue; // кровь маски  и все такое
     private ArrayDeque<Bullet> myBulletQueue;
     private MainGaming mainGaming;
-    private String blood, blood1;
+    private String blood, blood1,blood2,blood3,blood4,blood5;
     private int SIZE_BULLET_QUEUE = 3500;
     private int SIZE_BLOOD_QUEUE = 750;
     private ArrayDeque<Flash> fleshs;
@@ -61,8 +62,6 @@ public class PoolBlood {
             this.fleshs.add(new Flash(Integer.MIN_VALUE, Integer.MIN_VALUE));
         }
 
-        blood = "blood";
-        blood1 = "blood1";
 
         textureRegions = new HashMap<Integer, TextureRegion>();
 
@@ -80,7 +79,7 @@ public class PoolBlood {
         textureRegions.put(10, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("tr8")); // рука
 
         ///цвета желетов тел
-        textureRegions.put(31, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("tr9g"));
+        textureRegions.put(31, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("tr1g"));
         textureRegions.put(32, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("tr2g"));
         textureRegions.put(33, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("tr3g"));
         textureRegions.put(34, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("tr9g"));
@@ -89,9 +88,21 @@ public class PoolBlood {
         textureRegions.put(37, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("tr5g"));// без гооловы
         textureRegions.put(38, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("tr6g"));// без руки
         ///////////blood
-        textureRegions.put(60, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion(blood1));
-        textureRegions.put(61, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion(blood));
-        textureRegions.put(62, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("bullet"));//пуля
+        textureRegions.put(60, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("blood1"));
+     //   textureRegions.get(60).getTexture().setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
+        /////////
+        textureRegions.put(61, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("blood"));
+      //  textureRegions.get(61).getTexture().setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
+        textureRegions.put(62, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("blood2"));
+       // textureRegions.get(62).getTexture().setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
+        textureRegions.put(63, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("blood3"));
+      //  textureRegions.get(63).getTexture().setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
+        textureRegions.put(64, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("blood4"));
+       // textureRegions.get(64).getTexture().setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
+        textureRegions.put(65, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("blood5"));
+      //  textureRegions.get(65).getTexture().setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
+
+        textureRegions.put(68, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("bullet"));//пуля
         //////
         textureRegions.put(20, mainGaming.getAssetsManagerGame().get("pauseAsset/pause", TextureAtlas.class).findRegion("plus")); // +1
         textureRegions.put(21, mainGaming.getAssetsManagerGame().get("pauseAsset/pause", TextureAtlas.class).findRegion("lost")); // +lose
@@ -106,6 +117,8 @@ public class PoolBlood {
         textureRegions.put(102, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("mask3"));
         textureRegions.put(103, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("mask4"));
         textureRegions.put(104, mainGaming.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("mask5"));
+//        for (Integer k: textureRegions.keySet())
+//            textureRegions.get(k).getTexture().setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
 
 
     }
@@ -224,43 +237,39 @@ public class PoolBlood {
             // System.out.println("ubit shootgun");
             if (StaticService.selectWithProbability(20)) {
                 ejectionBlood(MathUtils.random(7, 14), x, y, angel); // направление
-
                 int nomer_texture = MathUtils.random(1, 4);
                 getPoolBlood(x, y, textureRegions.get(60), 1, 1); // luga
                 getCorpse(x, y, textureRegions.get(nomer_texture), MathUtils.random(0, 350), MathUtils.random(0, 350), textureRegions.get(nomer_texture + 30), player); // telo
                 //желет
                 if (player < 0) getPoolMask(x, y, player);
-
                 return;
-            }
+            } else
 
             if (StaticService.selectWithProbability(20)) {
                 ejectionBlood(MathUtils.random(7, 14), x, y, angel); // направление
                 getPoolBlood(x, y, textureRegions.get(60), 1, 1); // luga
                 getCorpse(x, y, textureRegions.get(8), MathUtils.random(0, 350), MathUtils.random(0, 350), textureRegions.get(8 + 30), player); // telo
                 //желет
-                //
                 if (player < 0) getPoolMask(x, y, player);
                 return;
-            }
+            }else
 
             if (StaticService.selectWithProbability(20)) {
                 //    System.out.println("palka ubil 1 ");
                 ejectionBlood(MathUtils.random(7, 14), x, y, angel); // направление
-
                 getCorpse(x, y, textureRegions.get(7), MathUtils.random(0, 350), MathUtils.random(0, 350), textureRegions.get(37), player); // telo
                 if (player < 0) getPoolMask(x, y, player);
-                getPoolBlood(x, y, textureRegions.get(61), 1, 1); // luga
+                getPoolBlood(x, y, textureRegions.get(MathUtils.random(61,65)), 1, 1); // luga
                 //желет
-
                 int xp = 15;
                 int yp = 15;
                 if (MathUtils.randomBoolean()) xp *= -1;
                 if (MathUtils.randomBoolean()) yp *= -1;
                 getBoload(x, y, textureRegions.get(9), MathUtils.random(.05f, .15f), 1f, xp, yp);
                 if (player < 0) getPoolMask(x, y, player);
+
                 return;
-            } else {// убийство палкой )))
+            } else {
                 ejectionBlood(MathUtils.random(7, 14), x, y, angel); // направление
 
                 getCorpse(x, y, textureRegions.get(8), MathUtils.random(0, 350), MathUtils.random(0, 350), textureRegions.get(38), player); // telo
@@ -272,16 +281,13 @@ public class PoolBlood {
                 if (MathUtils.randomBoolean()) yp *= -1;
                 getBoload(x, y, textureRegions.get(10), MathUtils.random(.05f, .15f), 1f, xp, yp);
                 if (player < 0) getPoolMask(x, y, player);
-                getPoolBlood(x, y, textureRegions.get(61), 1, 1); // luga
+                getPoolBlood(x, y, textureRegions.get(MathUtils.random(61,65)), 1, 1); // luga
                 return;
             }
 
         }
     }
 
-    private void deathAnimation_3() {
-
-    }
 
     private void flipTextReg(TextureRegion in, boolean logik) {
         if (logik == in.isFlipY()) return;
@@ -292,7 +298,9 @@ public class PoolBlood {
 
     private void ejectionBlood(int quantity, int x, int y) { /// добавить капля кровь
         for (int i = 0; i < quantity; i++) {
-            getBoload(x, y, textureRegions.get(61), MathUtils.random(.09f, .3f), MathUtils.random(.05f, .01f), MathUtils.random(-10, 10) * 2, MathUtils.random(-10, 10) * 2, true);
+            int q = MathUtils.random(61,65);
+
+            getBoload(x, y, textureRegions.get(q), MathUtils.random(.09f, .3f), MathUtils.random(.05f, .01f), MathUtils.random(-10, 10) * 2, MathUtils.random(-10, 10) * 2, true);
         }
     }
 
@@ -313,22 +321,20 @@ public class PoolBlood {
         OperationVector.setTemp_vector(1, 1);
         OperationVector.get_Setter_Temp_vector().setAngle(angle);
         for (int i = 0; i < quantity; i++) {
-            Blood a = getBoload(x, y, textureRegions.get(61), MathUtils.random(.09f, .3f), MathUtils.random(.1f, .11f), MathUtils.random(-10, 10) * 2, MathUtils.random(-10, 10) * 2, true);
+            int q = MathUtils.random(61,65);
+            Blood a = getBoload(x, y, textureRegions.get(q), MathUtils.random(.09f, .3f), MathUtils.random(.1f, .11f), MathUtils.random(-10, 10) * 2, MathUtils.random(-10, 10) * 2, true);
             a.getAngle().setAngle(OperationVector.get_Setter_Temp_vector().angle() + MathUtils.random(-24, +24));
         }
     }
 
-    private void getPoolMask(int x, int y, int player) { /// Maska крови
+    private void getPoolMask(int x, int y, int player) { /// Maska
         int nomMask = mainGaming.getHero().getOtherPlayers().getMaskToID(player) + 101;
         getBoload(x + MathUtils.random(50, 100), y + MathUtils.random(50, 100), textureRegions.get(nomMask), MathUtils.random(.09f, .2f), 1, MathUtils.random(-10, 10) * 2, MathUtils.random(-10, 10) * 2, false);
     }
 
     private void getCorpse(int x, int y, TextureRegion textureRegion, int xr, int yr, TextureRegion jellyTexture, int nom_player) { /// добавить труп
-
         Vector2 directionBody = new Vector2(MathUtils.random(-1, 1), MathUtils.random(-1, 1));
         float actiontimer = MathUtils.random(.1f, .25f);
-
-
         getBoload(x, y, textureRegion, directionBody, actiontimer, 1); // тело
         if (nom_player != mainGaming.getMainClient().getMyIdConnect())
             getBoload(x, y, jellyTexture, directionBody, actiontimer, 1, mainGaming.getHero().getOtherPlayers().getColorPfromId(nom_player));     /// Желет цветой
@@ -458,10 +464,10 @@ public class PoolBlood {
                 if (b.getNumberSteps() > 20) b.setLive(false);
 
                 spriteBatch.setColor(1, 1, 1, .8f);
-                spriteBatch.draw(textureRegions.get(62), b.getPoition().x, b.getPoition().y, 24, 24);
+                spriteBatch.draw(textureRegions.get(68), b.getPoition().x, b.getPoition().y, 24, 24);
                 for (int i = 0; i < b.getNumberSteps(); i++) {
                     if (StaticService.selectWithProbability(50)) continue;
-                    spriteBatch.draw(textureRegions.get(62), b.getPoition().x - b.getStepX() * i * 15 + MathUtils.random(-5, 5), b.getPoition().y - b.getStepY() * i * 15 + MathUtils.random(-5, 5), 10, 10);
+                    spriteBatch.draw(textureRegions.get(68), b.getPoition().x - b.getStepX() * i * 15 + MathUtils.random(-5, 5), b.getPoition().y - b.getStepY() * i * 15 + MathUtils.random(-5, 5), 10, 10);
                 }
                 spriteBatch.setColor(1, 1, 1, 1);
             }

@@ -1,7 +1,7 @@
 
 character1.png
 format: RGBA8888
-filter: Nearest,Nearest
+filter: MipMapLinearLinear,MipMapNearestNearest
 repeat: none
 shotgun4
   rotate: false
@@ -262,7 +262,7 @@ tr3
   orig: 64, 64
   offset: 0, 0
   index: -1
-tr2t
+tr2g
   rotate: false
   xy: 2, 848
   size: 64, 64
@@ -276,7 +276,7 @@ tr2
   orig: 64, 64
   offset: 0, 0
   index: -1
-tr1t
+tr1g
   rotate: false
   xy: 68, 518
   size: 64, 64
@@ -332,16 +332,44 @@ shag0
   orig: 64, 64
   offset: 0, 0
   index: -1
-blood1
+blood5
   rotate: false
   xy: 68, 650
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-blood
+blood4
   rotate: false
   xy: 68, 716
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+blood3
+  rotate: false
+  xy: 68, 782
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+blood2
+  rotate: false
+  xy: 68, 848
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+blood1
+  rotate: false
+  xy: 68, 914
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+blood
+  rotate: false
+  xy: 134, 584
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
@@ -349,20 +377,20 @@ blood
 bullet
   rotate: false
   xy: 452, 2
-  size: 50, 45
-  orig: 50, 45
+  size: 20, 18
+  orig: 20, 18
   offset: 0, 0
   index: -1
 aim
   rotate: false
-  xy: 452, 49
+  xy: 474, 2
   size: 10, 10
   orig: 10, 10
   offset: 0, 0
   index: -1
 night
   rotate: false
-  xy: 504, 2
+  xy: 474, 14
   size: 1, 1
   orig: 1, 1
   offset: 0, 0

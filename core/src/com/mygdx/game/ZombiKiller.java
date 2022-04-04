@@ -5,6 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.mygdx.game.LoadingScreen.LoadingScreen;
 import com.mygdx.game.LoadingScreen.StartScreen;
+import com.mygdx.game.Menu.MenuScreen;
 import com.mygdx.game.Pause.PauseScreen;
 import com.mygdx.game.adMod.AdAds;
 
@@ -24,6 +25,7 @@ public class ZombiKiller extends Game {
     private PauseScreen pauseScreen;
     private LoadingScreen loadingScreen;
     private StartScreen startScreen;
+    private MenuScreen menuScreen;
 
     public ZombiKiller(int tip, AdAds adMod) {
 
@@ -55,8 +57,8 @@ public class ZombiKiller extends Game {
     public void create() {
         this.startScreen = new StartScreen(this);
         this.assetsManagerGame = new AssetManager();
+       // getMenu();
         getMainGaming();
-
 
     }
 
@@ -85,12 +87,16 @@ public class ZombiKiller extends Game {
         // this.setScreen(this.mGaming);
     }
 
+    public void getMenu(){
+        this.menuScreen = new MenuScreen(this);
+        this.setScreen(this.mGaming);
+    }
+
     public void getMainGaming() {
-        //if(this.loadingScreen != null) this.loadingScreen.dispose();
         if (this.pauseScreen != null) this.pauseScreen.dispose();
         this.mGaming = new MainGaming(this);
         this.setScreen(this.mGaming);
-        //this.setScreen(this.startScreen);
+
     }
 
     public void getMainGameScreen() {

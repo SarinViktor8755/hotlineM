@@ -122,9 +122,6 @@ public class MainCharacter extends Actor {
         textFont.setColor(Color.WHITE);
         textFont.setUseIntegerPositions(true);
 
-
-
-
     }
 
     private void createDk() {
@@ -181,6 +178,7 @@ public class MainCharacter extends Actor {
             mg.getBatch().setColor(1, 1, 1, 1);
             poolBlood.renders();
             mg.getBatch().setColor(1, 1, 1, 1);
+            mg.renderAim();
             mg.getIndexMap().renderTopQualityMap();
             if (live) {
                 //System.out.println("::::::::::::: "+ getCorrectionAngleBody());
@@ -268,6 +266,7 @@ public class MainCharacter extends Actor {
         }
 
 
+        if(weapons.getWeapon() == 1 ) lith.setLasetOn(false); else lith.setLasetOn(true);
 //        if (velocity.len2() > 250000)шаги
 //            mg.getAudioEngine().addNewSoundStepToPleyerFromID(mg.getMainClient().getMyIdConnect());
     }
@@ -319,7 +318,7 @@ public class MainCharacter extends Actor {
         int x = (int) (position.x + cookAngle.x * 80);
         int y = (int) (position.y + cookAngle.y * 80);
         try {
-            mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20, position.y + cookAngle.x * 20); ///вспышка
+          //  mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20, position.y + cookAngle.x * 20); ///вспышка
         } catch (Exception e) {
         }
 

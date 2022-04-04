@@ -519,6 +519,9 @@ public class PoolBlood {
             if (!slidingAd.isLive()) continue;
             slidingAd.renderAd(spriteBatch, mainGaming);
         }
+
+
+
     }
 
     ///////

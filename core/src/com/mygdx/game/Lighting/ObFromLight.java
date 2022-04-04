@@ -1,18 +1,26 @@
 package com.mygdx.game.Lighting;
 
-
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.mygdx.game.Lighting.utils.b2d.BodyBuilder;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.game.Lighting.utils.b2d.BodyBuilder;
 import com.mygdx.game.SpaceMap.Obstacles.BoxObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Created by 1 on 27.03.2021.
+ */
+
 public class ObFromLight {
     private World world;
     private ArrayList<Body> bodyList;
+
+
 
     public ObFromLight(World world) {
         this.world = world;
@@ -22,6 +30,7 @@ public class ObFromLight {
     public ArrayList<Body> getBodyList() {
         return bodyList;
     }
+
 
 
     public void crearBodys(HashMap<Integer, BoxObject> badis) {

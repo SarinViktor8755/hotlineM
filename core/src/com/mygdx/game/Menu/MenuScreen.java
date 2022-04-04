@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
@@ -29,6 +30,8 @@ public class MenuScreen implements Screen {
     private float timeInScreen;
     private float timerStartGame; // переменная для анимации
 
+
+
     public MenuScreen() {
     }
 
@@ -45,6 +48,9 @@ public class MenuScreen implements Screen {
         camera.update();
 
         stageMenu = new Stage(viewport);
+        ///...................
+//        textureRegions.put(1, z.getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("tr1"));
+//        wallpaper = zombiKiller.("menuAsset/wallpaper.png", Texture.class);
         //...............
 //        wallpaper = mainGame.assetManager.get("menuAsset/wallpaper.png", Texture.class);
 //        wallpaper1 = mainGame.assetManager.get("menuAsset/wallpaper1.png", Texture.class);
@@ -54,6 +60,8 @@ public class MenuScreen implements Screen {
        // skinMenu = mainGame.assetManager.get("skin/uiskin.json")
         //final TextField textField = new TextField(limit, skinMenu);
         Gdx.input.setInputProcessor(stageMenu);
+
+
     }
 
     private void upDateScreen(){
@@ -80,6 +88,7 @@ public class MenuScreen implements Screen {
 
         this.batch.end();
         stageMenu.draw();
+
     }
 
     @Override

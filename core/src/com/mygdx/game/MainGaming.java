@@ -35,7 +35,7 @@ import com.mygdx.game.Service.OperationVector;
 public class MainGaming implements Screen {
     private MainClient mainClient;
     private ZombiKiller zk;
-    private Camera camera;
+    private OrthographicCamera camera;
 
     private World world;
 
@@ -51,10 +51,9 @@ public class MainGaming implements Screen {
     private AssetsManagerGame assetsManagerGame;
     private TextureRegion textureAim;
     private FillViewport viewport;
-
     private RenderStartScreen renderStartScreen;
-
     private float timeInGame;
+    Vector2 rot;
 
     private StartScreen startScreen;
 
@@ -79,14 +78,15 @@ public class MainGaming implements Screen {
 
     @Override
     public void show() {
+        rot = new Vector2();
         this.startScreen = new StartScreen(zk);
 
-        this.world = new World(new Vector2(0,0),true);
-                //zk.setScreen(startScreen);
-                //        System.out.println("------------");
-                //        System.out.println(Gdx.graphics.getWidth());
-                //        System.out.println(Gdx.graphics.getHeight());
-                //        System.out.println(" -- ");
+        this.world = new World(new Vector2(0, 0), true);
+        //zk.setScreen(startScreen);
+        //        System.out.println("------------");
+        //        System.out.println(Gdx.graphics.getWidth());
+        //        System.out.println(Gdx.graphics.getHeight());
+        //        System.out.println(" -- ");
         setAssetsManagerGame(AssetsManagerGame.loadAllAsset(getAssetsManagerGame()));
         this.audioEngine = new AudioEngine(this);
         this.gSpace = new GameSpace();
@@ -99,11 +99,13 @@ public class MainGaming implements Screen {
         this.gHero = new Group();
         gHero.addActor(hero);
         batch = new SpriteBatch();
-        camera = new OrthographicCamera(zk.WHIDE_SCREEN, zk.HIDE_SCREEN);
+        camera = new OrthographicCamera();
         viewport = new FillViewport(zk.WHIDE_SCREEN, zk.HIDE_SCREEN, camera);
 
         // System.out.println(zk.isAndroid() + "1111111111111111111111");
         if (zk.isAndroid()) apInput = new AndroidInputProcessorGamePley(this);
+
+
         else {
             apInput = new DesktopInputProcessorGamePley(this);
             Gdx.input.setCursorCatched(true);
@@ -114,7 +116,7 @@ public class MainGaming implements Screen {
         soundtrack = new SoundTrack(this);
         textureAim = getAssetsManagerGame().get("character/character", TextureAtlas.class).findRegion("aim");
         this.timeInGame = 0;
-        renderStartScreen = new RenderStartScreen(zk,camera,viewport,getBatch());
+        renderStartScreen = new RenderStartScreen(zk, camera, viewport, getBatch());
         audioEngine.musicGame.pleyMusic();
     }
 
@@ -124,7 +126,7 @@ public class MainGaming implements Screen {
 
     @Override
     public void render(float delta) {
-        if(!mainClient.isConnectToServer()) {
+        if (!mainClient.isConnectToServer()) {
             renderStartScreen.render(delta);
             mainClient.coonectToServer();
             return;
@@ -148,14 +150,19 @@ public class MainGaming implements Screen {
 //        getBatch().setProjectionMatrix(getBatch().getProjectionMatrix().scl(.2f));
 //        getBatch().setProjectionMatrix(getBatch().getProjectionMatrix().scl(.3f));
         batch.begin();
+
+
         gHero.draw(batch, 1);
-        this.renderAim();
         getHero().getPoolBlood().renderAd(getBatch(), this);
-//        try {
-//            getHero().getLith().renderLights(camera); // освещение
-//        }catch (Exception e){}
+        try {
+            rot.set(camera.up.x, camera.up.y);
+            getHero().getLith().setConeTower(getHero().getPosition().x, getHero().getPosition().y, rot.angle());
+            getHero().getLith().renderLights(camera); // освещение
+        } catch (Exception e) {
+        }
 
         batch.end();
+
         //System.out.println(delta);
         hud.update(delta);
         cameraMove();
@@ -165,13 +172,15 @@ public class MainGaming implements Screen {
     }
 
 
-    private void renderAim() { // отрисовать прицел
+
+    public void renderAim() { // отрисовать прицел
         if (!getHero().isLive()) return;
-        Vector2 rot = new Vector2(camera.up.x, camera.up.y);
+        rot.set(camera.up.x, camera.up.y);
         int l = 0;
         if (getHero().getWeapons().getWeapon() != 1) l = 1000;
         else l = 300;
-        for (int i = 250; i < l; i += 200) {
+        for (int i = 250; i < l; i += 150) {
+            getBatch().setColor(1, 1, 1, 1);
             getBatch().draw(textureAim,
                     (getHero().getPosition().x + rot.x * i) - textureAim.getRegionWidth() / 2,
                     (getHero().getPosition().y + rot.y * i) - textureAim.getRegionWidth() / 2
@@ -179,6 +188,12 @@ public class MainGaming implements Screen {
                     .8f, .8f,
                     rot.angle());
         }
+
+//        for (int i = 0; i < 10; i++) {
+//            for (int x = 0; x < 10; x++)
+//                batch.draw(textureAim, i * 15, i * 15, 2, 2);
+//        }
+
     }
 
     private void cameraMove() {

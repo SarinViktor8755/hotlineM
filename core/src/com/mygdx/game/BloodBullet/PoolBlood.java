@@ -266,8 +266,7 @@ public class PoolBlood {
                 if (MathUtils.randomBoolean()) xp *= -1;
                 if (MathUtils.randomBoolean()) yp *= -1;
                 getBoload(x, y, textureRegions.get(9), MathUtils.random(.05f, .15f), 1f, xp, yp);
-                if (player < 0) getPoolMask(x, y, player);
-
+                System.out.println("golova");
                 return;
             } else {
                 ejectionBlood(MathUtils.random(7, 14), x, y, angel); // направление
@@ -299,7 +298,6 @@ public class PoolBlood {
     private void ejectionBlood(int quantity, int x, int y) { /// добавить капля кровь
         for (int i = 0; i < quantity; i++) {
             int q = MathUtils.random(61,65);
-
             getBoload(x, y, textureRegions.get(q), MathUtils.random(.09f, .3f), MathUtils.random(.05f, .01f), MathUtils.random(-10, 10) * 2, MathUtils.random(-10, 10) * 2, true);
         }
     }

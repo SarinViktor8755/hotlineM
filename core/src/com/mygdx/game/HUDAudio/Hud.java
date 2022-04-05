@@ -40,6 +40,13 @@ public class Hud implements Disposable {
     Label liderMathLabel;
     Label notConnectLabel;
 
+    Label declaration_death1;
+    Label declaration_death2;
+    Label declaration_death3;
+
+    Float[] ddArrayAlpha = new Float[]{0f, 0f, 0f};
+
+
 
     public int getTimer() {
         return timer;
@@ -75,7 +82,6 @@ public class Hud implements Disposable {
         first = false;
 
 
-
         font.getData().setScale(.8f);
         font.getColor().set(.5f, .5f, .5f, 1);
         nPlayer = 0;
@@ -87,6 +93,7 @@ public class Hud implements Disposable {
         this.timer = 180000;
         connect = true;
 
+
         Label.LabelStyle style = new Label.LabelStyle(font, Color.WHITE);
 
         raitingTextLabel = new Label("0/0", style);
@@ -95,9 +102,14 @@ public class Hud implements Disposable {
         liderMathLabel = new Label("asd", style);
         notConnectLabel = new Label("", style);
 
+        declaration_death1 = new Label("_1111111111", style);
+        declaration_death2 = new Label("_2222222222", style);
+        declaration_death3 = new Label("_3333333333", style);
+
         Table table = new Table();
         table.top();
         table.setFillParent(true);
+
 
         table.add(raitingTextLabel).expandX().padTop(12.0f);
         table.add();
@@ -110,9 +122,17 @@ public class Hud implements Disposable {
         table.add(notConnectLabel);
         table.add();
         table.add();
-        table.add(liderMathLabel).expandX().padTop(12.0f);
+        table.add(liderMathLabel).padLeft(0).left().padTop(12.0f);
+        table.row();
 
+
+        table.add(declaration_death1).padLeft(0).left().padTop(12.0f);
+        table.row();
+        table.add(declaration_death2).padLeft(0).left().padTop(12.0f);
+        table.row();
+        table.add(declaration_death3).padLeft(0).left().padTop(12.0f);
         coinCountLabel = new Label("", style);
+        declaration_death2.setColor(1, 1, 1, .3f);
 
         stageHUD.addActor(table);
 
@@ -137,6 +157,18 @@ public class Hud implements Disposable {
         this.liderMathLabel.setText("1st: " + max_fargs);
         this.liderMath = max_fargs;
         this.endingMathHUD.setUpdateToServer(true);
+    }
+
+
+    private void updateDethDeclaration() { // обновления экана
+        float delta = Gdx.graphics.getDeltaTime();
+        declaration_death1.setColor(1, 1, 1, ddArrayAlpha[1]);
+        declaration_death2.setColor(1, 1, 1, ddArrayAlpha[2]);
+        declaration_death3.setColor(1, 1, 1, ddArrayAlpha[3]);
+        for (int i = 0; i < 2; i++) {
+
+        }
+
     }
 
     public void update(float delta) {
@@ -182,7 +214,6 @@ public class Hud implements Disposable {
 
     public void render(float dt) {
         stageHUD.draw();
-
     }
 
 

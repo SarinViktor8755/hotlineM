@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
+import com.mygdx.game.Assets.AssetsManagerGame;
 import com.mygdx.game.LoadingScreen.LoadingScreen;
 import com.mygdx.game.LoadingScreen.StartScreen;
 import com.mygdx.game.Menu.MenuScreen;
@@ -57,9 +58,15 @@ public class ZombiKiller extends Game {
     public void create() {
         this.startScreen = new StartScreen(this);
         this.assetsManagerGame = new AssetManager();
-       // getMenu();
-        getMainGaming();
+        AssetsManagerGame.loadAssetForMenu(assetsManagerGame);
+        getMenu();
+        //getMainGaming();
 
+    }
+
+    public void startGamePlay(){
+        this.mGaming = new MainGaming(this);
+        this.setScreen(this.mGaming);
     }
 
     public void getPauseScreen() {
@@ -89,15 +96,16 @@ public class ZombiKiller extends Game {
 
     public void getMenu(){
         this.menuScreen = new MenuScreen(this);
-        this.setScreen(this.mGaming);
+        this.setScreen(this.menuScreen);
     }
 
     public void getMainGaming() {
         if (this.pauseScreen != null) this.pauseScreen.dispose();
         this.mGaming = new MainGaming(this);
         this.setScreen(this.mGaming);
-
     }
+
+
 
     public void getMainGameScreen() {
         this.setScreen(this.mGaming);

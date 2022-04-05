@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.GdxNativesLoader;
 
 public class AssetsManagerGame {
@@ -54,6 +55,19 @@ public class AssetsManagerGame {
 
     static public final AssetManager loadLoadingScreen(AssetManager assetManager) {
         assetManager.load("pauseAsset/pause", TextureAtlas.class);
+        assetManager.finishLoading();
+        return assetManager;
+    }
+
+    static public final AssetManager loadAssetForMenu(AssetManager assetManager) {
+        assetManager.clear();
+        GdxNativesLoader.load();
+
+        assetManager.load("menuAsset/logo.png", Texture.class);
+        assetManager.load("menuAsset/wallpaper.png", Texture.class);
+        assetManager.load("skin/uiskin.json", Skin.class);
+
+
         assetManager.finishLoading();
         return assetManager;
     }

@@ -1,127 +1,197 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:2:1-27:12
+ADDED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
+MERGED from [com.google.android.gms:play-services-ads:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\077e75eefa7131fce08161915acc73b3\transformed\play-services-ads-15.0.0\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0d8a8159722c910acc3003c86cd0ab63\transformed\customtabs-26.1.0\AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\21e3bda36f27289477fce0b5c8aac5e0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:17:1-36:12
+MERGED from [com.google.android.gms:play-services-gass:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\28720988405de12c57afeda60f573862\transformed\play-services-gass-15.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9b5aff5b8725df80ef737c836b59970e\transformed\play-services-ads-base-15.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\4c20097ec30c3511a15d296943c8e7b7\transformed\play-services-ads-identifier-15.0.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\135e44a770f45cf78086114ac9f2bd32\transformed\play-services-basement-15.0.1\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0d2bc947752964e88d04e2694d226af4\transformed\support-v4-26.1.0\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\49e52b28c604961e845061b3c2bf329f\transformed\support-media-compat-26.1.0\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\c0035f9323e464a8a1bf7b9c69bac6b8\transformed\support-fragment-26.1.0\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\228d07ee459f3a5c69b70f63cdbc458f\transformed\support-core-utils-26.1.0\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\e44cda6d421d3b40bf495fee7a1739c8\transformed\support-core-ui-26.1.0\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\87d9dcaa22a0177c5b9ce8827488aacc\transformed\support-compat-26.1.0\AndroidManifest.xml:17:1-31:12
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\55cbffad3ffe61cb398e2340432f599b\transformed\runtime-1.0.0\AndroidManifest.xml:17:1-30:12
+INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
 	package
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:3:5-29
-		INJECTED from D:\PortableGit\hotlineM\android\AndroidManifest.xml
-		INJECTED from D:\PortableGit\hotlineM\android\AndroidManifest.xml
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:3:5-29
+		INJECTED from C:\hotlineM\android\AndroidManifest.xml
+		INJECTED from C:\hotlineM\android\AndroidManifest.xml
 	android:versionName
-		INJECTED from D:\PortableGit\hotlineM\android\AndroidManifest.xml
-		INJECTED from D:\PortableGit\hotlineM\android\AndroidManifest.xml
-	xmlns:android
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:2:11-69
+		INJECTED from C:\hotlineM\android\AndroidManifest.xml
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
+		INJECTED from C:\hotlineM\android\AndroidManifest.xml
 	android:versionCode
-		INJECTED from D:\PortableGit\hotlineM\android\AndroidManifest.xml
-		INJECTED from D:\PortableGit\hotlineM\android\AndroidManifest.xml
+		INJECTED from C:\hotlineM\android\AndroidManifest.xml
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
+		INJECTED from C:\hotlineM\android\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:2:11-69
 uses-sdk
-ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:5:5-73
-MERGED from [com.google.android.gms:play-services-ads:11.2.0] C:\Users\Виктор\.android\build-cache\ece5972f5bc0bccb5ad5805a6af0c7115927cbf5\output\AndroidManifest.xml:17:5-94
-MERGED from [com.google.android.gms:play-services-ads-lite:11.2.0] C:\Users\Виктор\.android\build-cache\1549caa88e4646de17d4f330de50130c0d336ab4\output\AndroidManifest.xml:22:5-43
-MERGED from [com.google.android.gms:play-services-gass:11.2.0] C:\Users\Виктор\.android\build-cache\ef6c271c547c9b0a378a44915741a116e45dd6a3\output\AndroidManifest.xml:3:5-43
-MERGED from [com.google.android.gms:play-services-basement:11.2.0] C:\Users\Виктор\.android\build-cache\fb71eaa7a561829ca7920c949f2fe90a898a2b26\output\AndroidManifest.xml:17:5-43
-MERGED from [com.android.support:support-v4:25.2.0] C:\Users\Виктор\.android\build-cache\fb7b15d9d3f836371bcd398fa254824c92642b9c\output\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\Виктор\.android\build-cache\c0d2476f7bb3b5412388bc96473a8554137413e1\output\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\Виктор\.android\build-cache\8cf38425421411c6928e122cd18ae2cbc083a369\output\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\Виктор\.android\build-cache\3d1d037156676bfeb338b29077794470fb49f8b8\output\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:25.2.0] C:\Users\Виктор\.android\build-cache\dace4fed3686e8180918501204b7aaa5b2165558\output\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:25.2.0] C:\Users\Виктор\.android\build-cache\28f100fb41c4be3ab0633ed83db51ad029d87dbe\output\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.billingclient:billing:2.2.1] C:\Users\Виктор\.android\build-cache\9e23d4a9ab8d3fa51347ac8aeb204383724fec15\output\AndroidManifest.xml:6:5-8:41
+ADDED from C:\hotlineM\android\AndroidManifest.xml:5:5-73
+INJECTED from C:\hotlineM\android\AndroidManifest.xml:5:5-73
+INJECTED from C:\hotlineM\android\AndroidManifest.xml:5:5-73
+MERGED from [com.google.android.gms:play-services-ads:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\077e75eefa7131fce08161915acc73b3\transformed\play-services-ads-15.0.0\AndroidManifest.xml:21:5-23:62
+MERGED from [com.google.android.gms:play-services-ads:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\077e75eefa7131fce08161915acc73b3\transformed\play-services-ads-15.0.0\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0d8a8159722c910acc3003c86cd0ab63\transformed\customtabs-26.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0d8a8159722c910acc3003c86cd0ab63\transformed\customtabs-26.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\21e3bda36f27289477fce0b5c8aac5e0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\21e3bda36f27289477fce0b5c8aac5e0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-gass:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\28720988405de12c57afeda60f573862\transformed\play-services-gass-15.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-gass:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\28720988405de12c57afeda60f573862\transformed\play-services-gass-15.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9b5aff5b8725df80ef737c836b59970e\transformed\play-services-ads-base-15.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9b5aff5b8725df80ef737c836b59970e\transformed\play-services-ads-base-15.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\4c20097ec30c3511a15d296943c8e7b7\transformed\play-services-ads-identifier-15.0.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\4c20097ec30c3511a15d296943c8e7b7\transformed\play-services-ads-identifier-15.0.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\135e44a770f45cf78086114ac9f2bd32\transformed\play-services-basement-15.0.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\135e44a770f45cf78086114ac9f2bd32\transformed\play-services-basement-15.0.1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0d2bc947752964e88d04e2694d226af4\transformed\support-v4-26.1.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0d2bc947752964e88d04e2694d226af4\transformed\support-v4-26.1.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\49e52b28c604961e845061b3c2bf329f\transformed\support-media-compat-26.1.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\49e52b28c604961e845061b3c2bf329f\transformed\support-media-compat-26.1.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\c0035f9323e464a8a1bf7b9c69bac6b8\transformed\support-fragment-26.1.0\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\c0035f9323e464a8a1bf7b9c69bac6b8\transformed\support-fragment-26.1.0\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\228d07ee459f3a5c69b70f63cdbc458f\transformed\support-core-utils-26.1.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\228d07ee459f3a5c69b70f63cdbc458f\transformed\support-core-utils-26.1.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\e44cda6d421d3b40bf495fee7a1739c8\transformed\support-core-ui-26.1.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\e44cda6d421d3b40bf495fee7a1739c8\transformed\support-core-ui-26.1.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\87d9dcaa22a0177c5b9ce8827488aacc\transformed\support-compat-26.1.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\87d9dcaa22a0177c5b9ce8827488aacc\transformed\support-compat-26.1.0\AndroidManifest.xml:21:5-23:58
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\55cbffad3ffe61cb398e2340432f599b\transformed\runtime-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\55cbffad3ffe61cb398e2340432f599b\transformed\runtime-1.0.0\AndroidManifest.xml:20:5-22:41
+INJECTED from C:\hotlineM\android\AndroidManifest.xml:5:5-73
+INJECTED from C:\hotlineM\android\AndroidManifest.xml:5:5-73
 	tools:overrideLibrary
-		ADDED from [com.google.android.gms:play-services-ads:11.2.0] C:\Users\Виктор\.android\build-cache\ece5972f5bc0bccb5ad5805a6af0c7115927cbf5\output\AndroidManifest.xml:17:42-92
+		ADDED from [com.google.android.gms:play-services-ads:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\077e75eefa7131fce08161915acc73b3\transformed\play-services-ads-15.0.0\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:5:41-70
-		INJECTED from D:\PortableGit\hotlineM\android\AndroidManifest.xml
-		INJECTED from D:\PortableGit\hotlineM\android\AndroidManifest.xml
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:5:41-70
+		INJECTED from C:\hotlineM\android\AndroidManifest.xml
+		INJECTED from C:\hotlineM\android\AndroidManifest.xml
 	android:minSdkVersion
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:5:15-40
-		INJECTED from D:\PortableGit\hotlineM\android\AndroidManifest.xml
-		INJECTED from D:\PortableGit\hotlineM\android\AndroidManifest.xml
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:5:15-40
+		INJECTED from C:\hotlineM\android\AndroidManifest.xml
+		INJECTED from C:\hotlineM\android\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
-ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:6:5-66
-MERGED from [com.google.android.gms:play-services-ads-lite:11.2.0] C:\Users\Виктор\.android\build-cache\1549caa88e4646de17d4f330de50130c0d336ab4\output\AndroidManifest.xml:19:5-66
+ADDED from C:\hotlineM\android\AndroidManifest.xml:6:5-66
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\21e3bda36f27289477fce0b5c8aac5e0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\21e3bda36f27289477fce0b5c8aac5e0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:6:22-64
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:6:22-64
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:7:5-75
+ADDED from C:\hotlineM\android\AndroidManifest.xml:7:5-75
 	android:name
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:7:22-73
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:7:22-73
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:8:5-79
-MERGED from [com.google.android.gms:play-services-ads-lite:11.2.0] C:\Users\Виктор\.android\build-cache\1549caa88e4646de17d4f330de50130c0d336ab4\output\AndroidManifest.xml:20:5-78
+ADDED from C:\hotlineM\android\AndroidManifest.xml:8:5-79
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\21e3bda36f27289477fce0b5c8aac5e0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\21e3bda36f27289477fce0b5c8aac5e0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:24:5-79
 	android:name
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:8:22-76
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:8:22-76
 uses-permission#com.android.vending.BILLING
-ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:9:5-66
-MERGED from [com.android.billingclient:billing:2.2.1] C:\Users\Виктор\.android\build-cache\9e23d4a9ab8d3fa51347ac8aeb204383724fec15\output\AndroidManifest.xml:10:5-67
+ADDED from C:\hotlineM\android\AndroidManifest.xml:9:5-66
 	android:name
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:9:22-64
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:9:22-64
 application
-ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:10:5-25:19
-MERGED from [com.google.android.gms:play-services-ads-lite:11.2.0] C:\Users\Виктор\.android\build-cache\1549caa88e4646de17d4f330de50130c0d336ab4\output\AndroidManifest.xml:23:5-26:19
-MERGED from [com.google.android.gms:play-services-gass:11.2.0] C:\Users\Виктор\.android\build-cache\ef6c271c547c9b0a378a44915741a116e45dd6a3\output\AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-basement:11.2.0] C:\Users\Виктор\.android\build-cache\fb71eaa7a561829ca7920c949f2fe90a898a2b26\output\AndroidManifest.xml:19:5-21:19
-MERGED from [com.android.support:support-v4:25.2.0] C:\Users\Виктор\.android\build-cache\fb7b15d9d3f836371bcd398fa254824c92642b9c\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\Виктор\.android\build-cache\c0d2476f7bb3b5412388bc96473a8554137413e1\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\Виктор\.android\build-cache\8cf38425421411c6928e122cd18ae2cbc083a369\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\Виктор\.android\build-cache\3d1d037156676bfeb338b29077794470fb49f8b8\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:25.2.0] C:\Users\Виктор\.android\build-cache\dace4fed3686e8180918501204b7aaa5b2165558\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:25.2.0] C:\Users\Виктор\.android\build-cache\28f100fb41c4be3ab0633ed83db51ad029d87dbe\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.billingclient:billing:2.2.1] C:\Users\Виктор\.android\build-cache\9e23d4a9ab8d3fa51347ac8aeb204383724fec15\output\AndroidManifest.xml:12:5-21:19
+ADDED from C:\hotlineM\android\AndroidManifest.xml:10:5-25:19
+MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0d8a8159722c910acc3003c86cd0ab63\transformed\customtabs-26.1.0\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0d8a8159722c910acc3003c86cd0ab63\transformed\customtabs-26.1.0\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\21e3bda36f27289477fce0b5c8aac5e0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:26:5-34:19
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\21e3bda36f27289477fce0b5c8aac5e0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:26:5-34:19
+MERGED from [com.google.android.gms:play-services-gass:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\28720988405de12c57afeda60f573862\transformed\play-services-gass-15.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-gass:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\28720988405de12c57afeda60f573862\transformed\play-services-gass-15.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9b5aff5b8725df80ef737c836b59970e\transformed\play-services-ads-base-15.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9b5aff5b8725df80ef737c836b59970e\transformed\play-services-ads-base-15.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\4c20097ec30c3511a15d296943c8e7b7\transformed\play-services-ads-identifier-15.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\4c20097ec30c3511a15d296943c8e7b7\transformed\play-services-ads-identifier-15.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\135e44a770f45cf78086114ac9f2bd32\transformed\play-services-basement-15.0.1\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\135e44a770f45cf78086114ac9f2bd32\transformed\play-services-basement-15.0.1\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0d2bc947752964e88d04e2694d226af4\transformed\support-v4-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0d2bc947752964e88d04e2694d226af4\transformed\support-v4-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\49e52b28c604961e845061b3c2bf329f\transformed\support-media-compat-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\49e52b28c604961e845061b3c2bf329f\transformed\support-media-compat-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\c0035f9323e464a8a1bf7b9c69bac6b8\transformed\support-fragment-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\c0035f9323e464a8a1bf7b9c69bac6b8\transformed\support-fragment-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\228d07ee459f3a5c69b70f63cdbc458f\transformed\support-core-utils-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\228d07ee459f3a5c69b70f63cdbc458f\transformed\support-core-utils-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\e44cda6d421d3b40bf495fee7a1739c8\transformed\support-core-ui-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\e44cda6d421d3b40bf495fee7a1739c8\transformed\support-core-ui-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\87d9dcaa22a0177c5b9ce8827488aacc\transformed\support-compat-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\87d9dcaa22a0177c5b9ce8827488aacc\transformed\support-compat-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\55cbffad3ffe61cb398e2340432f599b\transformed\runtime-1.0.0\AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\55cbffad3ffe61cb398e2340432f599b\transformed\runtime-1.0.0\AndroidManifest.xml:24:5-28:19
 	android:label
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:13:9-41
-	android:allowBackup
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:11:9-35
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:13:9-41
 	android:icon
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:12:9-45
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:12:9-45
+	android:allowBackup
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:11:9-35
 	android:theme
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:14:9-40
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:14:9-40
 activity#com.mygdx.game.AndroidLauncher
-ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:15:9-24:20
+ADDED from C:\hotlineM\android\AndroidManifest.xml:15:9-24:20
 	android:screenOrientation
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:18:13-49
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:18:13-49
 	android:label
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:17:13-45
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:17:13-45
 	android:configChanges
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:19:13-94
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:19:13-94
 	android:name
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:16:13-58
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:20:13-23:29
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:16:13-58
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\hotlineM\android\AndroidManifest.xml:20:13-23:29
 action#android.intent.action.MAIN
-ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:21:17-69
+ADDED from C:\hotlineM\android\AndroidManifest.xml:21:17-69
 	android:name
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:21:25-66
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:21:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:22:17-77
+ADDED from C:\hotlineM\android\AndroidManifest.xml:22:17-77
 	android:name
-		ADDED from D:\PortableGit\hotlineM\android\AndroidManifest.xml:22:27-74
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:22:27-74
+meta-data#android.support.VERSION
+ADDED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0d8a8159722c910acc3003c86cd0ab63\transformed\customtabs-26.1.0\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0d2bc947752964e88d04e2694d226af4\transformed\support-v4-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0d2bc947752964e88d04e2694d226af4\transformed\support-v4-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\49e52b28c604961e845061b3c2bf329f\transformed\support-media-compat-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\49e52b28c604961e845061b3c2bf329f\transformed\support-media-compat-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\c0035f9323e464a8a1bf7b9c69bac6b8\transformed\support-fragment-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\c0035f9323e464a8a1bf7b9c69bac6b8\transformed\support-fragment-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\228d07ee459f3a5c69b70f63cdbc458f\transformed\support-core-utils-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\228d07ee459f3a5c69b70f63cdbc458f\transformed\support-core-utils-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\e44cda6d421d3b40bf495fee7a1739c8\transformed\support-core-ui-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\e44cda6d421d3b40bf495fee7a1739c8\transformed\support-core-ui-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\87d9dcaa22a0177c5b9ce8827488aacc\transformed\support-compat-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\87d9dcaa22a0177c5b9ce8827488aacc\transformed\support-compat-26.1.0\AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0d8a8159722c910acc3003c86cd0ab63\transformed\customtabs-26.1.0\AndroidManifest.xml:25:13-35
+	android:name
+		ADDED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0d8a8159722c910acc3003c86cd0ab63\transformed\customtabs-26.1.0\AndroidManifest.xml:24:13-51
 activity#com.google.android.gms.ads.AdActivity
-ADDED from [com.google.android.gms:play-services-ads-lite:11.2.0] C:\Users\Виктор\.android\build-cache\1549caa88e4646de17d4f330de50130c0d336ab4\output\AndroidManifest.xml:25:9-257
+ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\21e3bda36f27289477fce0b5c8aac5e0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:29:9-33:64
 	android:exported
-		ADDED from [com.google.android.gms:play-services-ads-lite:11.2.0] C:\Users\Виктор\.android\build-cache\1549caa88e4646de17d4f330de50130c0d336ab4\output\AndroidManifest.xml:25:231-255
+		ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\21e3bda36f27289477fce0b5c8aac5e0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:32:13-37
 	android:configChanges
-		ADDED from [com.google.android.gms:play-services-ads-lite:11.2.0] C:\Users\Виктор\.android\build-cache\1549caa88e4646de17d4f330de50130c0d336ab4\output\AndroidManifest.xml:25:72-181
+		ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\21e3bda36f27289477fce0b5c8aac5e0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:31:13-122
 	android:theme
-		ADDED from [com.google.android.gms:play-services-ads-lite:11.2.0] C:\Users\Виктор\.android\build-cache\1549caa88e4646de17d4f330de50130c0d336ab4\output\AndroidManifest.xml:25:182-230
+		ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\21e3bda36f27289477fce0b5c8aac5e0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:33:13-61
 	android:name
-		ADDED from [com.google.android.gms:play-services-ads-lite:11.2.0] C:\Users\Виктор\.android\build-cache\1549caa88e4646de17d4f330de50130c0d336ab4\output\AndroidManifest.xml:25:19-71
+		ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\21e3bda36f27289477fce0b5c8aac5e0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:30:13-65
 meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:11.2.0] C:\Users\Виктор\.android\build-cache\fb71eaa7a561829ca7920c949f2fe90a898a2b26\output\AndroidManifest.xml:20:9-121
+ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\135e44a770f45cf78086114ac9f2bd32\transformed\play-services-basement-15.0.1\AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:11.2.0] C:\Users\Виктор\.android\build-cache\fb71eaa7a561829ca7920c949f2fe90a898a2b26\output\AndroidManifest.xml:20:66-119
+		ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\135e44a770f45cf78086114ac9f2bd32\transformed\play-services-basement-15.0.1\AndroidManifest.xml:25:13-66
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:11.2.0] C:\Users\Виктор\.android\build-cache\fb71eaa7a561829ca7920c949f2fe90a898a2b26\output\AndroidManifest.xml:20:20-65
-meta-data#com.google.android.play.billingclient.version
-ADDED from [com.android.billingclient:billing:2.2.1] C:\Users\Виктор\.android\build-cache\9e23d4a9ab8d3fa51347ac8aeb204383724fec15\output\AndroidManifest.xml:13:9-15:37
+		ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\135e44a770f45cf78086114ac9f2bd32\transformed\play-services-basement-15.0.1\AndroidManifest.xml:24:13-58
+meta-data#android.arch.lifecycle.VERSION
+ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\55cbffad3ffe61cb398e2340432f599b\transformed\runtime-1.0.0\AndroidManifest.xml:25:9-27:47
 	android:value
-		ADDED from [com.android.billingclient:billing:2.2.1] C:\Users\Виктор\.android\build-cache\9e23d4a9ab8d3fa51347ac8aeb204383724fec15\output\AndroidManifest.xml:15:13-34
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\55cbffad3ffe61cb398e2340432f599b\transformed\runtime-1.0.0\AndroidManifest.xml:27:13-44
 	android:name
-		ADDED from [com.android.billingclient:billing:2.2.1] C:\Users\Виктор\.android\build-cache\9e23d4a9ab8d3fa51347ac8aeb204383724fec15\output\AndroidManifest.xml:14:13-73
-activity#com.android.billingclient.api.ProxyBillingActivity
-ADDED from [com.android.billingclient:billing:2.2.1] C:\Users\Виктор\.android\build-cache\9e23d4a9ab8d3fa51347ac8aeb204383724fec15\output\AndroidManifest.xml:17:9-20:75
-	android:configChanges
-		ADDED from [com.android.billingclient:billing:2.2.1] C:\Users\Виктор\.android\build-cache\9e23d4a9ab8d3fa51347ac8aeb204383724fec15\output\AndroidManifest.xml:19:13-96
-	android:theme
-		ADDED from [com.android.billingclient:billing:2.2.1] C:\Users\Виктор\.android\build-cache\9e23d4a9ab8d3fa51347ac8aeb204383724fec15\output\AndroidManifest.xml:20:13-72
-	android:name
-		ADDED from [com.android.billingclient:billing:2.2.1] C:\Users\Виктор\.android\build-cache\9e23d4a9ab8d3fa51347ac8aeb204383724fec15\output\AndroidManifest.xml:18:13-78
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\55cbffad3ffe61cb398e2340432f599b\transformed\runtime-1.0.0\AndroidManifest.xml:26:13-58

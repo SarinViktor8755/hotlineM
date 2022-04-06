@@ -47,10 +47,10 @@ public class Hud implements Disposable {
     Label declaration_death2;
     Label declaration_death3;
 
+    Table table2;
 
 
     Float[] ddArrayAlpha = new Float[]{0f, 0f, 0f};
-
 
 
     public int getTimer() {
@@ -92,7 +92,7 @@ public class Hud implements Disposable {
         declaration_death2 = new Label("_2222222222", style);
         declaration_death3 = new Label("_3333333333", style);
 
-        deathMess = new DeathMess(declaration_death1,declaration_death2,declaration_death3);
+        deathMess = new DeathMess(declaration_death1, declaration_death2, declaration_death3);
 
         font.getData().setScale(.8f);
         font.getColor().set(.5f, .5f, .5f, 1);
@@ -105,7 +105,7 @@ public class Hud implements Disposable {
         this.timer = 180000;
         connect = true;
 
-
+        table2 = new Table();
 
 
         raitingTextLabel = new Label("0/0", style);
@@ -113,7 +113,6 @@ public class Hud implements Disposable {
         timerTextLabel = new Label("0:0", style);
         liderMathLabel = new Label("asd", style);
         notConnectLabel = new Label("", style);
-
 
 
         Table table = new Table();
@@ -132,21 +131,30 @@ public class Hud implements Disposable {
         table.add(notConnectLabel);
         table.add();
         table.add();
-        table.add(liderMathLabel).padLeft(0).left().padTop(12.0f);
-        table.row();
+        table.add(liderMathLabel).expandX().padLeft(0).left().padTop(12.0f);
 
+        Table table2 = new Table();
+        table2.top();
+        table2.setFillParent(true);
 
-        table.add(declaration_death1).padLeft(0).left().padTop(12.0f);
-        table.row();
-        table.add(declaration_death2).padLeft(0).left().padTop(12.0f);
-        table.row();
-        table.add(declaration_death3).padLeft(0).left().padTop(12.0f);
+        table2.add(declaration_death1).padLeft(0).left().padTop(11.0f);
+        table2.row();
+        table2.add(declaration_death2).padLeft(0).left().padTop(11.0f);
+        table2.row();
+        table2.add(declaration_death3).padLeft(0).left().padTop(11.0f);
         coinCountLabel = new Label("", style);
+
         declaration_death2.setColor(1, 1, 1, .3f);
 
         declaration_death1.setScale(.5f);
+        table.setDebug(true, true);
+        table2.setDebug(true, true);
 
+//        System.out.println(table. + "  !!");
+//        System.out.println(table.getRowHeight(2) + "  !!");
+        table2.setPosition(0, -70);
         stageHUD.addActor(table);
+        stageHUD.addActor(table2);
 
     }
 
@@ -175,7 +183,7 @@ public class Hud implements Disposable {
     }
 
     public void update() {
-        this.deathMess.updateMess(Gdx.graphics.getDeltaTime(),declaration_death1,declaration_death2,declaration_death3);
+        this.deathMess.updateMess(Gdx.graphics.getDeltaTime(), declaration_death1, declaration_death2, declaration_death3);
 
 
     }

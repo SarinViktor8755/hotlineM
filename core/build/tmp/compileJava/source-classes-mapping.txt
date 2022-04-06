@@ -1,26 +1,28 @@
 com/mygdx/game/Service/OperationVector.java
  com.mygdx.game.Service.OperationVector
-com/mygdx/game/ClientNetWork/SteckApi/RequestStock.java
- com.mygdx.game.ClientNetWork.SteckApi.RequestStock
-com/mygdx/game/Lighting/utils/Constants.java
- com.mygdx.game.Lighting.utils.Constants
-com/mygdx/game/SpaceMap/Groundmap/Tiled.java
- com.mygdx.game.SpaceMap.Groundmap.Tiled
-com/mygdx/game/Characters/Player.java
- com.mygdx.game.Characters.Player
 com/mygdx/game/Characters/ColorPalyer.java
  com.mygdx.game.Characters.ColorPalyer
+com/mygdx/game/Lighting/utils/Constants.java
+ com.mygdx.game.Lighting.utils.Constants
 com/mygdx/game/adMod/AdAds.java
  com.mygdx.game.adMod.AdAds
-com/mygdx/game/GameSpace.java
- com.mygdx.game.GameSpace
+com/mygdx/game/Service/TimeService.java
+ com.mygdx.game.Service.TimeService
+com/mygdx/game/BloodBullet/Flash.java
+ com.mygdx.game.BloodBullet.Flash
+com/mygdx/game/Lighting/utils/b2d/BodyBuilder.java
+ com.mygdx.game.Lighting.utils.b2d.BodyBuilder
+com/mygdx/game/SpaceMap/Obstacles/CircleObject.java
+ com.mygdx.game.SpaceMap.Obstacles.CircleObject
 com/mygdx/game/Lighting/ObFromLight.java
  com.mygdx.game.Lighting.ObFromLight
 com/mygdx/game/Characters/OtherPlayers.java
  com.mygdx.game.Characters.OtherPlayers
-com/mygdx/game/ZombiKiller.java
- com.mygdx.game.ZombiKiller
- com.mygdx.game.ZombiKiller$1
+com/mygdx/game/Menu/MenuScreen.java
+ com.mygdx.game.Menu.MenuScreen
+ com.mygdx.game.Menu.MenuScreen$1
+com/mygdx/game/Service/Key_cod.java
+ com.mygdx.game.Service.Key_cod
 com/mygdx/game/Characters/Animation/AnimationBodyFreme.java
  com.mygdx.game.Characters.Animation.AnimationBodyFreme
 com/mygdx/game/LoadingScreen/LoadingScreen.java
@@ -40,20 +42,22 @@ com/mygdx/game/Characters/Weapons.java
  com.mygdx.game.Characters.Weapons
 com/mygdx/game/adMod/AdMod.java
  com.mygdx.game.adMod.AdMod
-com/mygdx/game/RenderStartScreen.java
- com.mygdx.game.RenderStartScreen
-com/mygdx/game/Service/TimeService.java
- com.mygdx.game.Service.TimeService
-com/mygdx/game/BloodBullet/Flash.java
- com.mygdx.game.BloodBullet.Flash
-com/mygdx/game/Characters/Weapon.java
- com.mygdx.game.Characters.Weapon
-com/mygdx/game/SpaceMap/Garbage/Garbage.java
- com.mygdx.game.SpaceMap.Garbage.Garbage
+com/mygdx/game/Christmas_tree.java
+ com.mygdx.game.Christmas_tree
+ com.mygdx.game.Christmas_tree$layer
+com/mygdx/game/SpaceMap/Groundmap/Tiled.java
+ com.mygdx.game.SpaceMap.Groundmap.Tiled
+com/mygdx/game/Service/NikName.java
+ com.mygdx.game.Service.NikName
+com/mygdx/game/ClientNetWork/SteckApi/RequestStock.java
+ com.mygdx.game.ClientNetWork.SteckApi.RequestStock
+com/mygdx/game/ZombiKiller.java
+ com.mygdx.game.ZombiKiller
+ com.mygdx.game.ZombiKiller$1
 com/mygdx/game/HUDAudio/MusicGame.java
  com.mygdx.game.HUDAudio.MusicGame
-com/mygdx/game/Lighting/utils/b2d/BodyBuilder.java
- com.mygdx.game.Lighting.utils.b2d.BodyBuilder
+com/mygdx/game/Characters/Weapon.java
+ com.mygdx.game.Characters.Weapon
 com/mygdx/game/Assets/AssetsManagerGame.java
  com.mygdx.game.Assets.AssetsManagerGame
 com/mygdx/game/Lighting/utils/b2d/JointBuilder.java
@@ -77,24 +81,20 @@ com/mygdx/game/Lighting/BuletFlash.java
  com.mygdx.game.Lighting.BuletFlash
 com/mygdx/game/Ip/InputProc.java
  com.mygdx.game.Ip.InputProc
-com/mygdx/game/Christmas_tree.java
- com.mygdx.game.Christmas_tree
- com.mygdx.game.Christmas_tree$layer
-com/mygdx/game/BloodBullet/Blood.java
- com.mygdx.game.BloodBullet.Blood
-com/mygdx/game/Service/NikName.java
- com.mygdx.game.Service.NikName
+com/mygdx/game/Characters/Player.java
+ com.mygdx.game.Characters.Player
 com/mygdx/game/Service/StaticService.java
  com.mygdx.game.Service.StaticService
+com/mygdx/game/BloodBullet/Blood.java
+ com.mygdx.game.BloodBullet.Blood
+com/mygdx/game/GameSpace.java
+ com.mygdx.game.GameSpace
+com/mygdx/game/SpaceMap/Garbage/Garbage.java
+ com.mygdx.game.SpaceMap.Garbage.Garbage
+com/mygdx/game/RenderStartScreen.java
+ com.mygdx.game.RenderStartScreen
 com/mygdx/game/Pause/BodyPart.java
  com.mygdx.game.Pause.BodyPart
-com/mygdx/game/Menu/MenuScreen.java
- com.mygdx.game.Menu.MenuScreen
- com.mygdx.game.Menu.MenuScreen$1
-com/mygdx/game/SpaceMap/Obstacles/CircleObject.java
- com.mygdx.game.SpaceMap.Obstacles.CircleObject
-com/mygdx/game/Service/Key_cod.java
- com.mygdx.game.Service.Key_cod
 com/mygdx/game/HUDAudio/DeathMess.java
  com.mygdx.game.HUDAudio.DeathMess
 com/mygdx/game/BloodBullet/Bullet.java

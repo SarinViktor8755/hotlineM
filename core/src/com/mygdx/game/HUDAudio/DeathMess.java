@@ -32,7 +32,7 @@ public class DeathMess {
 
     public void updateMess(float delta, Label lhud1, Label lhud2, Label lhud3) {
         a.clear();
-        System.out.println("updateMess");
+      //  System.out.println("updateMess");
         for (Mess p : mess) {
             if (p.getTimeLife() < 0) continue;
             p.setTimeLife(p.getTimeLife() - delta);

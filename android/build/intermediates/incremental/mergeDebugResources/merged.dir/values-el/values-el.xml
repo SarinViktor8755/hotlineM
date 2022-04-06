@@ -7,4 +7,6 @@
     <string msgid="9167523597401839819" name="s4">"Απόρριψη"</string>
     <string msgid="1566682516266724847" name="s5">"Δημιουργία συμβάντος ημερολογίου"</string>
     <string msgid="5996672174517137271" name="s6">"Να επιτραπεί στη διαφήμιση να δημιουργήσει ένα συμβάν ημερολογίου;"</string>
+    <string msgid="7163549807207034258" name="s7">"Δοκιμαστική διαφήμιση"</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>

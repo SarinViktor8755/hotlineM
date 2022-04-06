@@ -14,7 +14,7 @@ public class CalculationСontact { // класс для расчета поап�
         this.gameServer = gameServer;
     }
 
-    public int getHit(int x, int y, int nomPlayer, int room, int radius) {
+    public int getHit(int x, int y, int nomPlayer, int room, int radius) { // расчет палки
        // System.out.println(nomPlayer);
         HashMap<Integer, SnapShots.player> plMap = gameServer.snapShots.getPlayrsLisn();
         Vector2 position = new Vector2();

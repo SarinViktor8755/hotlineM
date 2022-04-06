@@ -3,6 +3,7 @@ package com.SteckApi;
 import com.GameServer;
 import com.Network;
 import com.badlogic.gdx.math.Vector2;
+import com.mygdx.game.Service.Key_cod;
 import com.mygdx.game.Service.TimeService;
 
 /**
@@ -46,7 +47,7 @@ public class RouteResponseRequests {  // роутр запросов
 //            return true;
         }
 
-        if (in.tip == 1) { // ударил соперника = далеет расчет демеджа
+        if (in.tip == Key_cod.STICK_ATTACK) { // ударил соперника = далеет расчет демеджа
 
             new Thread(new Runnable() {
                 public void run() {
@@ -79,7 +80,7 @@ public class RouteResponseRequests {  // роутр запросов
             return true;
         }
 
-        if (in.tip == 2) { // стрельба из пистолета
+        if (in.tip == Key_cod.GUN_SHOT) { // стрельба из пистолета
             new Thread(new Runnable() {
                 public void run() {
                     try {
@@ -105,7 +106,7 @@ public class RouteResponseRequests {  // роутр запросов
             return true;
         }
 
-        if (in.tip == 3) { // стрельба из ружья
+        if (in.tip == Key_cod.SHOTGUN_SHOT) { // стрельба из ружья
             new Thread(new Runnable() {
                 public void run() {
                     try {
@@ -146,7 +147,7 @@ public class RouteResponseRequests {  // роутр запросов
 //        }
 
 
-        if (in.tip == 502) { // ЗАПРОС ПАРАМЕТРОВ
+        if (in.tip == Key_cod.REQUEST_FOR_PARAMETERS) { // ЗАПРОС ПАРАМЕТРОВ
             Network.StockMess stockMess = new Network.StockMess();
             stockMess.tip = -9;
             stockMess.nomer_pley = nomerP;
@@ -158,7 +159,7 @@ public class RouteResponseRequests {  // роутр запросов
             gameServer.getSnapShots().getStockBase().getOutMess().addStockOutQuery(new RequestStockServer(stockMess, nomerP));
         }
 
-        if (in.tip == -666) { // возраждение
+        if (in.tip == Key_cod.RESPOWN_PLAYER) { // возраждение
             { // ударил соперника = далее расчет демеджа
                 if (stockBase.addInSteckIn(in, nomerP)) {
                     stockBase.addOutSteckOut(in, nomerP); // записывает в стек ИН - если такое сообщение уже было - то просто хранться в ИН если нет, наоборот записывает

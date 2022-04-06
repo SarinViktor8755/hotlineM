@@ -108,7 +108,6 @@ public class SimulationUnit {
         //System.out.println("!!!!!!!          !!!!!!!!!!  " + gans);
         if (gans == 2) {
             int x, y;
-
             for (int step = 1; step <= 1200; step += 50) {
                 x = (int) (position.x + temp_vector.x * step);
                 y = (int) (position.y + temp_vector.y * step);

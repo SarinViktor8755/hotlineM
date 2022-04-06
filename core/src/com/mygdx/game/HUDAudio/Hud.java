@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -31,6 +32,8 @@ public class Hud implements Disposable {
     private TextureRegion textureAim;
     public boolean first;
 
+    private DeathMess deathMess;
+
     private BitmapFont font;
 
     Label coinCountLabel;
@@ -43,6 +46,8 @@ public class Hud implements Disposable {
     Label declaration_death1;
     Label declaration_death2;
     Label declaration_death3;
+
+
 
     Float[] ddArrayAlpha = new Float[]{0f, 0f, 0f};
 
@@ -82,6 +87,13 @@ public class Hud implements Disposable {
         first = false;
 
 
+        Label.LabelStyle style = new Label.LabelStyle(font, Color.WHITE);
+        declaration_death1 = new Label("_1111111111", style);
+        declaration_death2 = new Label("_2222222222", style);
+        declaration_death3 = new Label("_3333333333", style);
+
+        deathMess = new DeathMess(declaration_death1,declaration_death2,declaration_death3);
+
         font.getData().setScale(.8f);
         font.getColor().set(.5f, .5f, .5f, 1);
         nPlayer = 0;
@@ -94,7 +106,7 @@ public class Hud implements Disposable {
         connect = true;
 
 
-        Label.LabelStyle style = new Label.LabelStyle(font, Color.WHITE);
+
 
         raitingTextLabel = new Label("0/0", style);
         fragsTextLabel = new Label("frag : 0", style);
@@ -102,9 +114,7 @@ public class Hud implements Disposable {
         liderMathLabel = new Label("asd", style);
         notConnectLabel = new Label("", style);
 
-        declaration_death1 = new Label("_1111111111", style);
-        declaration_death2 = new Label("_2222222222", style);
-        declaration_death3 = new Label("_3333333333", style);
+
 
         Table table = new Table();
         table.top();
@@ -134,6 +144,8 @@ public class Hud implements Disposable {
         coinCountLabel = new Label("", style);
         declaration_death2.setColor(1, 1, 1, .3f);
 
+        declaration_death1.setScale(.5f);
+
         stageHUD.addActor(table);
 
     }
@@ -150,6 +162,8 @@ public class Hud implements Disposable {
     }
 
     public void update(int myPosition, int sizePlayer, int myFrags, int timer, int max_fargs) {
+
+
         this.nPlayer = sizePlayer;
         this.myPosition = myPosition;
         this.myFrags = myFrags;
@@ -157,6 +171,13 @@ public class Hud implements Disposable {
         this.liderMathLabel.setText("1st: " + max_fargs);
         this.liderMath = max_fargs;
         this.endingMathHUD.setUpdateToServer(true);
+
+    }
+
+    public void update() {
+        this.deathMess.updateMess(Gdx.graphics.getDeltaTime(),declaration_death1,declaration_death2,declaration_death3);
+
+
     }
 
 
@@ -169,6 +190,10 @@ public class Hud implements Disposable {
 
         }
 
+    }
+
+    public DeathMess getDeathMess() {
+        return deathMess;
     }
 
     public void update(float delta) {

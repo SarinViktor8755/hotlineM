@@ -65,7 +65,7 @@ public class MenuScreen implements Screen {
         wallpaper = zombiKiller.assetsManagerGame.get("menuAsset/wallpaper.png");
         logo = zombiKiller.assetsManagerGame.get("menuAsset/logo.png", Texture.class);
 ///////////////////////
-        textField.setMaxLength(20);
+        textField.setMaxLength(10);
         textField.setPosition(20, 250);
         textField.setText(NikName.getNikName());
 ///////////////////////////

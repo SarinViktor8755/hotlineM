@@ -18,6 +18,8 @@ import com.mygdx.game.HUDAudio.HelperScreen;
 import com.mygdx.game.HUDAudio.MusicGame;
 import com.mygdx.game.Lighting.B2lights;
 import com.mygdx.game.MainGaming;
+import com.mygdx.game.Service.Key_cod;
+import com.mygdx.game.Service.NikName;
 import com.mygdx.game.Service.OperationVector;
 
 import java.util.ArrayList;
@@ -31,9 +33,10 @@ import java.util.Iterator;
 
 public class MainCharacter extends Actor {
     MainGaming mg;
-
+    public static final String myNikName = NikName.getNikName();
 
     AnimationPers animationPers;
+
     private Vector2 cookAngle; // навправление тела
     private Vector2 acceleration; // навправление движения
     private Vector2 position; // позиция
@@ -80,7 +83,6 @@ public class MainCharacter extends Actor {
     }
 
 
-
     public boolean isLive() {
         return live;
     }
@@ -107,7 +109,7 @@ public class MainCharacter extends Actor {
         globalAlpha = 1;
         this.myPositionTablica = 0; // Моя позиция в таблице
         this.weapons = new Weapons();
-      //  this.lighting = new Lighting(mg);
+        //  this.lighting = new Lighting(mg);
 
 
         this.maksTexture = new ArrayList<TextureRegion>();
@@ -266,7 +268,8 @@ public class MainCharacter extends Actor {
         }
 
 
-        if(weapons.getWeapon() == 1 ) lith.setLasetOn(false); else lith.setLasetOn(true);
+        if (weapons.getWeapon() == 1) lith.setLasetOn(false);
+        else lith.setLasetOn(true);
 //        if (velocity.len2() > 250000)шаги
 //            mg.getAudioEngine().addNewSoundStepToPleyerFromID(mg.getMainClient().getMyIdConnect());
     }
@@ -318,16 +321,16 @@ public class MainCharacter extends Actor {
         int x = (int) (position.x + cookAngle.x * 80);
         int y = (int) (position.y + cookAngle.y * 80);
         try {
-          //  mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20, position.y + cookAngle.x * 20); ///вспышка
+            //  mg.getHero().getLith().startBulletFlash(position.x + cookAngle.x * 20, position.y + cookAngle.x * 20); ///вспышка
         } catch (Exception e) {
         }
 
 
         mg.getAudioEngine().pleySoundKickStick();
         mg.getMainClient().getOutStock().addStockInQuery(new RequestStock(// отправить на сервер
-                mg.getMainClient().getAndUpdateRealTime(), 1,
+                mg.getMainClient().getAndUpdateRealTime(), Key_cod.STICK_ATTACK,
                 x, y,
-                null, null, null, null, null, null
+                null, null, null, null, null, NikName.getNikName()
         ));
     }
 
@@ -344,9 +347,9 @@ public class MainCharacter extends Actor {
         }
         int cookAngle = (int) (getCookAngle().angle());  // направление
         mg.getMainClient().getOutStock().addStockInQuery(new RequestStock(// отправить на сервер
-                mg.getMainClient().getAndUpdateRealTime(), 2,
+                mg.getMainClient().getAndUpdateRealTime(), Key_cod.GUN_SHOT,
                 x, y,
-                cookAngle, null, null, null, null, null
+                cookAngle, null, null, null, null, NikName.getNikName()
         ));
         getOtherPlayers().getPlayerToID(id).getAnimatonBody().addAnimationAttackPistols();// добавляем анимацию
 
@@ -375,9 +378,9 @@ public class MainCharacter extends Actor {
         int cookAngle = (int) (getCookAngle().angle());  // направление
         mg.getAudioEngine().pleySoundKickShotgun();
         mg.getMainClient().getOutStock().addStockInQuery(new RequestStock(// отправить на сервер
-                mg.getMainClient().getAndUpdateRealTime(), 3,
+                mg.getMainClient().getAndUpdateRealTime(), Key_cod.SHOTGUN_SHOT,
                 x, y,
-                cookAngle, null, null, null, null, null
+                cookAngle, null, null, null, null, NikName.getNikName()
         ));
 
         Vector2 delta = new Vector2(this.cookAngle);
@@ -461,7 +464,7 @@ public class MainCharacter extends Actor {
 
                 //for ()
                 Integer key = iter.next();
-            //    System.out.println(MathUtils.sin(key));
+                //    System.out.println(MathUtils.sin(key));
                 if (mg.getMainClient().getMyIdConnect() == key || (mg.getHero().getOtherPlayers().getXplayToId(key) == 0))
                     continue; //или это я же - иил у нас кент в загашнике на позиции - 0
                 try {
@@ -485,13 +488,12 @@ public class MainCharacter extends Actor {
                             mg.getHero().getOtherPlayers().getRotationToId(key)); // telo
 
 
-
 //Color.BROWN
 //Color.GREEN
 //Color.ROYAL
 //Color.RED
                     //if(viseble)mg.getBatch().setColor(mg.getHero().getOtherPlayers().getColorPfromId(key));
-                   // setColor(getOtherPlayers().getPlayerToID(key).getColor());
+                    // setColor(getOtherPlayers().getPlayerToID(key).getColor());
                     mg.getBatch().setColor(getOtherPlayers().getPlayerToID(key).getColor());
                     mg.getBatch().draw(animationPers.getTextureVestFromId(key, getOtherPlayers().getPlayerToID(key).getWeapons()), (xz - 125), (yz - 125), 125, 125, 250, 250, 1.375f, 1.375f, mg.getHero().getOtherPlayers().getRotationToId(key));   // gelet желет
                     mg.getBatch().setColor(1, 1, 1, 1);
@@ -523,16 +525,17 @@ public class MainCharacter extends Actor {
             try {
 
 
-            Integer key = iter.next();
-            int xz = mg.getHero().getOtherPlayers().getXplayToId(key);
-            int yz = mg.getHero().getOtherPlayers().getYplayToId(key);
-            textFont.draw(spriteBatch, mg.getHero().getOtherPlayers().getNikName(key) +"  "+ key, xz, yz);
-            }catch (ConcurrentModificationException e){}
+                Integer key = iter.next();
+                int xz = mg.getHero().getOtherPlayers().getXplayToId(key);
+                int yz = mg.getHero().getOtherPlayers().getYplayToId(key);
+                textFont.draw(spriteBatch, mg.getHero().getOtherPlayers().getNikName(key) + "  " + key, xz, yz);
+            } catch (ConcurrentModificationException e) {
+            }
         }
 
     }
 
-    static String getNikNameGen(int id) {
+    static public String getNikNameGen(int id) {
         if (id < 0) id = id * -1;
         ArrayList<String> names = new ArrayList<String>();
         names.add("Bubba");
@@ -578,7 +581,7 @@ public class MainCharacter extends Actor {
         names.add("Sarin");
         names.add("Sasha");
 
-      //  System.out.println(id);
+        //  System.out.println(id);
         while (id >= names.size()) {
             id = id / 2;
         }
@@ -625,7 +628,7 @@ public class MainCharacter extends Actor {
         //this.weapon.setFragWithLife(0);
         //создаем пакет и отправляем
         mg.getMainClient().getOutStock().addStockInQuery(new RequestStock(// отправить на сервер - возраждение
-                mg.getMainClient().getAndUpdateRealTime(), -666,
+                mg.getMainClient().getAndUpdateRealTime(), Key_cod.RESPOWN_PLAYER,
                 null, null,
                 null, null, null, null, null, null
         ));
@@ -650,9 +653,17 @@ public class MainCharacter extends Actor {
         if (l > 1200) return false;
         float x = this.position.cpy().sub(OperationVector.get_Setter_Temp_vector()).x;
         float y = this.position.cpy().sub(OperationVector.get_Setter_Temp_vector()).y;
-
-
         return true;
+    }
+
+
+    public String getMyNikNamePlayer(int id) {
+        String result = "";
+        if (id < 0) result = getNikNameGen(id);
+        else if (id == mg.getMainClient().myIdConnect) result = MainCharacter.myNikName;
+
+
+        return result;
     }
 
 

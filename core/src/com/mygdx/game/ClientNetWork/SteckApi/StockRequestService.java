@@ -4,10 +4,12 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.ClientNetWork.Network;
 import com.mygdx.game.MainGaming;
+import com.mygdx.game.Service.Key_cod;
 import com.mygdx.game.Service.OperationVector;
 import com.mygdx.game.Service.TimeService;
 
 
+import java.security.Key;
 import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -127,7 +129,7 @@ public class StockRequestService {
     private void consumer(Map.Entry<Integer, RequestStock> entry) {
         //System.out.println("tip ^ " + entry.getValue());
         int tip = entry.getValue().tip;
-        if (tip == 1) { // атака палкой
+        if (tip == Key_cod.STICK_ATTACK) { // атака палкой
             if (checkTimeEven(5000, entry.getValue().eventTime)) return;
             if (entry.getValue().nomer_pley == mg.getMainClient().getMyIdConnect()) return;
             mg.getHero().changeWeaponsForOlayer(entry.getValue().nomer_pley, 1);
@@ -145,7 +147,7 @@ public class StockRequestService {
             return;
         }
 
-        if (tip == 2) {
+        if (tip == Key_cod.GUN_SHOT) {
             if (checkTimeEven(5000, entry.getValue().eventTime)) return;
             if (entry.getValue().nomer_pley == mg.getMainClient().getMyIdConnect()) return;
             mg.getHero().changeWeaponsForOlayer(entry.getValue().nomer_pley, 2);
@@ -159,7 +161,7 @@ public class StockRequestService {
             return;
         }
 
-        if (tip == 3) {
+        if (tip == Key_cod.SHOTGUN_SHOT) {
             if (checkTimeEven(5000, entry.getValue().eventTime)) return;
             if (entry.getValue().nomer_pley == mg.getMainClient().getMyIdConnect()) return;
             mg.getHero().changeWeaponsForOlayer(entry.getValue().nomer_pley, 3);
@@ -174,7 +176,7 @@ public class StockRequestService {
             return;
         }
 
-        if (tip == -2) { // кого то убили
+        if (tip == Key_cod.PLAYERS_DEATH) { // кого то убили
             //System.out.println(entry.getValue());
             int x = mg.getHero().getOtherPlayers().getXplayToId(entry.getValue().nomer_pley);
             int y = mg.getHero().getOtherPlayers().getYplayToId(entry.getValue().nomer_pley);
@@ -191,28 +193,32 @@ public class StockRequestService {
 
 
             if (entry.getValue().p2 == null) {
+                System.out.println(entry.getValue());
                 mg.getHero().getPoolBlood().getDistroyAnimation(MathUtils.random(1, 8), x, y, entry.getValue().nomer_pley);
+                mg.getHud().getDeathMess().addMessDead(mg.getHero().getMyNikNamePlayer(entry.getValue().nomer_pley), mg.getHero().getMyNikNamePlayer(entry.getValue().nomer_pley));
+
                 return;
             }// анимация кровм и тел
             if (entry.getValue().p2 == 2) {
                 mg.getHero().getPoolBlood().getDistroyAnimation(MathUtils.random(1, 8), x, y, entry.getValue().nomer_pley, 2, entry.getValue().p1);
+                mg.getHud().getDeathMess().addMessDead(mg.getHero().getMyNikNamePlayer(entry.getValue().nomer_pley), mg.getHero().getMyNikNamePlayer(entry.getValue().nomer_pley));
                 return;
             }// анимация кровм и тел
             if (entry.getValue().p2 == 3) {
                 mg.getHero().getPoolBlood().getDistroyAnimation(MathUtils.random(1, 8), x, y, entry.getValue().nomer_pley, 3, entry.getValue().p1);
+                mg.getHud().getDeathMess().addMessDead(mg.getHero().getMyNikNamePlayer(entry.getValue().nomer_pley), mg.getHero().getMyNikNamePlayer(entry.getValue().nomer_pley));
                 return;
             }// анимация кровм и тел
-
             return;
         }
         //System.out.println(entry.getValue());
-        if (tip == -666) { // сервер говорит что кто то ожил
+        if (tip == Key_cod.RESPOWN_PLAYER) { // сервер говорит что кто то ожил
             if (checkTimeEven(5000, entry.getValue().eventTime)) return;
             mg.getHero().getOtherPlayers().setLiveTiId(entry.getValue().nomer_pley, true);
             return;
         }
 
-        if (tip == 500) { // Старт Матча
+        if (tip == Key_cod.START_MATH) { // Старт Матча
             System.out.println("Старт Матча!!!!!!!!!!!!!!");
             //FileLog.saveToFileNewThred();
 
@@ -220,13 +226,13 @@ public class StockRequestService {
             return;
         }
 
-        if (tip == 78) { // смена оружие
+        if (tip == Key_cod.CHANGING_WEAPONS) { // смена оружие
             mg.getHero().changeWeaponsForOlayer(entry.getValue().p1, entry.getValue().p2);
             //System.out.println(entry.getValue());
             return;
         }
 
-        if (tip == -9) { // получение параметров
+        if (tip == Key_cod.GETTING_PARAMETERS) { // получение параметров
 //            System.out.println("-----");
 //            System.out.println(entry.getValue());
             if (entry.getValue().p2 == -99) {

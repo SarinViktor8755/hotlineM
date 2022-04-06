@@ -132,6 +132,8 @@ public class MainGaming implements Screen {
             return;
         }
 
+        getHud().update();
+
         //   System.out.println("assets:: " + AssetsManagerGame.loadAsset(zk.assetsManagerGame));
 //        System.out.println(getHero().getPosition());
 //        System.out.println("camera " +getCamera().position);

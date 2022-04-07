@@ -19,9 +19,8 @@ com/mygdx/game/Lighting/ObFromLight.java
  com.mygdx.game.Lighting.ObFromLight
 com/mygdx/game/Characters/OtherPlayers.java
  com.mygdx.game.Characters.OtherPlayers
-com/mygdx/game/Menu/MenuScreen.java
- com.mygdx.game.Menu.MenuScreen
- com.mygdx.game.Menu.MenuScreen$1
+com/mygdx/game/Service/StaticService.java
+ com.mygdx.game.Service.StaticService
 com/mygdx/game/Service/Key_cod.java
  com.mygdx.game.Service.Key_cod
 com/mygdx/game/Characters/Animation/AnimationBodyFreme.java
@@ -123,15 +122,14 @@ com/mygdx/game/GameSpace.java
  com.mygdx.game.GameSpace
 com/mygdx/game/BloodBullet/Blood.java
  com.mygdx.game.BloodBullet.Blood
-com/mygdx/game/ZombiKiller.java
- com.mygdx.game.ZombiKiller
- com.mygdx.game.ZombiKiller$1
-com/mygdx/game/Service/StaticService.java
- com.mygdx.game.Service.StaticService
+com/mygdx/game/BloodBullet/BulletHit.java
+ com.mygdx.game.BloodBullet.BulletHit
 com/mygdx/game/MainGaming.java
  com.mygdx.game.MainGaming
 com/mygdx/game/BloodBullet/Bullet.java
  com.mygdx.game.BloodBullet.Bullet
+com/mygdx/game/BloodBullet/PoolBlood.java
+ com.mygdx.game.BloodBullet.PoolBlood
 com/mygdx/game/Characters/MainCharacter.java
  com.mygdx.game.Characters.MainCharacter
 com/mygdx/game/HUDAudio/EndingMathHUD.java
@@ -140,7 +138,11 @@ com/mygdx/game/ClientNetWork/SteckApi/StockRequestService.java
  com.mygdx.game.ClientNetWork.SteckApi.StockRequestService
 com/mygdx/game/HUDAudio/SoundTrack.java
  com.mygdx.game.HUDAudio.SoundTrack
-com/mygdx/game/BloodBullet/PoolBlood.java
- com.mygdx.game.BloodBullet.PoolBlood
-com/mygdx/game/BloodBullet/BulletHit.java
- com.mygdx.game.BloodBullet.BulletHit
+com/mygdx/game/Menu/MenuScreen.java
+ com.mygdx.game.Menu.MenuScreen
+ com.mygdx.game.Menu.MenuScreen$1
+com/mygdx/game/ZombiKiller.java
+ com.mygdx.game.ZombiKiller
+ com.mygdx.game.ZombiKiller$1
+com/mygdx/game/HUDAudio/VoiceChat.java
+ com.mygdx.game.HUDAudio.VoiceChat

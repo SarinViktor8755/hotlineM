@@ -27,23 +27,18 @@ public class MenuScreen implements Screen {
     private OrthographicCamera camera;
     private String limit = "";
     private float alphaScreen;
-
     ZombiKiller zombiKiller;
-
     private Stage stageMenu;
     TextButton textButton;
-
     private Texture wallpaper;
     private Texture logo;
-
-
     private float timeInScreen;
     private float timerStartGame; // переменная для анимации
     TextField textField;
     Skin skinMenu;
-
     Vector2 nap;
 
+    boolean long_logo;
 
     public MenuScreen() {
     }
@@ -52,6 +47,7 @@ public class MenuScreen implements Screen {
         this.zombiKiller = zombiKiller;
         timeInScreen = 0;
         timerStartGame = -1;
+        long_logo = false;
         nap = new Vector2(1.5f, 0);
         batch = new SpriteBatch();
         camera = new OrthographicCamera();
@@ -59,7 +55,6 @@ public class MenuScreen implements Screen {
         viewport.apply();
         camera.position.set(camera.viewportWidth / 10, camera.viewportHeight / 10, 0);
         camera.update();
-
         stageMenu = new Stage(viewport);
         skinMenu = zombiKiller.assetsManagerGame.get("skin/craftacular-ui.json");
         textField = new TextField(limit, skinMenu);
@@ -74,8 +69,6 @@ public class MenuScreen implements Screen {
         textButton = new TextButton("Play Game", skinMenu);
         textButton.setPosition(40, 80);
         textButton.setSize(250, 80);
-
-
         textButton.addListener(new InputListener() {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -94,27 +87,30 @@ public class MenuScreen implements Screen {
                 return true;
             }
         });
-
         stageMenu = new Stage(viewport);
         stageMenu.addActor(textButton);
         stageMenu.addActor(textField);
-
         Gdx.input.setInputProcessor(stageMenu);
         alphaScreen = 1;
-
     }
 
     private void upDateScreen(float delta) {
+        if (long_logo) {
+            if (MathUtils.randomBoolean(.01f)) long_logo = false;
+        } else if (MathUtils.randomBoolean(.05f)) long_logo = true;
+        if (long_logo) {
+            nap.setLength(0.5f);
+        } else nap.setLength(6.8f);
+
+
         timeInScreen += delta;
         nap.rotate(delta * 100);
-
         if (timerStartGame >= 0) {
             timerStartGame += delta;
             alphaScreen = 1 - (timerStartGame / 2);
             textButton.setColor(1, 1, 1, alphaScreen);
             textField.setColor(1, 1, 1, alphaScreen);
             //logo.set
-
             if (timerStartGame > 2) startGameScreen();
         }
     }
@@ -125,7 +121,6 @@ public class MenuScreen implements Screen {
 
     @Override
     public void show() {
-
     }
 
     @Override
@@ -137,25 +132,25 @@ public class MenuScreen implements Screen {
         this.batch.setProjectionMatrix(camera.combined);
         this.batch.begin();
         this.batch.setColor(1, 1, 1, alphaScreen);
-
         batch.draw(wallpaper, viewport.getScreenX(),
                 viewport.getScreenY() - ((Interpolation.bounce.apply((MathUtils.sin(timeInScreen) + 1) / 2) * 100)),
                 camera.viewportWidth * 1.15f, camera.viewportHeight * 1.15f);
-
         for (int i = 8; i > 0; i--) {
             //batch.draw(logo, viewport.getScreenX() - (i * nap.x), (viewport.getScreenY() + 550 + ((MathUtils.cos(timeInScreen * 3) + 1) / 2) * 20) - (i * nap.y));
             if (MathUtils.randomBoolean(.3f))
                 batch.setColor(MathUtils.random(.4f, 1f), MathUtils.sin(i / 2f), MathUtils.sin(i / 2f), alphaScreen);
-            batch.draw(logo, viewport.getScreenX() - (i * nap.x + MathUtils.random(.5f)), viewport.getScreenY() + 550 - (i * nap.y) + MathUtils.random(.5f));
+
+            if (long_logo)
+                batch.draw(logo, viewport.getScreenX() - (i * nap.x + MathUtils.random(.5f)), viewport.getScreenY() + 550 - (i * nap.y) + MathUtils.random(.5f));
+            else
+                batch.draw(logo, viewport.getScreenX() - (i * nap.x + MathUtils.random(.5f))+MathUtils.random(-5,5), viewport.getScreenY() + 550 - (i * nap.y) + MathUtils.random(.5f)+MathUtils.random(-5,5));
+
+
             batch.setColor(1, 1, 1, 1);
         }
-
-
         //  batch.draw(wallpaper,0,0,1500,1500);
         this.batch.end();
         stageMenu.draw();
-
-
     }
 
     @Override
@@ -167,23 +162,19 @@ public class MenuScreen implements Screen {
 
     @Override
     public void pause() {
-
     }
 
     @Override
     public void resume() {
-
     }
 
     @Override
     public void hide() {
-
     }
 
     @Override
     public void dispose() {
         batch.dispose();
         wallpaper.dispose();
-
     }
 }

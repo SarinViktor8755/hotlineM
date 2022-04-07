@@ -215,14 +215,12 @@ public class PoolBlood {
     }
 
     public void generating_rain_blood(int x, int y, int count) {
-
         if(MathUtils.randomBoolean(.3f)) return;
         temp_v.setLength(20);
         for (int i = 0; i < count; i++) {
             temp_v.rotate(MathUtils.random(0,360));
             getBoload(x, y, textureRegions.get(66),  MathUtils.random(.02f,0.1f), 1, (int)temp_v.y, (int)temp_v.x);
         }
-
     }
 
     public void getDistroyHeadAnimation(int q, int x, int y, int player) { // простая анимация  - отрыв головы

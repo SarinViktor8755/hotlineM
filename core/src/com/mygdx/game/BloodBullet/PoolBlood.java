@@ -522,6 +522,13 @@ public class PoolBlood {
 
     }
 
+    public void renderAd(SpriteBatch spriteBatch) {
+        for (SlidingAd slidingAd : slidingAdDeque) {
+            if (!slidingAd.isLive()) continue;
+            slidingAd.renderAd(spriteBatch);
+        }
+    }
+
     ///////
     public void startingAdLose() {
         SlidingAd slidingAd = this.slidingAdDeque.pollFirst();
@@ -565,5 +572,6 @@ public class PoolBlood {
         slidingAd.starterNewAd(100, 100, .5f, textureRegions.get(6), 4);
         slidingAdDeque.addFirst(slidingAd);
     }
+
 
 }

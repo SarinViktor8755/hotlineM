@@ -2,6 +2,7 @@ package com.mygdx.game.Menu;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -25,7 +26,7 @@ public class MenuScreen implements Screen {
     private StretchViewport viewport;
     private OrthographicCamera camera;
     private String limit = "";
-    private float alphaScreen = 1;
+    private float alphaScreen;
 
     ZombiKiller zombiKiller;
 
@@ -38,7 +39,7 @@ public class MenuScreen implements Screen {
 
     private float timeInScreen;
     private float timerStartGame; // переменная для анимации
-
+    TextField textField;
     Skin skinMenu;
 
     Vector2 nap;
@@ -51,7 +52,7 @@ public class MenuScreen implements Screen {
         this.zombiKiller = zombiKiller;
         timeInScreen = 0;
         timerStartGame = -1;
-        nap = new Vector2(3, 0);
+        nap = new Vector2(1.5f, 0);
         batch = new SpriteBatch();
         camera = new OrthographicCamera();
         viewport = new StretchViewport(ZombiKiller.WHIDE_SCREEN / 2, ZombiKiller.HIDE_SCREEN / 2, camera);
@@ -60,25 +61,34 @@ public class MenuScreen implements Screen {
         camera.update();
 
         stageMenu = new Stage(viewport);
-        skinMenu = zombiKiller.assetsManagerGame.get("skin/uiskin.json");
-        final TextField textField = new TextField(limit, skinMenu);
+        skinMenu = zombiKiller.assetsManagerGame.get("skin/craftacular-ui.json");
+        textField = new TextField(limit, skinMenu);
         wallpaper = zombiKiller.assetsManagerGame.get("menuAsset/wallpaper.png");
         logo = zombiKiller.assetsManagerGame.get("menuAsset/logo.png", Texture.class);
 ///////////////////////
         textField.setMaxLength(10);
-        textField.setPosition(20, 250);
+        textField.setPosition(40, 180);
+        textField.setSize(250, 50);
         textField.setText(NikName.getNikName());
 ///////////////////////////
         textButton = new TextButton("Play Game", skinMenu);
+        textButton.setPosition(40, 80);
+        textButton.setSize(250, 80);
+
+
         textButton.addListener(new InputListener() {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                if (textField.getText().length() < 1) return;
                 NikName.setNikName(textField.getText());
-
             }
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                if (textField.getText().length() < 1) {
+                    textField.setColor(Color.RED);
+                    return false;
+                }
                 NikName.setNikName(textField.getText());
                 timerStartGame = 0;
                 return true;
@@ -90,20 +100,23 @@ public class MenuScreen implements Screen {
         stageMenu.addActor(textField);
 
         Gdx.input.setInputProcessor(stageMenu);
-
+        alphaScreen = 1;
 
     }
 
     private void upDateScreen(float delta) {
         timeInScreen += delta;
         nap.rotate(delta * 100);
+
         if (timerStartGame >= 0) {
             timerStartGame += delta;
             alphaScreen = 1 - (timerStartGame / 2);
+            textButton.setColor(1, 1, 1, alphaScreen);
+            textField.setColor(1, 1, 1, alphaScreen);
+            //logo.set
+
             if (timerStartGame > 2) startGameScreen();
         }
-
-
     }
 
     private void startGameScreen() {
@@ -124,21 +137,16 @@ public class MenuScreen implements Screen {
         this.batch.setProjectionMatrix(camera.combined);
         this.batch.begin();
         this.batch.setColor(1, 1, 1, alphaScreen);
-        ////////....................
-        ////////....................
-        ////////....................
-        ////////....................
+
         batch.draw(wallpaper, viewport.getScreenX(),
                 viewport.getScreenY() - ((Interpolation.bounce.apply((MathUtils.sin(timeInScreen) + 1) / 2) * 100)),
                 camera.viewportWidth * 1.15f, camera.viewportHeight * 1.15f);
 
-
-        for (int i = 15; i > 0; i--) {
+        for (int i = 8; i > 0; i--) {
             //batch.draw(logo, viewport.getScreenX() - (i * nap.x), (viewport.getScreenY() + 550 + ((MathUtils.cos(timeInScreen * 3) + 1) / 2) * 20) - (i * nap.y));
-
-            if (MathUtils.randomBoolean(.8f))
-                batch.setColor(MathUtils.sin(i), MathUtils.sin(i / 2f), MathUtils.sin(i / 2f), alphaScreen);
-            batch.draw(logo, viewport.getScreenX() - (i * nap.x), viewport.getScreenY() + 550 - (i * nap.y));
+            if (MathUtils.randomBoolean(.3f))
+                batch.setColor(MathUtils.random(.4f, 1f), MathUtils.sin(i / 2f), MathUtils.sin(i / 2f), alphaScreen);
+            batch.draw(logo, viewport.getScreenX() - (i * nap.x + MathUtils.random(.5f)), viewport.getScreenY() + 550 - (i * nap.y) + MathUtils.random(.5f));
             batch.setColor(1, 1, 1, 1);
         }
 

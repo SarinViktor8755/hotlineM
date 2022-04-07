@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -32,9 +33,13 @@ public class Hud implements Disposable {
     private TextureRegion textureAim;
     public boolean first;
 
+    SpriteBatch spriteBatch;
+
     private DeathMess deathMess;
 
     private BitmapFont font;
+
+
 
     Label coinCountLabel;
     Label raitingTextLabel; // 1/3
@@ -51,6 +56,7 @@ public class Hud implements Disposable {
 
 
     Float[] ddArrayAlpha = new Float[]{0f, 0f, 0f};
+
 
 
     public int getTimer() {
@@ -156,6 +162,8 @@ public class Hud implements Disposable {
         stageHUD.addActor(table);
         stageHUD.addActor(table2);
 
+
+        spriteBatch = new SpriteBatch();
     }
 
     public Stage getStageHUD() {
@@ -170,8 +178,6 @@ public class Hud implements Disposable {
     }
 
     public void update(int myPosition, int sizePlayer, int myFrags, int timer, int max_fargs) {
-
-
         this.nPlayer = sizePlayer;
         this.myPosition = myPosition;
         this.myFrags = myFrags;
@@ -247,6 +253,9 @@ public class Hud implements Disposable {
 
     public void render(float dt) {
         stageHUD.draw();
+
+
+
     }
 
 

@@ -155,11 +155,12 @@ public class MainGaming implements Screen {
 
 
         gHero.draw(batch, 1);
-        getHero().getPoolBlood().renderAd(getBatch(), this);
+
         try {
             rot.set(camera.up.x, camera.up.y);
             getHero().getLith().setConeTower(getHero().getPosition().x, getHero().getPosition().y, rot.angle());
             getHero().getLith().renderLights(camera); // освещение
+           // getHero().getPoolBlood().renderAd(getBatch(), this);
         } catch (Exception e) {
         }
 
@@ -171,6 +172,10 @@ public class MainGaming implements Screen {
         soundtrack.ubdate(dt);
         hud.render(dt);
         this.timeInGame += delta;
+
+        getBatch().begin();
+        getHero().getPoolBlood().renderAd(getBatch());
+        getBatch().end();
     }
 
 

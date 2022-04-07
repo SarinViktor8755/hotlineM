@@ -32,10 +32,10 @@ public class SlidingAd {
         if (!isLive()) return;
         this.timer += delta;
         if (timer > endTime) deathAd();
-        float k = MathUtils.clamp(Interpolation.pow5Out.apply(timer *.65f), 0, 1);
+        float k = MathUtils.clamp(Interpolation.pow5Out.apply(timer * .65f), 0, 1);
         scale = 1 + k;
         alpha = k;
-        if(endTime - timer < endTime /10) alpha -=delta * 100;
+        if (endTime - timer < endTime / 10) alpha -= delta * 100;
     }
 
     public void renderAd(SpriteBatch spriteBatch, MainGaming mainGaming) {
@@ -52,6 +52,11 @@ public class SlidingAd {
         spriteBatch.setColor(1, 1, 1, 1);
     }
 
+    public void renderAd(SpriteBatch spriteBatch) {
+        spriteBatch.setColor(1, 1, 1, alpha);
+        spriteBatch.draw(this.textureRegion, 40, 500);
+        spriteBatch.setColor(1, 1, 1, 1);
+    }
 
     public void starterNewAd(float x, float y, float endTimer, TextureRegion textureRegion, float scale) {
         this.positi.set(x, y);

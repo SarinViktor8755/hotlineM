@@ -38,12 +38,15 @@ public class MenuScreen implements Screen {
     Skin skinMenu;
     Vector2 nap;
 
+    ShaderFilm shaderFilm;
+
     boolean long_logo;
 
     public MenuScreen() {
     }
 
     public MenuScreen(ZombiKiller zombiKiller) {
+        shaderFilm = new ShaderFilm();
         this.zombiKiller = zombiKiller;
         timeInScreen = 0;
         timerStartGame = -1;
@@ -92,6 +95,11 @@ public class MenuScreen implements Screen {
         stageMenu.addActor(textField);
         Gdx.input.setInputProcessor(stageMenu);
         alphaScreen = 1;
+
+        shaderFilm.setGrayScaleExtraAmount(.3f);
+        batch.setShader(shaderFilm.getShader());
+
+
     }
 
     private void upDateScreen(float delta) {
@@ -103,6 +111,8 @@ public class MenuScreen implements Screen {
         } else nap.setLength(6.8f);
 
 
+
+        shaderFilm.start(Gdx.graphics.getDeltaTime());
         timeInScreen += delta;
         nap.rotate(delta * 100);
         if (timerStartGame >= 0) {

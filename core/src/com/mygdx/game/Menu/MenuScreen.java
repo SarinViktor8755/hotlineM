@@ -41,7 +41,7 @@ public class MenuScreen implements Screen {
     Vector2 nap;
 
     ShaderFilm shaderFilm;
-    Shader shader;
+    ShaderProgram shader;
 
     boolean long_logo;
 
@@ -99,19 +99,20 @@ public class MenuScreen implements Screen {
         Gdx.input.setInputProcessor(stageMenu);
         alphaScreen = 1;
 
-        shaderFilm.setGrayScaleExtraAmount(.3f);
+        //shaderFilm.setGrayScaleExtraAmount(.3f);
 
 
         shaderFilm.getShader().pedantic = false;
-        shader = (Shader) new ShaderProgram(shaderFilm.getShader().getVertexShaderSource(),shaderFilm.getShader().getVertexShaderSource());
-//        if (!shader.isCompiled()) {
-//            System.err.println(shader.getLog());
-//            System.exit(0);
-//        }
+        shader =  new ShaderProgram(shaderFilm.getShader().getVertexShaderSource(),shaderFilm.getShader().getVertexShaderSource());
+        if (!shader.isCompiled()) {
+            System.err.println(shader.getLog());
+     //       System.exit(0);
+        }
+        batch.setShader(shader);
     }
 
     private void upDateScreen(float delta) {
-        shaderFilm.start(timeInScreen);
+        shaderFilm.start(Gdx.graphics.getDeltaTime());
         if (long_logo) {
             if (MathUtils.randomBoolean(.01f)) long_logo = false;
         } else if (MathUtils.randomBoolean(.05f)) long_logo = true;
@@ -144,6 +145,8 @@ public class MenuScreen implements Screen {
 
     @Override
     public void render(float delta) {
+
+
         upDateScreen(delta);
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);

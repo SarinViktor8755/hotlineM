@@ -8,6 +8,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g3d.Shader;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -39,6 +41,7 @@ public class MenuScreen implements Screen {
     Vector2 nap;
 
     ShaderFilm shaderFilm;
+    Shader shader;
 
     boolean long_logo;
 
@@ -97,12 +100,18 @@ public class MenuScreen implements Screen {
         alphaScreen = 1;
 
         shaderFilm.setGrayScaleExtraAmount(.3f);
-        batch.setShader(shaderFilm.getShader());
 
 
+        shaderFilm.getShader().pedantic = false;
+        shader = (Shader) new ShaderProgram(shaderFilm.getShader().getVertexShaderSource(),shaderFilm.getShader().getVertexShaderSource());
+//        if (!shader.isCompiled()) {
+//            System.err.println(shader.getLog());
+//            System.exit(0);
+//        }
     }
 
     private void upDateScreen(float delta) {
+        shaderFilm.start(timeInScreen);
         if (long_logo) {
             if (MathUtils.randomBoolean(.01f)) long_logo = false;
         } else if (MathUtils.randomBoolean(.05f)) long_logo = true;
@@ -112,7 +121,7 @@ public class MenuScreen implements Screen {
 
 
 
-        shaderFilm.start(Gdx.graphics.getDeltaTime());
+
         timeInScreen += delta;
         nap.rotate(delta * 100);
         if (timerStartGame >= 0) {

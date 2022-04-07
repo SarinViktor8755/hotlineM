@@ -1,12 +1,11 @@
 com/mygdx/game/Service/OperationVector.java
  com.mygdx.game.Service.OperationVector
-com/mygdx/game/adMod/AdAds.java
- com.mygdx.game.adMod.AdAds
+com/mygdx/game/BloodBullet/Bullet.java
+ com.mygdx.game.BloodBullet.Bullet
 com/mygdx/game/Lighting/utils/Constants.java
  com.mygdx.game.Lighting.utils.Constants
-com/mygdx/game/Christmas_tree.java
- com.mygdx.game.Christmas_tree
- com.mygdx.game.Christmas_tree$layer
+com/mygdx/game/Characters/MainCharacter.java
+ com.mygdx.game.Characters.MainCharacter
 com/mygdx/game/BloodBullet/SlidingAd.java
  com.mygdx.game.BloodBullet.SlidingAd
 com/mygdx/game/HUDAudio/Hud.java
@@ -19,10 +18,12 @@ com/mygdx/game/Lighting/ObFromLight.java
  com.mygdx.game.Lighting.ObFromLight
 com/mygdx/game/Characters/OtherPlayers.java
  com.mygdx.game.Characters.OtherPlayers
-com/mygdx/game/Service/StaticService.java
- com.mygdx.game.Service.StaticService
+com/mygdx/game/adMod/AdAds.java
+ com.mygdx.game.adMod.AdAds
 com/mygdx/game/Service/Key_cod.java
  com.mygdx.game.Service.Key_cod
+com/mygdx/game/HUDAudio/VoiceChat.java
+ com.mygdx.game.HUDAudio.VoiceChat
 com/mygdx/game/Characters/Animation/AnimationBodyFreme.java
  com.mygdx.game.Characters.Animation.AnimationBodyFreme
 com/mygdx/game/LoadingScreen/LoadingScreen.java
@@ -44,14 +45,14 @@ com/mygdx/game/adMod/AdMod.java
  com.mygdx.game.adMod.AdMod
 com/mygdx/game/Ip/KillerInputProcessor.java
  com.mygdx.game.Ip.KillerInputProcessor
-com/mygdx/game/Characters/Player.java
- com.mygdx.game.Characters.Player
+com/mygdx/game/HUDAudio/EndingMathHUD.java
+ com.mygdx.game.HUDAudio.EndingMathHUD
 com/mygdx/game/HUDAudio/AudioEngine.java
  com.mygdx.game.HUDAudio.AudioEngine
 com/mygdx/game/ClientNetWork/SteckApi/RequestStock.java
  com.mygdx.game.ClientNetWork.SteckApi.RequestStock
-com/mygdx/game/SpaceMap/IndexMap.java
- com.mygdx.game.SpaceMap.IndexMap
+com/mygdx/game/BloodBullet/PoolBlood.java
+ com.mygdx.game.BloodBullet.PoolBlood
 com/mygdx/game/HUDAudio/MusicGame.java
  com.mygdx.game.HUDAudio.MusicGame
 com/mygdx/game/ClientNetWork/MainClient.java
@@ -88,24 +89,24 @@ com/mygdx/game/Ip/DesktopInputProcessorGamePley.java
  com.mygdx.game.Ip.DesktopInputProcessorGamePley
 com/mygdx/game/Lighting/B2lights.java
  com.mygdx.game.Lighting.B2lights
-com/mygdx/game/Characters/ColorPalyer.java
- com.mygdx.game.Characters.ColorPalyer
+com/mygdx/game/MainGaming.java
+ com.mygdx.game.MainGaming
 com/mygdx/game/Ip/AndroidInputProcessorGamePley.java
  com.mygdx.game.Ip.AndroidInputProcessorGamePley
 com/mygdx/game/Lighting/Lighting.java
  com.mygdx.game.Lighting.Lighting
 com/mygdx/game/Lighting/utils/b2d/BodyBuilder.java
  com.mygdx.game.Lighting.utils.b2d.BodyBuilder
-com/mygdx/game/SpaceMap/Groundmap/Tiled.java
- com.mygdx.game.SpaceMap.Groundmap.Tiled
+com/mygdx/game/ClientNetWork/SteckApi/StockRequestService.java
+ com.mygdx.game.ClientNetWork.SteckApi.StockRequestService
 com/mygdx/game/SpaceMap/Obstacles/AverageObject.java
  com.mygdx.game.SpaceMap.Obstacles.AverageObject
 com/mygdx/game/BloodBullet/Flash.java
  com.mygdx.game.BloodBullet.Flash
 com/mygdx/game/Service/TimeService.java
  com.mygdx.game.Service.TimeService
-com/mygdx/game/Service/NikName.java
- com.mygdx.game.Service.NikName
+com/mygdx/game/BloodBullet/BulletHit.java
+ com.mygdx.game.BloodBullet.BulletHit
 com/mygdx/game/Pause/BodyPart.java
  com.mygdx.game.Pause.BodyPart
 com/mygdx/game/LoadingScreen/StartScreen.java
@@ -122,27 +123,28 @@ com/mygdx/game/GameSpace.java
  com.mygdx.game.GameSpace
 com/mygdx/game/BloodBullet/Blood.java
  com.mygdx.game.BloodBullet.Blood
-com/mygdx/game/BloodBullet/BulletHit.java
- com.mygdx.game.BloodBullet.BulletHit
-com/mygdx/game/MainGaming.java
- com.mygdx.game.MainGaming
-com/mygdx/game/BloodBullet/Bullet.java
- com.mygdx.game.BloodBullet.Bullet
-com/mygdx/game/BloodBullet/PoolBlood.java
- com.mygdx.game.BloodBullet.PoolBlood
-com/mygdx/game/Characters/MainCharacter.java
- com.mygdx.game.Characters.MainCharacter
-com/mygdx/game/HUDAudio/EndingMathHUD.java
- com.mygdx.game.HUDAudio.EndingMathHUD
-com/mygdx/game/ClientNetWork/SteckApi/StockRequestService.java
- com.mygdx.game.ClientNetWork.SteckApi.StockRequestService
+com/mygdx/game/Characters/ColorPalyer.java
+ com.mygdx.game.Characters.ColorPalyer
+com/mygdx/game/Service/StaticService.java
+ com.mygdx.game.Service.StaticService
+com/mygdx/game/Service/NikName.java
+ com.mygdx.game.Service.NikName
 com/mygdx/game/HUDAudio/SoundTrack.java
  com.mygdx.game.HUDAudio.SoundTrack
+com/mygdx/game/SpaceMap/IndexMap.java
+ com.mygdx.game.SpaceMap.IndexMap
+com/mygdx/game/SpaceMap/Groundmap/Tiled.java
+ com.mygdx.game.SpaceMap.Groundmap.Tiled
+com/mygdx/game/Characters/Player.java
+ com.mygdx.game.Characters.Player
+com/mygdx/game/Christmas_tree.java
+ com.mygdx.game.Christmas_tree
+ com.mygdx.game.Christmas_tree$layer
+com/mygdx/game/Menu/ShaderFilm.java
+ com.mygdx.game.Menu.ShaderFilm
 com/mygdx/game/Menu/MenuScreen.java
  com.mygdx.game.Menu.MenuScreen
  com.mygdx.game.Menu.MenuScreen$1
 com/mygdx/game/ZombiKiller.java
  com.mygdx.game.ZombiKiller
  com.mygdx.game.ZombiKiller$1
-com/mygdx/game/HUDAudio/VoiceChat.java
- com.mygdx.game.HUDAudio.VoiceChat

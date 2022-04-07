@@ -1,7 +1,7 @@
 
 character1.png
 format: RGBA8888
-filter: MipMapLinearLinear,MipMapNearestNearest
+filter: Nearest,Nearest
 repeat: none
 shotgun4
   rotate: false
@@ -332,44 +332,51 @@ shag0
   orig: 64, 64
   offset: 0, 0
   index: -1
-blood5
+blood6
   rotate: false
   xy: 68, 650
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-blood4
+blood5
   rotate: false
   xy: 68, 716
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-blood3
+blood4
   rotate: false
   xy: 68, 782
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-blood2
+blood3
   rotate: false
   xy: 68, 848
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-blood1
+blood2
   rotate: false
   xy: 68, 914
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-blood
+blood1
   rotate: false
   xy: 134, 584
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+blood
+  rotate: false
+  xy: 200, 584
   size: 64, 64
   orig: 64, 64
   offset: 0, 0

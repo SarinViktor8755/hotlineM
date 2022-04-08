@@ -7,8 +7,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g3d.Shader;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
@@ -51,17 +49,15 @@ public class MenuScreen implements Screen {
     public MenuScreen(ZombiKiller zombiKiller) {
         shaderFilm = new ShaderFilm();
         shaderFilm.getShader().pedantic = false;
-        shader =  new ShaderProgram(shaderFilm.getShader().getVertexShaderSource(),shaderFilm.getShader().getFragmentShaderSource());
+        shader = new ShaderProgram(shaderFilm.getShader().getVertexShaderSource(), shaderFilm.getShader().getFragmentShaderSource());
         if (!shader.isCompiled()) {
             System.err.println(shader.getLog());
-            //     System.exit(0);
+            System.exit(0);
         }
-        batch = new SpriteBatch();
-
+        batch = new SpriteBatch(1000);
         batch.setShader(shader);
-
-
         shaderFilm = new ShaderFilm();
+
         this.zombiKiller = zombiKiller;
         timeInScreen = 0;
         timerStartGame = -1;
@@ -115,6 +111,9 @@ public class MenuScreen implements Screen {
 
     private void upDateScreen(float delta) {
 
+        shaderFilm.start(delta);
+        shaderFilm.setGrayScaleExtraAmount(timeInScreen);
+
         if (long_logo) {
             if (MathUtils.randomBoolean(.01f)) long_logo = false;
         } else if (MathUtils.randomBoolean(.05f)) long_logo = true;
@@ -133,6 +132,8 @@ public class MenuScreen implements Screen {
             //logo.set
             if (timerStartGame > 2) startGameScreen();
         }
+
+
     }
 
     private void startGameScreen() {
@@ -146,7 +147,8 @@ public class MenuScreen implements Screen {
     @Override
     public void render(float delta) {
 
-        shaderFilm.start(delta);
+
+
         upDateScreen(delta);
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -165,7 +167,7 @@ public class MenuScreen implements Screen {
             if (long_logo)
                 batch.draw(logo, viewport.getScreenX() - (i * nap.x + MathUtils.random(.5f)), viewport.getScreenY() + 550 - (i * nap.y) + MathUtils.random(.5f));
             else
-                batch.draw(logo, viewport.getScreenX() - (i * nap.x + MathUtils.random(.5f))+MathUtils.random(-5,5), viewport.getScreenY() + 550 - (i * nap.y) + MathUtils.random(.5f)+MathUtils.random(-5,5));
+                batch.draw(logo, viewport.getScreenX() - (i * nap.x + MathUtils.random(.5f)) + MathUtils.random(-5, 5), viewport.getScreenY() + 550 - (i * nap.y) + MathUtils.random(.5f) + MathUtils.random(-5, 5));
 
 
             batch.setColor(1, 1, 1, 1);

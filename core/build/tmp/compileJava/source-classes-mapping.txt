@@ -18,8 +18,8 @@ com/mygdx/game/Lighting/ObFromLight.java
  com.mygdx.game.Lighting.ObFromLight
 com/mygdx/game/Characters/OtherPlayers.java
  com.mygdx.game.Characters.OtherPlayers
-com/mygdx/game/adMod/AdAds.java
- com.mygdx.game.adMod.AdAds
+com/mygdx/game/Characters/ColorPalyer.java
+ com.mygdx.game.Characters.ColorPalyer
 com/mygdx/game/Service/Key_cod.java
  com.mygdx.game.Service.Key_cod
 com/mygdx/game/HUDAudio/VoiceChat.java
@@ -123,8 +123,9 @@ com/mygdx/game/GameSpace.java
  com.mygdx.game.GameSpace
 com/mygdx/game/BloodBullet/Blood.java
  com.mygdx.game.BloodBullet.Blood
-com/mygdx/game/Characters/ColorPalyer.java
- com.mygdx.game.Characters.ColorPalyer
+com/mygdx/game/ZombiKiller.java
+ com.mygdx.game.ZombiKiller
+ com.mygdx.game.ZombiKiller$1
 com/mygdx/game/Service/StaticService.java
  com.mygdx.game.Service.StaticService
 com/mygdx/game/Service/NikName.java
@@ -140,11 +141,10 @@ com/mygdx/game/Characters/Player.java
 com/mygdx/game/Christmas_tree.java
  com.mygdx.game.Christmas_tree
  com.mygdx.game.Christmas_tree$layer
-com/mygdx/game/Menu/ShaderFilm.java
- com.mygdx.game.Menu.ShaderFilm
+com/mygdx/game/adMod/AdAds.java
+ com.mygdx.game.adMod.AdAds
 com/mygdx/game/Menu/MenuScreen.java
  com.mygdx.game.Menu.MenuScreen
  com.mygdx.game.Menu.MenuScreen$1
-com/mygdx/game/ZombiKiller.java
- com.mygdx.game.ZombiKiller
- com.mygdx.game.ZombiKiller$1
+com/mygdx/game/Menu/ShaderFilm.java
+ com.mygdx.game.Menu.ShaderFilm

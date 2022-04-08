@@ -23,43 +23,46 @@ public class ShaderFilm extends ShaderProgram {
                     "v_texCoords = a_texCoord0;\n" +
                     "gl_Position = u_projTrans * a_position;\n" +
                     "}";
+
     private static final String frag =
             "#ifdef GL_ES\n" +
-                    "#define LOWP lowp\n" +
-                    "#define MED mediump\n" +
-                    "#define HIGH highp\n" +
-                    "    precision mediump float;\n" +
-                    "#endif\n" +
-                    "varying vec4 v_color;\n" +
-                    "varying vec2 v_texCoords;\n" +
-                    "uniform sampler2D u_texture;\n" +
-                    "uniform float r0;\n" +
-                    "uniform float pomehi;\n" +
-                    "uniform float grayScale;\n" +
-                    "uniform float nIntensity;\n" +
-                    "uniform float sIntensity;\n" +
-                    "uniform float sCount;\n" +
-                    "uniform float sPosition;\n" +
-                    "uniform float amountRGB;\n" +
-                    "float random(vec2 seed,float time){\n" +
-                    "float x=degrees((sin(seed.x*time*82.))+cos(seed.y*time*918.4));" +
-                    "float y=degrees(cos(seed.y*time*82.))+cos(seed.x*time*984.);" +
-                    "return fract(sin(x*cos(y)));}\n" +
-                    "void main(void)\n" +
-                    "{\n" +
-                    "vec4 cTextureScreen = texture2D( u_texture,v_texCoords );\n" +
-                    "vec3 rnd=vec random(v_texCoords.xy,r0))*pomehi;\n" +
-                    "vec3 cResult = cTextureScreen.rgb + cTextureScreen.rgb * rnd;\n" +
-                    "vec2 sc = vec2( sin(( gl_FragCoord.y+sPosition) * sCount ), cos(( gl_FragCoord.y+sPosition) * sCount ) );\n" +
-                    "cResult += cTextureScreen.rgb * vec sc.x, sc.y, sc.x ) * sIntensity;\n" +
-                    "cResult = cTextureScreen.rgb + clamp( nIntensity, 0.0,1.0 ) * ( cResult - cTextureScreen.rgb );\n" +
-                    "cResult += vec cResult.r * 0.3 + cResult.g * 0.59 + cResult.b * 0.11 )*grayScale;\n" +
-                    "vec2 offset = amountRGB * vec2( cos(0.), sin(0.));\n" +
-                    "vec4 cr = texture2D(u_texture, v_texCoords + offset);\n" +
-                    "vec4 cb = texture2D(u_texture, v_texCoords- offset);\n" +
-                    "cResult += vec3(cr.r,cResult.g, cb.b)/3.;\n" +
-                    "gl_FragColor = vec4( cResult*0.8, cTextureScreen.a );\n" +
-                    "}";
+            "#define LOWP lowp\n" +
+            "#define MED mediump\n" +
+            "#define HIGH highp\n" +
+            "precision mediump float;\n" +
+            "#endif\n" +
+            "varying vec4 v_color;\n" +
+            "varying vec2 v_texCoords;\n" +
+            "uniform sampler2D u_texture;\n" +
+            "uniform float r0;\n" +
+            "uniform float pomehi;\n" +
+            "uniform float grayScale;\n" +
+            "uniform float nIntensity;\n" +
+            "uniform float sIntensity;\n" +
+            "uniform float sCount;\n" +
+            "uniform float sPosition;" +
+            "uniform float amountRGB;" +
+            "float random(vec2 seed,float time){\n" +
+            "float x=degrees((sin(seed.x*time*82.))+cos(seed.y*time*918.4));" +
+            "float y=degrees(cos(seed.y*time*82.))+cos(seed.x*time*984.);" +
+            "return fract(sin(x*cos(y)));}\n" +
+            "void main(void)\n" +
+            "{\n" +
+            "vec4 cTextureScreen = texture2D( u_texture,v_texCoords );\n" +
+            "vec3 rnd=vec random(v_texCoords.xy,r0)) * pomehi;\n" +
+            "\t\t\tvec3 cResult = cTextureScreen.rgb + cTextureScreen.rgb * rnd;\n" +
+            "\t\t\tvec2 sc = vec2(sin(( gl_FragCoord.y+sPosition) * sCount ), cos(( gl_FragCoord.y+sPosition) * sCount ));\n" +
+            "\t\t\tcResult += cTextureScreen.rgb * vec sc.x, sc.y, sc.x ) * sIntensity;\n" +
+            "\t\t\tcResult = cTextureScreen.rgb + clamp( nIntensity, 0.0,1.0 ) * ( cResult - cTextureScreen.rgb );\n" +
+            "\t\t\t\tcResult += vec cResult.r * 0.3 + cResult.g * 0.59 + cResult.b * 0.11 )*grayScale;\n" +
+            "\t\tvec2 offset = amountRGB * vec2( cos(0.), sin(0.));\n" +
+            "vec4 cr = texture2D(u_texture, v_texCoords + offset);\n" +
+            "vec4 cb = texture2D(u_texture, v_texCoords- offset);\n" +
+            "cResult += vec3(cr.r,cResult.g, cb.b)/3.;\n" +
+            "\n" +
+            "\t\t\tgl_FragColor = vec4( cResult*0.8, cTextureScreen.a );\n" +
+
+            "}";
 
     public ShaderFilm() {
         super(vert, frag);

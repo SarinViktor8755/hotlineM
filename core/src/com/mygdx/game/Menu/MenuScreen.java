@@ -51,7 +51,7 @@ public class MenuScreen implements Screen {
     public MenuScreen(ZombiKiller zombiKiller) {
         shaderFilm = new ShaderFilm();
         shaderFilm.getShader().pedantic = false;
-        shader =  new ShaderProgram(shaderFilm.getShader().getVertexShaderSource(),shaderFilm.getShader().getVertexShaderSource());
+        shader =  new ShaderProgram(shaderFilm.getShader().getVertexShaderSource(),shaderFilm.getShader().getFragmentShaderSource());
         if (!shader.isCompiled()) {
             System.err.println(shader.getLog());
             //     System.exit(0);
@@ -121,8 +121,6 @@ public class MenuScreen implements Screen {
         if (long_logo) {
             nap.setLength(0.5f);
         } else nap.setLength(6.8f);
-
-
 
 
         timeInScreen += delta;

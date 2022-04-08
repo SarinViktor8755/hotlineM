@@ -3,10 +3,6 @@ package com.mygdx.game.Menu;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.math.MathUtils;
 
-/**
- * Created by TRIPLESKY on 16.04.2017.
- */
-
 public class ShaderFilm extends ShaderProgram {
     private float timer = -0.5f;
     private float graytimer = 0;
@@ -32,7 +28,7 @@ public class ShaderFilm extends ShaderProgram {
                     "#define LOWP lowp\n" +
                     "#define MED mediump\n" +
                     "#define HIGH highp\n" +
-                    "precision mediump float;\n" +
+                    "    precision mediump float;\n" +
                     "#endif\n" +
                     "varying vec4 v_color;\n" +
                     "varying vec2 v_texCoords;\n" +
@@ -59,9 +55,9 @@ public class ShaderFilm extends ShaderProgram {
                     "cResult = cTextureScreen.rgb + clamp( nIntensity, 0.0,1.0 ) * ( cResult - cTextureScreen.rgb );\n" +
                     "cResult += vec cResult.r * 0.3 + cResult.g * 0.59 + cResult.b * 0.11 )*grayScale;\n" +
                     "vec2 offset = amountRGB * vec2( cos(0.), sin(0.));\n" +
-                    " vec4 cr = texture2D(u_texture, v_texCoords + offset);\n" +
-                    " vec4 cb = texture2D(u_texture, v_texCoords- offset);\n" +
-                    " cResult += vec3(cr.r,cResult.g, cb.b)/3.;\n" +
+                    "vec4 cr = texture2D(u_texture, v_texCoords + offset);\n" +
+                    "vec4 cb = texture2D(u_texture, v_texCoords- offset);\n" +
+                    "cResult += vec3(cr.r,cResult.g, cb.b)/3.;\n" +
                     "gl_FragColor = vec4( cResult*0.8, cTextureScreen.a );\n" +
                     "}";
 

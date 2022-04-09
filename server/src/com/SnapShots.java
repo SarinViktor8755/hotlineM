@@ -24,6 +24,7 @@ public class SnapShots {
         this.playrsLisn = new HashMap<>();
         this.stockBase = new StockBase(gs);
 
+
         // live = true;
     }
 
@@ -310,6 +311,7 @@ public class SnapShots {
         private ArrayList<SnapShot> listSShot;
         private boolean live = true;
         private int frag = 0;
+        private String nikName;
 
         private int weapon = 1; /// оружие в руках играках
         private int numberEnemiesLife = 0; /// количество фрагов за жизнь
@@ -336,6 +338,7 @@ public class SnapShots {
             this.frag = 0;
             this.weapon = 1;
             this.numberEnemiesLife = 0;
+            nikName ="";
         }
 
         public int getX() {
@@ -408,10 +411,11 @@ public class SnapShots {
             this.setNumberEnemiesLife(0);
         }
 
+
+
         public ArrayList<SnapShot> getListSShot() {
             return listSShot;
         }
-
         public int getRoom() {
             return room;
         }
@@ -432,7 +436,13 @@ public class SnapShots {
             this.numberEnemiesLife = numberEnemiesLife;
         }
 
+        public String getNikName() {
+            return nikName;
+        }
 
+        public void setNikName(String nikName) {
+            this.nikName = nikName;
+        }
     }
 
     ///////////////////////

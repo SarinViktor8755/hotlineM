@@ -41,8 +41,6 @@ public class StockBase {
     }
 
     public void addOutSteckOut(Network.StockMess requestStock, int nomerPlayer) {
-        //  System.out.println("OUT ::  " + outMess);
-        //System.out.println("IM ::  " + inMess);
         ArrayList<Integer> plroom = gameServer.getListPlayerNotId(nomerPlayer, 0);
         for (int i = 0; i < plroom.size(); i++) {
             requestStock.nomer_pley = nomerPlayer;

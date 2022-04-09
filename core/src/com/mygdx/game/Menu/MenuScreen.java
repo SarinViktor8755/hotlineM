@@ -54,9 +54,10 @@ public class MenuScreen implements Screen {
             System.err.println(shader.getLog());
             System.exit(0);
         }
-        batch = new SpriteBatch(1000);
+        batch = new SpriteBatch();
         batch.setShader(shader);
         shaderFilm = new ShaderFilm();
+
 
         this.zombiKiller = zombiKiller;
         timeInScreen = 0;
@@ -93,7 +94,7 @@ public class MenuScreen implements Screen {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 if (textField.getText().length() < 1) {
-                    textField.setColor(Color.RED);
+                    textField.setColor(Color.SALMON);
                     return false;
                 }
                 NikName.setNikName(textField.getText());
@@ -112,7 +113,8 @@ public class MenuScreen implements Screen {
     private void upDateScreen(float delta) {
 
         shaderFilm.start(delta);
-        shaderFilm.setGrayScaleExtraAmount(timeInScreen);
+        shaderFilm.setGrayScaleExtraAmount(delta);
+       // System.out.println(shaderFilm.getTimer() + " !!!" );
 
         if (long_logo) {
             if (MathUtils.randomBoolean(.01f)) long_logo = false;
@@ -146,9 +148,6 @@ public class MenuScreen implements Screen {
 
     @Override
     public void render(float delta) {
-
-
-
         upDateScreen(delta);
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -163,17 +162,16 @@ public class MenuScreen implements Screen {
             //batch.draw(logo, viewport.getScreenX() - (i * nap.x), (viewport.getScreenY() + 550 + ((MathUtils.cos(timeInScreen * 3) + 1) / 2) * 20) - (i * nap.y));
             if (MathUtils.randomBoolean(.3f))
                 batch.setColor(MathUtils.random(.4f, 1f), MathUtils.sin(i / 2f), MathUtils.sin(i / 2f), alphaScreen);
-
+            this.batch.setColor(1, 1, 1, alphaScreen);
             if (long_logo)
                 batch.draw(logo, viewport.getScreenX() - (i * nap.x + MathUtils.random(.5f)), viewport.getScreenY() + 550 - (i * nap.y) + MathUtils.random(.5f));
             else
                 batch.draw(logo, viewport.getScreenX() - (i * nap.x + MathUtils.random(.5f)) + MathUtils.random(-5, 5), viewport.getScreenY() + 550 - (i * nap.y) + MathUtils.random(.5f) + MathUtils.random(-5, 5));
-
-
             batch.setColor(1, 1, 1, 1);
         }
         //  batch.draw(wallpaper,0,0,1500,1500);
         this.batch.end();
+
         stageMenu.draw();
     }
 

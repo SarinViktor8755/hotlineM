@@ -80,7 +80,7 @@ public class RouteResponseRequests {  // роутр запросов
             return true;
         }
 
-        if (in.tip == Key_cod.GUN_SHOT) { // стрельба из пистолета
+        if (in.tip == Key_cod.GUN_SHOT) { // стрельба из пистолета;
             new Thread(new Runnable() {
                 public void run() {
                     try {
@@ -147,6 +147,7 @@ public class RouteResponseRequests {  // роутр запросов
 //        }
 
 
+
         if (in.tip == Key_cod.REQUEST_FOR_PARAMETERS) { // ЗАПРОС ПАРАМЕТРОВ
             Network.StockMess stockMess = new Network.StockMess();
             stockMess.tip = -9;
@@ -174,6 +175,8 @@ public class RouteResponseRequests {  // роутр запросов
 
         return false;
     }
+
+
 
 
 }

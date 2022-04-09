@@ -134,10 +134,10 @@ public class StockRequestService {
             if (entry.getValue().nomer_pley == mg.getMainClient().getMyIdConnect()) return;
             mg.getHero().changeWeaponsForOlayer(entry.getValue().nomer_pley, 1);
             try {
+                System.out.println(entry.getValue().string + "   !!!!!");
+                mg.getHero().getOtherPlayers().setNikName(entry.getValue().nomer_pley,entry.getValue().string);
                 mg.getHero().getOtherPlayers().getPlayerToID(entry.getValue().nomer_pley).getAnimatonBody().addAnimationAttackPipe(); // NullPointerException
                 mg.getAudioEngine().pleySoundKickStick(mg.getHero().getOtherPlayers().getXplayToId(entry.getValue().nomer_pley), mg.getHero().getOtherPlayers().getYplayToId(entry.getValue().nomer_pley));
-
-
             } catch (NullPointerException e) {
                 System.out.println("Error consumer Stick");
                 e.printStackTrace();
@@ -152,6 +152,7 @@ public class StockRequestService {
             if (entry.getValue().nomer_pley == mg.getMainClient().getMyIdConnect()) return;
             mg.getHero().changeWeaponsForOlayer(entry.getValue().nomer_pley, 2);
             try {
+                mg.getHero().getOtherPlayers().setNikName(entry.getValue().nomer_pley,entry.getValue().string);
                 mg.getHero().getOtherPlayers().getPlayerToID(entry.getValue().nomer_pley).getAnimatonBody().addAnimationAttackPistols(); // NullPointerException
                 mg.getAudioEngine().pleySoundKickPistols(mg.getHero().getOtherPlayers().getXplayToId(entry.getValue().nomer_pley), mg.getHero().getOtherPlayers().getYplayToId(entry.getValue().nomer_pley));
                 mg.getHero().getPoolBlood().addBulletOtherPlayerPistol(entry.getValue().nomer_pley);
@@ -166,6 +167,7 @@ public class StockRequestService {
             if (entry.getValue().nomer_pley == mg.getMainClient().getMyIdConnect()) return;
             mg.getHero().changeWeaponsForOlayer(entry.getValue().nomer_pley, 3);
             try {
+                mg.getHero().getOtherPlayers().setNikName(entry.getValue().nomer_pley,entry.getValue().string);
                 mg.getHero().getOtherPlayers().getPlayerToID(entry.getValue().nomer_pley).getAnimatonBody().addAnimationAttackShotgun(); // NullPointerException
                 mg.getAudioEngine().pleySoundKickShotgun(mg.getHero().getOtherPlayers().getXplayToId(entry.getValue().nomer_pley), mg.getHero().getOtherPlayers().getYplayToId(entry.getValue().nomer_pley));
 ///////////////////
@@ -193,7 +195,7 @@ public class StockRequestService {
 
 
             if (entry.getValue().p2 == null) {
-                System.out.println(entry.getValue());
+               // System.out.println(entry.getValue());
                 mg.getHero().getPoolBlood().getDistroyAnimation(MathUtils.random(1, 8), x, y, entry.getValue().nomer_pley);
                 mg.getHud().getDeathMess().addMessDead(mg.getHero().getMyNikNamePlayer(entry.getValue().nomer_pley), mg.getHero().getMyNikNamePlayer(entry.getValue().nomer_pley));
 

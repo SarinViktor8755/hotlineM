@@ -4,6 +4,7 @@ package com.mygdx.game.Characters;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.mygdx.game.Characters.Animation.AnimatonBody;
 
 import java.util.ConcurrentModificationException;
@@ -75,8 +76,11 @@ public class OtherPlayers {
         return getPlayerToID(id).getNikName();
     }
 
-    public void setNikName(int id, String name){
-        getPlayerToID(id).setNikName(name);
+    public void setNikName(int id, String nikname){
+        if(nikname == null) return;
+        if(nikname.length() < 1) return;
+       // this.gameServer.getSnapShots().getPlaeyrToId(id).setNikName(nikname);
+        this.getPlayerToID(id).setNikName(nikname);
     }
 
 
@@ -135,6 +139,8 @@ public class OtherPlayers {
     }
 
     public void upDateDeltaTimeAllPlayer(float delta) {
+
+
         //System.out.println(playersList);
         try {
             for (Player key : playersList.values()) {
@@ -148,6 +154,7 @@ public class OtherPlayers {
     }
 
     public Player getPlayerToID(int id) {
+        if(MathUtils.randomBoolean(.0005f)) System.out.println(this.playersList);
         Player result = playersList.get(id);
         if (result == null) {
             result = playersList.put(id, new Player(Integer.MIN_VALUE, 0, 0 , id));

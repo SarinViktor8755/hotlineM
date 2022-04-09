@@ -317,6 +317,7 @@ public class MainCharacter extends Actor {
 
     public void attackPipe(int id) {  // добавленеи анимации удара + отправка на сервер сообщение о нанесение удара атака
         getOtherPlayers().getPlayerToID(id).getAnimatonBody().addAnimationAttackPipe();// добавляем анимацию
+
         //System.out.println("addAnimationAttackPipe");
         int x = (int) (position.x + cookAngle.x * 80);
         int y = (int) (position.y + cookAngle.y * 80);
@@ -330,8 +331,10 @@ public class MainCharacter extends Actor {
         mg.getMainClient().getOutStock().addStockInQuery(new RequestStock(// отправить на сервер
                 mg.getMainClient().getAndUpdateRealTime(), Key_cod.STICK_ATTACK,
                 x, y,
-                null, null, null, null, null, NikName.getNikName()
+                null, null, null, null, null, myNikName
         ));
+        System.out.println(myNikName + "  -->>>>");
+
     }
 
     public B2lights getLith() {
@@ -523,12 +526,10 @@ public class MainCharacter extends Actor {
         Iterator<Integer> iter = mg.getHero().getOtherPlayers().getPlayersList().keySet().iterator();
         while (iter.hasNext()) {
             try {
-
-
                 Integer key = iter.next();
                 int xz = mg.getHero().getOtherPlayers().getXplayToId(key);
                 int yz = mg.getHero().getOtherPlayers().getYplayToId(key);
-                textFont.draw(spriteBatch, mg.getHero().getOtherPlayers().getNikName(key) + "  " + key, xz, yz);
+                textFont.draw(spriteBatch, this.getMyNikNamePlayer(key), xz, yz);
             } catch (ConcurrentModificationException e) {
             }
         }
@@ -660,9 +661,8 @@ public class MainCharacter extends Actor {
     public String getMyNikNamePlayer(int id) {
         String result = "";
         if (id < 0) result = getNikNameGen(id);
-        else if (id == mg.getMainClient().myIdConnect) result = MainCharacter.myNikName;
-
-
+        else if (id == mg.getMainClient().myIdConnect) result = MainCharacter.myNikName; else result = otherPlayers.getNikName(id);
+        if (result==null) return "";
         return result;
     }
 

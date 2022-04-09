@@ -190,21 +190,11 @@ public class Player {
         return this;
     }
 
+
     @Override
     public String toString() {
-        return "{" +
-                "x=" + x +
-                ", y=" + y +
-                ", rot=" + rot +
-                ", rotBoots=" + rotBoots +
-                ", velocity=" + velocity +
-                ", animatonBody=" + animatonBody +
-                ", live=" + live +
-                ", color=" + color +
-                ", viseble=" + viseble +
-                ", weapons=" + weapons +
-                ", tackt=" + tackt +
-                ", timerCurrenCycle=" + timerCurrenCycle +
+        return "Player{" +
+                "NikName='" + NikName + '\'' +
                 '}';
     }
 }

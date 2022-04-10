@@ -48,29 +48,16 @@ public class RouteResponseRequests {  // роутр запросов
         }
 
         if (in.tip == Key_cod.STICK_ATTACK) { // ударил соперника = далеет расчет демеджа
-
             new Thread(new Runnable() {
                 public void run() {
                     try {
                         if (stockBase.addInSteckIn(in, nomerP)) {
+                            System.out.println(in.textM + ">>>   NikName");
                             stockBase.addOutSteckOut(in, nomerP); // записывает в стек ИН - если такое сообщение уже было - то просто хранться в ИН если нет, наоборот записывает
                             gameServer.calculationСontact.getHit(in.p1, in.p2, nomerP, 0, 110);//подсчет попадания удара
 
                         }
-//            System.out.println("----------------" + stockBase.getOutMess().getSize() + "::" + stockBase.getInMess().getSize() );
-//            System.out.println("out <<  " + stockBase.getOutMess());
-//            System.out.println("in  >>  " + stockBase.getInMess());
-                        //                System.out.println("----------"+result);
-//                if(result!= Integer.MIN_VALUE)
-//                stockBase.cleanOutQuerry(); // Чистка исходящих сообщений
-//                stockBase.cleanInQuerry();  // Чистка входящих сообщений
 
-                        //System.out.println("!!!!!!!!!!!!!!!!!!!!!" + in);
-                        ////////////////////////////////////// Временный ВАРИАНТ
-
-                        //stockBase.sendOutMessege(); // рассылка сообщений
-                        /// intersectionWithThisPlayer
-                        //System.out.println("------------!! "+ in.time_even);
                     } catch (Exception e) {
                         e.printStackTrace();
                         System.out.println("ERROR tip 1");

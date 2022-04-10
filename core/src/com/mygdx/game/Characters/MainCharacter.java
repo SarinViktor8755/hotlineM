@@ -270,6 +270,7 @@ public class MainCharacter extends Actor {
 
         if (weapons.getWeapon() == 1) lith.setLasetOn(false);
         else lith.setLasetOn(true);
+        if(isLive()) lith.setLasetOn(false);
 //        if (velocity.len2() > 250000)шаги
 //            mg.getAudioEngine().addNewSoundStepToPleyerFromID(mg.getMainClient().getMyIdConnect());
     }
@@ -326,14 +327,13 @@ public class MainCharacter extends Actor {
         } catch (Exception e) {
         }
 
-
         mg.getAudioEngine().pleySoundKickStick();
         mg.getMainClient().getOutStock().addStockInQuery(new RequestStock(// отправить на сервер
                 mg.getMainClient().getAndUpdateRealTime(), Key_cod.STICK_ATTACK,
                 x, y,
                 null, null, null, null, null, myNikName
         ));
-        System.out.println(myNikName + "  -->>>>");
+
 
     }
 

@@ -134,7 +134,7 @@ public class StockRequestService {
             if (entry.getValue().nomer_pley == mg.getMainClient().getMyIdConnect()) return;
             mg.getHero().changeWeaponsForOlayer(entry.getValue().nomer_pley, 1);
             try {
-                System.out.println(entry.getValue().string + "   !!!!!");
+                System.out.println(entry.getValue() + "   ---<<<");
                 mg.getHero().getOtherPlayers().setNikName(entry.getValue().nomer_pley,entry.getValue().string);
                 mg.getHero().getOtherPlayers().getPlayerToID(entry.getValue().nomer_pley).getAnimatonBody().addAnimationAttackPipe(); // NullPointerException
                 mg.getAudioEngine().pleySoundKickStick(mg.getHero().getOtherPlayers().getXplayToId(entry.getValue().nomer_pley), mg.getHero().getOtherPlayers().getYplayToId(entry.getValue().nomer_pley));

@@ -354,7 +354,6 @@ public class SnapShots {
         }
 
         public player setX(int x) {
-
             this.x = x;
             return this;
         }

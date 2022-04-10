@@ -475,7 +475,6 @@ public class PoolBlood {
     }
 
     public void addBulletOtherPlayerPistol(int id) {
-
         Vector2 p = new Vector2(mainGaming.getHero().getOtherPlayers().getXplayToId(id), mainGaming.getHero().getOtherPlayers().getYplayToId(id));
         Vector2 cook = new Vector2(10, 10);
         try {

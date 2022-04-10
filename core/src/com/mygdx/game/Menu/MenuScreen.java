@@ -55,7 +55,7 @@ public class MenuScreen implements Screen {
             System.exit(0);
         }
         batch = new SpriteBatch();
-        batch.setShader(shader);
+        //batch.setShader(shader);
         shaderFilm = new ShaderFilm();
 
 
@@ -97,8 +97,9 @@ public class MenuScreen implements Screen {
                     textField.setColor(Color.SALMON);
                     return false;
                 }
+                if(timerStartGame<0){
                 NikName.setNikName(textField.getText());
-                timerStartGame = 0;
+                timerStartGame = 0;}
                 return true;
             }
         });

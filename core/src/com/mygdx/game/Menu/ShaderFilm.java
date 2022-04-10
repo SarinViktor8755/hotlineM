@@ -10,58 +10,80 @@ public class ShaderFilm extends ShaderProgram {
     private boolean wantraise = false;
     private float raiseamount;
     private float grayextra;
-    private static final String vert =
-            "attribute vec4 a_position;" +
-                    "attribute vec4 a_color;" +
-                    "attribute vec2 a_texCoord0;" +
-                    "uniform mat4 u_projTrans;" +
-                    "varying vec4 v_color;" +
-                    "varying vec2 v_texCoords;" +
-                    "void main(){" +
-                    "v_color=vec4(1, 1., 1., 1.);" +
-                    "v_texCoords = a_texCoord0;" +
-                    "gl_Position = u_projTrans * a_position;" +
+    final private static String VERT =
+            "attribute vec4 "+ShaderProgram.POSITION_ATTRIBUTE+";\n" +
+                    "attribute vec4 "+ShaderProgram.COLOR_ATTRIBUTE+";\n" +
+                    "attribute vec2 "+ShaderProgram.TEXCOORD_ATTRIBUTE+"0;\n" +
+
+                    "uniform mat4 u_projTrans;\n" +
+                    " \n" +
+                    "varying vec4 vColor;\n" +
+                    "varying vec2 vTexCoord;\n" +
+
+                    "void main() {\n" +
+                    "	vColor = "+ShaderProgram.COLOR_ATTRIBUTE+";\n" +
+                    "	vTexCoord = "+ShaderProgram.TEXCOORD_ATTRIBUTE+"0;\n" +
+                    "	gl_Position =  u_projTrans * " + ShaderProgram.POSITION_ATTRIBUTE + ";\n" +
                     "}";
 
-    private static final String frag =        "#ifdef GL_ES\n" +
-            "#define LOWP lowp\n" +
-            "#define MED mediump\n" +
-            "#define HIGH highp\n" +
-            "precision mediump float;\n" +
-            "#endif\n" +
-            "varying vec4 v_color;\n" +
-            "varying vec2 v_texCoords;\n" +
-            "uniform sampler2D u_texture;\n" +
-            "uniform float r0;\n" +
-            "uniform float pomehi;\n" +
-            "uniform float grayScale;\n" +
-            "uniform float nIntensity;\n" +
-            "uniform float sIntensity;\n" +
-            "uniform float sCount;\n" +
-            "uniform float sPosition;\n" +
-            "uniform float amountRGB;\n" +
-            "float random(vec2 seed,float time){\n" +
-            "float x=degrees((sin(seed.x*time*82.))+cos(seed.y*time*918.4));\n" +
-            "float y=degrees(cos(seed.y*time*82.))+cos(seed.x*time*984.);\n" +
-            "return fract(sin(x*cos(y)));}\n" +
-            "void main(void)\n" +
-            "{\n" +
-            "vec4 cTextureScreen = texture2D( u_texture,v_texCoords );\n" +
-            "vec3 rnd=vec3(random(v_texCoords.xy,r0))*pomehi;\n" +
-            "vec3 cResult = cTextureScreen.rgb + cTextureScreen.rgb * rnd;\n" +
-            "vec2 sc = vec2( sin(( gl_FragCoord.y+sPosition) * sCount ), cos(( gl_FragCoord.y+sPosition) * sCount ) );\n" +
-            "cResult += cTextureScreen.rgb * vec3( sc.x, sc.y, sc.x ) * sIntensity;\n" +
-            "cResult += cTextureScreen.rgb + clamp( nIntensity, 0.0,1.0 ) * ( cResult - cTextureScreen.rgb );\n" +
-            "cResult += vec3(cResult.r * 0.3 + cResult.g * 0.59 + cResult.b * 0.11 )*grayScale;\n" +
-            "vec2 offset = amountRGB * vec2( cos(0.), sin(0.) );\n" +
-            "vec4 cr = texture2D(u_texture, v_texCoords + offset);\n" +
-            "vec4 cb = texture2D(u_texture, v_texCoords- offset);\n" +
-            "cResult += vec3(cr.r,cResult.g, cb.b)/3.;\n" +
-            "gl_FragColor = vec4( cResult*0.8, cTextureScreen.a );\n" +
-            "}";
+    //no changes except for LOWP for color values
+    //we would store this in a file for increased readability
+    final private static String FRAG =
+            //GL ES specific stuff
+            "#ifdef GL_ES\n" +
+                    "precision mediump float;\n" +
+                    "#endif\n" +
+                    "\n" +
+                    "uniform vec2 u_resolution;\n" +
+                    "uniform vec2 u_mouse;\n" +
+                    "uniform float u_time;\n" +
+                    "\n" +
+                    "// 2D Random\n" +
+                    "float random (in vec2 st) {\n" +
+                    "    return fract(sin(dot(st.xy,\n" +
+                    "                         vec2(12.9898,78.233)))\n" +
+                    "                 * 43758.5453123);\n" +
+                    "}\n" +
+                    "\n" +
+                    "// 2D Noise based on Morgan McGuire @morgan3d\n" +
+                    "// https://www.shadertoy.com/view/4dS3Wd\n" +
+                    "float noise (in vec2 st) {\n" +
+                    "    vec2 i = floor(st);\n" +
+                    "    vec2 f = fract(st);\n" +
+                    "\n" +
+                    "    // Four corners in 2D of a tile\n" +
+                    "    float a = random(i);\n" +
+                    "    float b = random(i + vec2(1.0, 0.0));\n" +
+                    "    float c = random(i + vec2(0.0, 1.0));\n" +
+                    "    float d = random(i + vec2(1.0, 1.0));\n" +
+                    "\n" +
+                    "    // Smooth Interpolation\n" +
+                    "\n" +
+                    "    // Cubic Hermine Curve.  Same as SmoothStep()\n" +
+                    "    vec2 u = f*f*(3.0-2.0*f);\n" +
+                    "    // u = smoothstep(0.,1.,f);\n" +
+                    "\n" +
+                    "    // Mix 4 coorners percentages\n" +
+                    "    return mix(a, b, u.x) +\n" +
+                    "            (c - a)* u.y * (1.0 - u.x) +\n" +
+                    "            (d - b) * u.x * u.y;\n" +
+                    "}\n" +
+                    "\n" +
+                    "void main() {\n" +
+                    "    vec2 st = gl_FragCoord.xy/u_resolution.xy;\n" +
+                    "\n" +
+                    "    // Scale the coordinate system to see\n" +
+                    "    // some noise in action\n" +
+                    "    vec2 pos = vec2(st*5.0);\n" +
+                    "\n" +
+                    "    // Use the noise function\n" +
+                    "    float n = noise(pos);\n" +
+                    "\n" +
+                    "    gl_FragColor = vec4(vec3(n), 1.0);\n" +
+                    "}\n";
 
     public ShaderFilm() {
-        super(vert, frag);
+        super(VERT, FRAG);
     }
 
     public float getTimer() {

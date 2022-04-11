@@ -12,6 +12,8 @@ import com.mygdx.game.ClientNetWork.Network.rc;
 import com.mygdx.game.ClientNetWork.SteckApi.*;
 import com.mygdx.game.MainGaming;
 
+import com.mygdx.game.Service.Key_cod;
+import com.mygdx.game.Service.NikName;
 import com.mygdx.game.Service.TimeService;
 
 import java.io.IOException;
@@ -27,7 +29,6 @@ public class MainClient {
     public Client client;   //клиент
     private MainGaming mg;
     private int timerReConnect;
-
 
     public int myIdConnect; //Мой ИД
 
@@ -46,6 +47,10 @@ public class MainClient {
 
             public void connected(Connection connection) {
                 setMyIdConnect(connection.getID());
+                sendMyNik();
+
+
+
             }
 
             public void received(Connection connection, Object object) {
@@ -276,6 +281,16 @@ public class MainClient {
             }
 
         }
+    }
+
+
+
+    private void sendMyNik(){
+        mg.getMainClient().getOutStock().addStockInQuery(new RequestStock(// отправить на сервер
+                mg.getMainClient().getAndUpdateRealTime(), Key_cod.MY_NIK_TO_SERVER,
+                null, null,
+                null, null, null, null, null, NikName.getNikName()
+        ));
     }
 
 }

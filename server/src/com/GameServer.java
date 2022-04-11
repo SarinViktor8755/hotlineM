@@ -31,6 +31,7 @@ public class GameServer extends Listener {
     public int realTime;
     public RouteResponseRequests responseRequests;
     public CalculationСontact calculationСontact;
+    public NikNamesPlayer nikNamesPlayer;
 
 
 
@@ -113,6 +114,7 @@ public class GameServer extends Listener {
             indexMatch.start();
             this.args = args;
             this.serverLauncher = serverLauncher;
+            this.nikNamesPlayer = new NikNamesPlayer();
 
 
             server.addListener(new Listener() {

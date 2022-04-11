@@ -52,7 +52,7 @@ public class RouteResponseRequests {  // роутр запросов
                 public void run() {
                     try {
                         if (stockBase.addInSteckIn(in, nomerP)) {
-                            System.out.println(in.textM + ">>>   NikName");
+                       //     System.out.println(in.textM + ">>>   NikName");
                             stockBase.addOutSteckOut(in, nomerP); // записывает в стек ИН - если такое сообщение уже было - то просто хранться в ИН если нет, наоборот записывает
                             gameServer.calculationСontact.getHit(in.p1, in.p2, nomerP, 0, 110);//подсчет попадания удара
 
@@ -158,6 +158,17 @@ public class RouteResponseRequests {  // роутр запросов
 
                 return true;
             }
+        }
+
+        if (in.tip == Key_cod.MY_NIK_TO_SERVER) {
+            System.out.println("NIK_NAME " +  in.textM);
+            gameServer.nikNamesPlayer.hashmap.put(in.nomer_pley,in.textM);
+            gameServer.nikNamesPlayer.genrateArrayFromPlayer();
+
+            System.out.println(gameServer.nikNamesPlayer.genrateArrayFromPlayer());
+
+
+
         }
 
         return false;

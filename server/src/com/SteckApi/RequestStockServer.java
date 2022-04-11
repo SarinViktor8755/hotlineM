@@ -14,7 +14,6 @@ public class RequestStockServer {
 
     public Network.StockMess getStockMess() {
         Network.StockMess stockMess = new Network.StockMess();
-
         stockMess.p1 = this.p1;
         stockMess.p2 = this.p2;
         stockMess.p3 = this.p3;
@@ -24,6 +23,7 @@ public class RequestStockServer {
         stockMess.tip = this.tip;
         stockMess.nomer_pley = this.nomer_pley;
         stockMess.time_even = this.eventTime;
+        stockMess.textM = new String();
         return stockMess;
     }
 
@@ -54,6 +54,7 @@ public class RequestStockServer {
         this.p6 = requestStock.p6;
         this.workOff = false;
         this.string = requestStock.textM;
+      //  System.out.println("String:: " + string + ":: textM  " + requestStock.textM);
         this.nomer_pley = requestStock.nomer_pley;
 
     }

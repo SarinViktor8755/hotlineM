@@ -113,9 +113,11 @@ public class StockBase {
 
         while (entries.hasNext()) {
             Map.Entry<Integer, RequestStockServer> entrie = entries.next();
+            entrie.getValue().getStockMess().textM = new String();
+
 //            System.out.println(entrie.getValue().getStockMess().textM + " otpravka, tut null  textM");
 //            System.out.println(entrie.getValue().string + " otpravka, tut null   string");
-            entrie.getValue().getStockMess().textM = entrie.getValue().string;
+
             if (!entrie.getValue().workOff) {
                 gameServer.server.sendToUDP(entrie.getValue().fromPleayer, entrie.getValue().getStockMess());
             }

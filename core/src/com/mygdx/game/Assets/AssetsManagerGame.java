@@ -66,7 +66,7 @@ public class AssetsManagerGame {
         assetManager.load("menuAsset/logo.png", Texture.class);
         assetManager.load("menuAsset/wallpaper.png", Texture.class);
         assetManager.load("skin/craftacular-ui.json", Skin.class);
-
+        assetManager.load("audio/tvstati.ogg", Sound.class);
 
         assetManager.finishLoading();
         return assetManager;

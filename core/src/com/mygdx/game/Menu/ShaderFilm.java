@@ -10,80 +10,43 @@ public class ShaderFilm extends ShaderProgram {
     private boolean wantraise = false;
     private float raiseamount;
     private float grayextra;
-    final private static String VERT =
-            "attribute vec4 "+ShaderProgram.POSITION_ATTRIBUTE+";\n" +
-                    "attribute vec4 "+ShaderProgram.COLOR_ATTRIBUTE+";\n" +
-                    "attribute vec2 "+ShaderProgram.TEXCOORD_ATTRIBUTE+"0;\n" +
-
-                    "uniform mat4 u_projTrans;\n" +
-                    " \n" +
-                    "varying vec4 vColor;\n" +
-                    "varying vec2 vTexCoord;\n" +
-
-                    "void main() {\n" +
-                    "	vColor = "+ShaderProgram.COLOR_ATTRIBUTE+";\n" +
-                    "	vTexCoord = "+ShaderProgram.TEXCOORD_ATTRIBUTE+"0;\n" +
-                    "	gl_Position =  u_projTrans * " + ShaderProgram.POSITION_ATTRIBUTE + ";\n" +
+    final  private  static  String sp =
+            "#ifdef GL_ES   \n" +
+                    "    #define LOWP lowp\n" +
+                    "    precision mediump float;\n" +
+                    "#else\n" +
+                    "    #define LOWP\n" +
+                    "#endif\n" +
+                    "varying LOWP vec4 v_color;\n" +
+                    "varying vec2 v_texCoords;\n" +
+                    "// sampler2D это специальный формат данных в  glsl для доступа к текстуре\n" +
+                    "uniform sampler2D u_texture;\n" +
+                    "void main(){\n" +
+                    "    gl_FragColor = v_color * texture2D(u_texture, v_texCoords);// итоговый цвет пикселя\n" +
+                    "}";
+    final  private  static String vp =
+            "attribute vec4 a_position; //позиция вершины\n" +
+                    "attribute vec4 a_color; //цвет вершины\n" +
+                    "attribute vec2 a_texCoord0; //координаты текстуры\n" +
+                    "uniform mat4 u_projTrans;  //матрица, которая содержим данные для преобразования проекции и вида\n" +
+                    "varying vec4 v_color;  //цвет который будет передан в фрагментный шейдер\n" +
+                    "varying vec2 v_texCoords;  //координаты текстуры\n" +
+                    "void main(){\n" +
+                    "    v_color=a_color;\n" +
+                    "    // При передаче цвет из SpriteBatch в шейдер, происходит преобразование из ABGR int цвета в float. \n" +
+                    "    // что-бы избежать NAN  при преобразование, доступен не весь диапазон для альфы, а только значения от (0-254)\n" +
+                    "    //чтобы полностью передать непрозрачность цвета, когда альфа во float равна 1, то всю альфу приходится умножать.\n" +
+                    "    //это специфика libgdx и о ней надо помнить при переопределение  вершинного шейдера.\n" +
+                    "    v_color.a = v_color.a * (255.0/254.0);\n" +
+                    "    v_texCoords = a_texCoord0;\n" +
+                    "    //применяем преобразование вида и проекции, можно не забивать себе этим голову\n" +
+                    "    // тут происходят математические преобразование что-бы правильно учесть параметры камеры\n" +
+                    "    // gl_Position это окончательная позиция вершины \n" +
+                    "    gl_Position =  u_projTrans * a_position; \n" +
                     "}";
 
-    //no changes except for LOWP for color values
-    //we would store this in a file for increased readability
-    final private static String FRAG =
-            //GL ES specific stuff
-            "#ifdef GL_ES\n" +
-                    "precision mediump float;\n" +
-                    "#endif\n" +
-                    "\n" +
-                    "uniform vec2 u_resolution;\n" +
-                    "uniform vec2 u_mouse;\n" +
-                    "uniform float u_time;\n" +
-                    "\n" +
-                    "// 2D Random\n" +
-                    "float random (in vec2 st) {\n" +
-                    "    return fract(sin(dot(st.xy,\n" +
-                    "                         vec2(12.9898,78.233)))\n" +
-                    "                 * 43758.5453123);\n" +
-                    "}\n" +
-                    "\n" +
-                    "// 2D Noise based on Morgan McGuire @morgan3d\n" +
-                    "// https://www.shadertoy.com/view/4dS3Wd\n" +
-                    "float noise (in vec2 st) {\n" +
-                    "    vec2 i = floor(st);\n" +
-                    "    vec2 f = fract(st);\n" +
-                    "\n" +
-                    "    // Four corners in 2D of a tile\n" +
-                    "    float a = random(i);\n" +
-                    "    float b = random(i + vec2(1.0, 0.0));\n" +
-                    "    float c = random(i + vec2(0.0, 1.0));\n" +
-                    "    float d = random(i + vec2(1.0, 1.0));\n" +
-                    "\n" +
-                    "    // Smooth Interpolation\n" +
-                    "\n" +
-                    "    // Cubic Hermine Curve.  Same as SmoothStep()\n" +
-                    "    vec2 u = f*f*(3.0-2.0*f);\n" +
-                    "    // u = smoothstep(0.,1.,f);\n" +
-                    "\n" +
-                    "    // Mix 4 coorners percentages\n" +
-                    "    return mix(a, b, u.x) +\n" +
-                    "            (c - a)* u.y * (1.0 - u.x) +\n" +
-                    "            (d - b) * u.x * u.y;\n" +
-                    "}\n" +
-                    "\n" +
-                    "void main() {\n" +
-                    "    vec2 st = gl_FragCoord.xy/u_resolution.xy;\n" +
-                    "\n" +
-                    "    // Scale the coordinate system to see\n" +
-                    "    // some noise in action\n" +
-                    "    vec2 pos = vec2(st*5.0);\n" +
-                    "\n" +
-                    "    // Use the noise function\n" +
-                    "    float n = noise(pos);\n" +
-                    "\n" +
-                    "    gl_FragColor = vec4(vec3(n), 1.0);\n" +
-                    "}\n";
-
     public ShaderFilm() {
-        super(VERT, FRAG);
+        super(vp, sp);
     }
 
     public float getTimer() {

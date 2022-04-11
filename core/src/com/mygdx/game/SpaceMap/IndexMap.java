@@ -233,7 +233,7 @@ public class IndexMap {
         mainGaming.getAssetsManagerGame().finishLoading();
         mainGaming.getAssetsManagerGame().isLoaded("map/obstacles");
 
-        System.out.println(mainGaming.getAssetsManagerGame().isLoaded("map/obstacles"));
+       // System.out.println(mainGaming.getAssetsManagerGame().isLoaded("map/obstacles"));
         mainGaming.getAssetsManagerGame().get("map/obstacles");
 
 

@@ -42,11 +42,15 @@ public class MenuScreen implements Screen {
     ShaderProgram shader;
 
     boolean long_logo;
+    AudioEngineMenumain audioEngineMenumain;
+
+    float noise_delta = 0;
 
     public MenuScreen() {
     }
 
     public MenuScreen(ZombiKiller zombiKiller) {
+
         shaderFilm = new ShaderFilm();
         shaderFilm.getShader().pedantic = false;
         shader = new ShaderProgram(shaderFilm.getShader().getVertexShaderSource(), shaderFilm.getShader().getFragmentShaderSource());
@@ -97,9 +101,10 @@ public class MenuScreen implements Screen {
                     textField.setColor(Color.SALMON);
                     return false;
                 }
-                if(timerStartGame<0){
-                NikName.setNikName(textField.getText());
-                timerStartGame = 0;}
+                if (timerStartGame < 0) {
+                    NikName.setNikName(textField.getText());
+                    timerStartGame = 0;
+                }
                 return true;
             }
         });
@@ -108,6 +113,7 @@ public class MenuScreen implements Screen {
         stageMenu.addActor(textField);
         Gdx.input.setInputProcessor(stageMenu);
         alphaScreen = 1;
+        audioEngineMenumain = new AudioEngineMenumain(this);
 
     }
 
@@ -115,14 +121,27 @@ public class MenuScreen implements Screen {
 
         shaderFilm.start(delta);
         shaderFilm.setGrayScaleExtraAmount(delta);
-       // System.out.println(shaderFilm.getTimer() + " !!!" );
+        // System.out.println(shaderFilm.getTimer() + " !!!" );
 
         if (long_logo) {
-            if (MathUtils.randomBoolean(.01f)) long_logo = false;
-        } else if (MathUtils.randomBoolean(.05f)) long_logo = true;
+            if (MathUtils.randomBoolean(.01f)) {
+                long_logo = false;
+
+            }
+        } else if (MathUtils.randomBoolean(.05f)) {
+            long_logo = true;
+
+        }
         if (long_logo) {
             nap.setLength(0.5f);
-        } else nap.setLength(6.8f);
+            audioEngineMenumain.stopNoise();
+            noise_delta = 0;
+           // batch.setShader(null);
+        } else {nap.setLength(6.8f);
+            audioEngineMenumain.pleyNoise(Gdx.graphics.getDeltaTime());
+            noise_delta = -10;
+           // batch.setShader(shader);
+        }
 
 
         timeInScreen += delta;
@@ -156,18 +175,22 @@ public class MenuScreen implements Screen {
         this.batch.setProjectionMatrix(camera.combined);
         this.batch.begin();
         this.batch.setColor(1, 1, 1, alphaScreen);
-        batch.draw(wallpaper, viewport.getScreenX(),
+
+        batch.draw(wallpaper, viewport.getScreenX() + noise_delta,
                 viewport.getScreenY() - ((Interpolation.bounce.apply((MathUtils.sin(timeInScreen) + 1) / 2) * 100)),
                 camera.viewportWidth * 1.15f, camera.viewportHeight * 1.15f);
         for (int i = 8; i > 0; i--) {
             //batch.draw(logo, viewport.getScreenX() - (i * nap.x), (viewport.getScreenY() + 550 + ((MathUtils.cos(timeInScreen * 3) + 1) / 2) * 20) - (i * nap.y));
-            if (MathUtils.randomBoolean(.3f))
+            if (MathUtils.randomBoolean(.3f)){
                 batch.setColor(MathUtils.random(.4f, 1f), MathUtils.sin(i / 2f), MathUtils.sin(i / 2f), alphaScreen);
+
+
+            }
             this.batch.setColor(1, 1, 1, alphaScreen);
             if (long_logo)
-                batch.draw(logo, viewport.getScreenX() - (i * nap.x + MathUtils.random(.5f)), viewport.getScreenY() + 550 - (i * nap.y) + MathUtils.random(.5f));
+                batch.draw(logo, viewport.getScreenX() - (i * nap.x + MathUtils.random(.5f)), viewport.getScreenY() + 590 - (i * nap.y) + MathUtils.random(.5f));
             else
-                batch.draw(logo, viewport.getScreenX() - (i * nap.x + MathUtils.random(.5f)) + MathUtils.random(-5, 5), viewport.getScreenY() + 550 - (i * nap.y) + MathUtils.random(.5f) + MathUtils.random(-5, 5));
+                batch.draw(logo, viewport.getScreenX() - (i * nap.x + MathUtils.random(.5f)) + MathUtils.random(-5, 5), viewport.getScreenY() + 590 - (i * nap.y) + MathUtils.random(.5f) + MathUtils.random(-5, 5));
             batch.setColor(1, 1, 1, 1);
         }
         //  batch.draw(wallpaper,0,0,1500,1500);

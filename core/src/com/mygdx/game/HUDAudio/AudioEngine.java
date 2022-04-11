@@ -21,12 +21,6 @@ public class AudioEngine {
         this.mainGaming = mainGaming;
         stepCounter = new ConcurrentHashMap<Integer, Float>();
         musicGame = new MusicGame();
-        //this.soundKickStick = mainGaming.getAssetsManagerGame().get();
-//        this.soundKickStick = soundKickStick;
-//        this.soundTrampFot = soundTrampFot;
-//        this.soundBrainSmeared = soundBrainSmeared;
-//        this.soundWinRound = soundWinRound;
-//        this.soundFailureRound = soundFailureRound;
     }
 
     public void pleySoundKickStick(int xEvents, int yEvents) {

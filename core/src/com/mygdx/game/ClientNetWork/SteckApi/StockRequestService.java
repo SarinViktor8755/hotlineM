@@ -127,14 +127,14 @@ public class StockRequestService {
     }
 
     private void consumer(Map.Entry<Integer, RequestStock> entry) {
-        //System.out.println("tip ^ " + entry.getValue());
+       //System.out.println("tip ^ " + entry.getValue().string);
         int tip = entry.getValue().tip;
         if (tip == Key_cod.STICK_ATTACK) { // атака палкой
             if (checkTimeEven(5000, entry.getValue().eventTime)) return;
             if (entry.getValue().nomer_pley == mg.getMainClient().getMyIdConnect()) return;
             mg.getHero().changeWeaponsForOlayer(entry.getValue().nomer_pley, 1);
             try {
-                System.out.println(entry.getValue() + "   ---<<<");
+                System.out.println(entry.getValue().string + "   ---<<< PRIHOD");
                 mg.getHero().getOtherPlayers().setNikName(entry.getValue().nomer_pley,entry.getValue().string);
                 mg.getHero().getOtherPlayers().getPlayerToID(entry.getValue().nomer_pley).getAnimatonBody().addAnimationAttackPipe(); // NullPointerException
                 mg.getAudioEngine().pleySoundKickStick(mg.getHero().getOtherPlayers().getXplayToId(entry.getValue().nomer_pley), mg.getHero().getOtherPlayers().getYplayToId(entry.getValue().nomer_pley));

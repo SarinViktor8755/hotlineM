@@ -221,6 +221,7 @@ public class MainClient {
 
         if (object instanceof Network.StockMess) {  // получение стокового сообщения - и отпрвка ответа
             int eventTime = ((Network.StockMess) object).time_even;
+            System.out.println(((Network.StockMess) object).textM + " ------ +++ ");
             //-----------------------------------
             Network.Answer answer = new Network.Answer();
             answer.nomber = eventTime;

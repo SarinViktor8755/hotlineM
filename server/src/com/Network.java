@@ -37,7 +37,6 @@ public class Network {
         public Integer rot;
     }
 
-
     static public class rc {
         public Integer id;
     }

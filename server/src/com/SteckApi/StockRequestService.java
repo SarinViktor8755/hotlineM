@@ -32,6 +32,8 @@ public class StockRequestService {
         rs.eventTime = endToTndQueueNumberOut;
         this.stockRequestArr.put(endToTndQueueNumberOut, rs);
         gameServer.getSnapShots().getStockBase().incomingMessageHeader.put(endToTndQueueNumberOut,time);
+
+        //System.out.println(rs.string + "  >>> uhlo nik nom Pl:" +rs.nomer_pley);
         //System.out.println(gameServer.getSnapShots().getStockBase().incomingMessageHeader);
        // System.out.println(gameServer.getSnapShots().getStockBase());
     }
@@ -84,6 +86,7 @@ public class StockRequestService {
             stockMess.p5 = entry.getValue().p5;
             stockMess.p6 = entry.getValue().p6;
             stockMess.textM = entry.getValue().string;
+
             gameServer.getServer().sendToUDP(entry.getValue().fromPleayer, stockMess);
         }
     }

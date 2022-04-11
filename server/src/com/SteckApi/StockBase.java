@@ -41,6 +41,7 @@ public class StockBase {
     }
 
     public void addOutSteckOut(Network.StockMess requestStock, int nomerPlayer) {
+       // System.out.println(">>>--- " + requestStock.textM);
         ArrayList<Integer> plroom = gameServer.getListPlayerNotId(nomerPlayer, 0);
         for (int i = 0; i < plroom.size(); i++) {
             requestStock.nomer_pley = nomerPlayer;
@@ -109,10 +110,13 @@ public class StockBase {
 
     public void sendOutMessege() { // разослать сообщения из очереди
         Iterator<Map.Entry<Integer, RequestStockServer>> entries = this.outMess.getInterator();
+
         while (entries.hasNext()) {
             Map.Entry<Integer, RequestStockServer> entrie = entries.next();
+//            System.out.println(entrie.getValue().getStockMess().textM + " otpravka, tut null  textM");
+//            System.out.println(entrie.getValue().string + " otpravka, tut null   string");
+            entrie.getValue().getStockMess().textM = entrie.getValue().string;
             if (!entrie.getValue().workOff) {
-                //System.out.println(" Otpravil clientu  " + entrie.getValue());
                 gameServer.server.sendToUDP(entrie.getValue().fromPleayer, entrie.getValue().getStockMess());
             }
         }

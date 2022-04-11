@@ -1,13 +1,12 @@
 android {
-    buildToolsVersion '30.0.3'
-    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+    compileSdkVersion 31
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
             java.srcDirs = ['src']
             aidl.srcDirs = ['src']
             renderscript.srcDirs = ['src']
-            res.srcDirs = ['res']
             res.srcDirs = ['res']
             assets.srcDirs = ['assets']
             jniLibs.srcDirs = ['libs']
@@ -18,8 +17,8 @@ android {
         exclude 'META-INF/robovm/ios/robovm.xml'
     }
     defaultConfig {
-        applicationId "tanks.io"
-        minSdkVersion 14
+        applicationId "com.mygdx.game"
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"

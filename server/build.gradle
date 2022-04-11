@@ -20,7 +20,7 @@ task createSarin_v(type: Jar) {
         (configurations.compileClasspath.findAll { !it.path.endsWith(".pom") }).collect {
             it.isDirectory() ? it : zipTree(it)
         }}
-
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         attributes 'Main-Class': project.mainClassName
     }

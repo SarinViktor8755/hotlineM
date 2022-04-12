@@ -175,10 +175,31 @@ public class MenuScreen implements Screen {
         this.batch.setProjectionMatrix(camera.combined);
         this.batch.begin();
         this.batch.setColor(1, 1, 1, alphaScreen);
-
+        if(long_logo)
         batch.draw(wallpaper, viewport.getScreenX() + noise_delta,
                 viewport.getScreenY() - ((Interpolation.bounce.apply((MathUtils.sin(timeInScreen) + 1) / 2) * 100)),
-                camera.viewportWidth * 1.15f, camera.viewportHeight * 1.15f);
+                camera.viewportWidth * 1.15f, camera.viewportHeight * 1.15f); else {
+
+            this.batch.setColor(1, 1, 1, .8f);
+            batch.draw(wallpaper, viewport.getScreenX() + noise_delta,
+                    viewport.getScreenY()  - ((Interpolation.bounce.apply((MathUtils.sin(timeInScreen) + 1) / 2) * 100)),
+                    camera.viewportWidth * 1.15f, camera.viewportHeight * 1.15f);
+            this.batch.setColor(0, 1, 0, .3f);
+            batch.draw(wallpaper, viewport.getScreenX() + MathUtils.random(-3,+10),
+                    viewport.getScreenY() - ((Interpolation.bounce.apply((MathUtils.sin(timeInScreen) + 1) / 2) * 100)),
+                    camera.viewportWidth * 1.15f, camera.viewportHeight * 1.15f);
+
+            this.batch.setColor(1, 0, 0, .3f);
+            batch.draw(wallpaper, viewport.getScreenX() + MathUtils.random(-10,+5),
+                    viewport.getScreenY() - ((Interpolation.bounce.apply((MathUtils.sin(timeInScreen) + 1) / 2) * 100)),
+                    camera.viewportWidth * 1.15f, camera.viewportHeight * 1.15f
+
+
+            );
+
+
+        }
+
         for (int i = 8; i > 0; i--) {
             //batch.draw(logo, viewport.getScreenX() - (i * nap.x), (viewport.getScreenY() + 550 + ((MathUtils.cos(timeInScreen * 3) + 1) / 2) * 20) - (i * nap.y));
             if (MathUtils.randomBoolean(.3f)){
@@ -186,9 +207,10 @@ public class MenuScreen implements Screen {
 
 
             }
-            this.batch.setColor(1, 1, 1, alphaScreen);
-            if (long_logo)
+            this.batch.setColor(1, 1, .4f, alphaScreen);
+            if (long_logo){
                 batch.draw(logo, viewport.getScreenX() - (i * nap.x + MathUtils.random(.5f)), viewport.getScreenY() + 590 - (i * nap.y) + MathUtils.random(.5f));
+            }
             else
                 batch.draw(logo, viewport.getScreenX() - (i * nap.x + MathUtils.random(.5f)) + MathUtils.random(-5, 5), viewport.getScreenY() + 590 - (i * nap.y) + MathUtils.random(.5f) + MathUtils.random(-5, 5));
             batch.setColor(1, 1, 1, 1);

@@ -3,6 +3,7 @@ package com;
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.String;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,7 +23,7 @@ public class NikNamesPlayer {
           //  System.out.println("ID = " + key + ", День недели = " +  hashmap.get(key));
             lResult.add(hashmap.get(key)+"||__||"+key);
         }
-
+      //  System.out.println(Arrays.toString(lResult.toArray(new String[lResult.size()])));
         return lResult.toArray(new String[lResult.size()]);
     }
 

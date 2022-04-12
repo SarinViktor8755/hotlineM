@@ -21,6 +21,8 @@ public class Network {
         kryo.register(rc.class);
         kryo.register(StockMess.class);
         kryo.register(Answer.class);
+        kryo.register(UpdateNames.class);
+        kryo.register(String[].class);
     }
 
     /////////////////////////////////////
@@ -37,6 +39,10 @@ public class Network {
         public Integer rot;
     }
 
+    static public class rc {
+        public Integer id;
+    }
+
     public static class StockMess {   //сообщение из стока
         public Integer time_even;
         public Integer tip;
@@ -49,13 +55,29 @@ public class Network {
         public String textM;
         public Integer nomer_pley;
 
+        @Override
+        public String toString() {
+            return "StockMess{" +
+                    "time_even=" + time_even +
+                    ", tip=" + tip +
+                    ", p1=" + p1 +
+                    ", p2=" + p2 +
+                    ", p3=" + p3 +
+                    ", p4=" + p4 +
+                    ", p5=" + p5 +
+                    ", p6=" + p6 +
+                    ", textM='" + textM + '\'' +
+                    ", nomer_pley=" + nomer_pley +
+                    '}';
+        }
     }
 
-    static public class rc {
-        public Integer id;
-    }
 
-    static public class Answer {
+    static public class Answer { // ответ типа получил от сервера
         public Integer nomber;
+    }
+
+    static public class UpdateNames {
+        public String[] names;
     }
 }

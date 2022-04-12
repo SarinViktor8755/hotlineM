@@ -6,6 +6,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.Service.Key_cod;
 import com.mygdx.game.Service.TimeService;
 
+import java.util.Arrays;
+
 /**
  * Created by 1 on 05.01.2020.
  */
@@ -161,14 +163,12 @@ public class RouteResponseRequests {  // роутр запросов
         }
 
         if (in.tip == Key_cod.MY_NIK_TO_SERVER) {
-            System.out.println("NIK_NAME " +  in.textM);
             gameServer.nikNamesPlayer.hashmap.put(in.nomer_pley,in.textM);
-            gameServer.nikNamesPlayer.genrateArrayFromPlayer();
-
-            System.out.println(gameServer.nikNamesPlayer.genrateArrayFromPlayer());
-
-
-
+            // gameServer.nikNamesPlayer.genrateArrayFromPlayer();
+            Network.UpdateNames updateNames = new Network.UpdateNames();
+            updateNames.names = gameServer.nikNamesPlayer.genrateArrayFromPlayer();
+          //  System.out.println(Arrays.toString(updateNames.names));
+            gameServer.getServer().sendToAllTCP(updateNames);
         }
 
         return false;

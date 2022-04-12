@@ -12,7 +12,6 @@ public class Network {
 
     public static int udpPort = 37960, tcpPort = 37960;
 
-
     static public void register(EndPoint endPoint) {
         Kryo kryo = endPoint.getKryo();
         kryo.register(Integer.class);
@@ -21,6 +20,8 @@ public class Network {
         kryo.register(rc.class);
         kryo.register(StockMess.class);
         kryo.register(Answer.class);
+        kryo.register(UpdateNames.class);
+        kryo.register(String[].class);
     }
 
     /////////////////////////////////////
@@ -73,6 +74,10 @@ public class Network {
 
     static public class Answer { // ответ типа получил от сервера
         public Integer nomber;
+    }
+
+    static public class UpdateNames {
+        public String[] names;
     }
 
 }

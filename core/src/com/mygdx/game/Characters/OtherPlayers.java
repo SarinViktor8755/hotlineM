@@ -56,7 +56,6 @@ public class OtherPlayers {
         } catch (NullPointerException ex) {
             return 0;
         }
-
     }
 
     public int getXplayToId(int id) {
@@ -80,7 +79,10 @@ public class OtherPlayers {
         if(nikname == null) return;
         if(nikname.length() < 1) return;
        // this.gameServer.getSnapShots().getPlaeyrToId(id).setNikName(nikname);
+        try {
         this.getPlayerToID(id).setNikName(nikname);
+        }catch (NullPointerException e){
+        }
     }
 
 
@@ -154,7 +156,7 @@ public class OtherPlayers {
     }
 
     public Player getPlayerToID(int id) {
-        if(MathUtils.randomBoolean(.0005f)) System.out.println(this.playersList);
+       // if(MathUtils.randomBoolean(.0005f)) System.out.println(this.playersList);
         Player result = playersList.get(id);
         if (result == null) {
             result = playersList.put(id, new Player(Integer.MIN_VALUE, 0, 0 , id));

@@ -17,8 +17,6 @@ public class EndingMathHUD { // класс отвечает за концовк�
     private boolean said;
     private static float ENDING_TIME = 1500;
 
-
-
     public EndingMathHUD(MainGaming mainGaming) {
         this.weCanFinish = false;
         this.counter = 0;

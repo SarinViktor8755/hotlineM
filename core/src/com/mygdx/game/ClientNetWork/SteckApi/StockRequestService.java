@@ -197,18 +197,18 @@ public class StockRequestService {
             if (entry.getValue().p2 == null) {
                // System.out.println(entry.getValue());
                 mg.getHero().getPoolBlood().getDistroyAnimation(MathUtils.random(1, 8), x, y, entry.getValue().nomer_pley);
-                mg.getHud().getDeathMess().addMessDead(mg.getHero().getMyNikNamePlayer(entry.getValue().nomer_pley), mg.getHero().getMyNikNamePlayer(entry.getValue().nomer_pley));
+                mg.getHud().getDeathMess().addMessDead(mg.getHero().getMyNikNamePlayer(entry.getValue().nomer_pley));
 
                 return;
             }// анимация кровм и тел
             if (entry.getValue().p2 == 2) {
                 mg.getHero().getPoolBlood().getDistroyAnimation(MathUtils.random(1, 8), x, y, entry.getValue().nomer_pley, 2, entry.getValue().p1);
-                mg.getHud().getDeathMess().addMessDead(mg.getHero().getMyNikNamePlayer(entry.getValue().nomer_pley), mg.getHero().getMyNikNamePlayer(entry.getValue().nomer_pley));
+                mg.getHud().getDeathMess().addMessDead(mg.getHero().getMyNikNamePlayer(entry.getValue().nomer_pley));
                 return;
             }// анимация кровм и тел
             if (entry.getValue().p2 == 3) {
                 mg.getHero().getPoolBlood().getDistroyAnimation(MathUtils.random(1, 8), x, y, entry.getValue().nomer_pley, 3, entry.getValue().p1);
-                mg.getHud().getDeathMess().addMessDead(mg.getHero().getMyNikNamePlayer(entry.getValue().nomer_pley), mg.getHero().getMyNikNamePlayer(entry.getValue().nomer_pley));
+                mg.getHud().getDeathMess().addMessDead(mg.getHero().getMyNikNamePlayer(entry.getValue().nomer_pley));
                 return;
             }// анимация кровм и тел
             return;

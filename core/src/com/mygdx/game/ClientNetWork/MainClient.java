@@ -18,6 +18,7 @@ import com.mygdx.game.Service.TimeService;
 
 import java.io.IOException;
 import java.net.SocketTimeoutException;
+import java.util.Arrays;
 
 public class MainClient {
 
@@ -50,7 +51,6 @@ public class MainClient {
                 sendMyNik();
 
 
-
             }
 
             public void received(Connection connection, Object object) {
@@ -69,7 +69,7 @@ public class MainClient {
 
     public boolean reconnect() {
 
-       // System.out.println("--------------  " + timerReConnect);
+        // System.out.println("--------------  " + timerReConnect);
         mg.getHud().update(0, 0, 0, 0, 0);
         try {
             // System.out.println(timerReConnect);
@@ -81,7 +81,7 @@ public class MainClient {
                 //client.stop();
                 //client.start();
                 client.reconnect();
-            }catch (SocketTimeoutException e){
+            } catch (SocketTimeoutException e) {
                 System.out.println("SocketTimeoutException");
             }
 
@@ -138,7 +138,6 @@ public class MainClient {
             return false;
         }
     }
-
 
 
     public int getMyIdConnect() {
@@ -214,19 +213,32 @@ public class MainClient {
 
     public void router(Object object) {
 /////////////////////////////////////////////////////////////////////Запрос с ответом
+        if (object instanceof PleyerPositionNom) {  //получает данные от сервера = если обьект в колекции есть - то обнавляет если нет создает нового
+            int nom = ((PleyerPositionNom) object).nom;
+            int xp = ((PleyerPositionNom) object).xp;
+            int yp = ((PleyerPositionNom) object).yp;
+            int rp = ((PleyerPositionNom) object).rot;
+
+            try {
+                if (nom == mg.getMainClient().myIdConnect) return;
+                mg.getHero().getOtherPlayers().getPlayerToID(nom).updateCoordinatPleyer(xp, yp, rp);
+            } catch (NullPointerException e) {
+                Gdx.app.error("MyTag", "юзер плейра в коллекции");
+            }
+
+        }
+
 
         if (object instanceof Network.Answer) { //ответ сервера - ответ на ответ - от сервера
             int nom = ((Network.Answer) object).nomber;
             if (!getOutStock().isCompleted(nom)) {
                 getOutStock().markCompleted(nom);
-
             }
-
         }
 
         if (object instanceof Network.StockMess) {  // получение стокового сообщения - и отпрвка ответа
             int eventTime = ((Network.StockMess) object).time_even;
-            System.out.println(((Network.StockMess) object).textM + " ------ +++ ");
+
             //-----------------------------------
             Network.Answer answer = new Network.Answer();
             answer.nomber = eventTime;
@@ -257,35 +269,38 @@ public class MainClient {
             int r = ((PleyerPosition) object).rot;
         }
 
+        if (object instanceof Network.UpdateNames) {
+            Network.UpdateNames ub = (Network.UpdateNames) object;
+            //System.out.println("!!!   " + Arrays.toString(ub.names));
+            for (int i = 0; i < ub.names.length; i++) {
+//                System.out.println();
+//                System.out.println(ub.names[i]);
+//                System.out.println(ub.names[i].indexOf("||__||"));
+                String s=ub.names[i];
+                String name = s.substring(0,s.indexOf("||__||"));
+                int id = Integer.valueOf(s.substring(name.length()+6,ub.names[i].length()));
+                mg.getHero().getOtherPlayers().setNikName(id,name);
+                 System.out.println("name  " + name + "  " + id);
+
+            }
+
+
+        }
+
         if (object instanceof rc) { // дисконект пользователя
             try {
                 int id = ((rc) object).id;
                 mg.getHero().getOtherPlayers().getPlayersList().remove(id);
-            }catch (NullPointerException e){
+            } catch (NullPointerException e) {
                 System.out.println("NullPointerException ROUTER");
             }
         }
 
-        if (object instanceof PleyerPositionNom) {  //получает данные от сервера = если обьект в колекции есть - то обнавляет если нет создает нового
-            int nom = ((PleyerPositionNom) object).nom;
-            int xp = ((PleyerPositionNom) object).xp;
-            int yp = ((PleyerPositionNom) object).yp;
-            int rp = ((PleyerPositionNom) object).rot;
 
-
-            try {
-                if (nom == mg.getMainClient().myIdConnect) return;
-                mg.getHero().getOtherPlayers().getPlayerToID(nom).updateCoordinatPleyer(xp, yp, rp);
-            } catch (NullPointerException e) {
-                Gdx.app.error("MyTag", "юзер плейра в коллекции");
-            }
-
-        }
     }
 
 
-
-    private void sendMyNik(){
+    private void sendMyNik() {
         mg.getMainClient().getOutStock().addStockInQuery(new RequestStock(// отправить на сервер
                 mg.getMainClient().getAndUpdateRealTime(), Key_cod.MY_NIK_TO_SERVER,
                 null, null,

@@ -518,7 +518,7 @@ public class MainCharacter extends Actor {
             //exception.printStackTrace();
         }
         mg.getBatch().setColor(1, 1, 1, 1);
-        randerNikNameOtherPlayers(mg.getBatch());
+       // randerNikNameOtherPlayers(mg.getBatch());
 
     }
 

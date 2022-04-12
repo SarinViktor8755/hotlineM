@@ -85,7 +85,7 @@ public class Hud implements Disposable {
 
     public Hud(MainGaming mainGaming) {
 
-        font = mainGaming.getAssetsManagerGame().get("fonts/font.fnt", BitmapFont.class);
+        font = mainGaming.getAssetsManagerGame().get("fonts/1.fnt", BitmapFont.class);
 
         endingMathHUD = new EndingMathHUD(mainGaming);
         viewport = new ExtendViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), new OrthographicCamera());
@@ -94,9 +94,9 @@ public class Hud implements Disposable {
 
 
         Label.LabelStyle style = new Label.LabelStyle(font, Color.WHITE);
-        declaration_death1 = new Label("_1111111111", style);
-        declaration_death2 = new Label("_2222222222", style);
-        declaration_death3 = new Label("_3333333333", style);
+        declaration_death1 = new Label("", style);
+        declaration_death2 = new Label("", style);
+        declaration_death3 = new Label("", style);
 
         deathMess = new DeathMess(declaration_death1, declaration_death2, declaration_death3);
 
@@ -114,7 +114,7 @@ public class Hud implements Disposable {
         table2 = new Table();
 
 
-        raitingTextLabel = new Label("0/0", style);
+        raitingTextLabel = new Label("0:0", style);
         fragsTextLabel = new Label("frag : 0", style);
         timerTextLabel = new Label("0:0", style);
         liderMathLabel = new Label("asd", style);
@@ -137,7 +137,7 @@ public class Hud implements Disposable {
         table.add(notConnectLabel);
         table.add();
         table.add();
-        table.add(liderMathLabel).expandX().padLeft(0).left().padTop(12.0f);
+        table.add(liderMathLabel).expandX().padLeft(0).center().padTop(12.0f);
 
         Table table2 = new Table();
         table2.top();
@@ -153,8 +153,8 @@ public class Hud implements Disposable {
         declaration_death2.setColor(1, 1, 1, .3f);
 
         declaration_death1.setScale(.5f);
-        table.setDebug(true, true);
-        table2.setDebug(true, true);
+      //  table.setDebug(true, true);
+      //  table2.setDebug(true, true);
 
 //        System.out.println(table. + "  !!");
 //        System.out.println(table.getRowHeight(2) + "  !!");
@@ -214,7 +214,7 @@ public class Hud implements Disposable {
 
         //////////////////////////
         this.timer = (int) (this.timer - (delta * 1000));
-        raitingTextLabel.setText(myPosition + "/" + nPlayer);
+        raitingTextLabel.setText(myPosition + " : " + nPlayer);
         if (timeS > 9) timerTextLabel.setText(timeM + ":" + timeS);
         else timerTextLabel.setText(timeM + ":0" + timeS);
         fragsTextLabel.setText("Frag: " + myFrags);
@@ -232,9 +232,7 @@ public class Hud implements Disposable {
             fragsTextLabel.setText("N/C");
             this.endingMathHUD.setUpdateToServer(false);
             this.endingMathHUD.setWeCanFinish(false);
-
         }
-
         this.endingMathHUD.update(delta);
     }
 

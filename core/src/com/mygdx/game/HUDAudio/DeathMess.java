@@ -46,11 +46,11 @@ public class DeathMess {
         lhud3.setText(a.get(2).getMess());
     }
 
-    public void addMessDead(String p1, String p2) {
+    public void addMessDead(String p1) {
         Mess a = mess.pollLast();
         mess.addFirst(a);
         a.setTimeLife(1.5f);
-        a.setMess(p1 +" > " + p2);
+        a.setMess(p1);
 
     }
 

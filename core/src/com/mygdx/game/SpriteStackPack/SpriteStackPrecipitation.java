@@ -5,7 +5,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.mygdx.game.sprite.stacking.MyGdxGame;
+import com.mygdx.game.ZombiKiller;
+
 
 public class SpriteStackPrecipitation implements SpriteStackInterface {
     SpriteBatch sb;
@@ -58,19 +59,19 @@ public class SpriteStackPrecipitation implements SpriteStackInterface {
         if (Math.abs(camX - x) > 600) return;
         dy = ((camY - y) / -300) + (angelCamera.y * viewingAngle / 10);
         if (Math.abs(camY - y) > 600) return;
-        float h = MathUtils.map(0, 50, 5, 10, hide);
-
+        //float h = MathUtils.map(0, 50, 5, 10, hide);
+        float h =33;
         sb.setColor(1, 1, 1, 1f - h / 50f);
         sb.draw(texture, (x + this.hide * dx) - h / 2, (y + this.hide * dy), h, h);
         sb.setColor(1, 1, 1, 1);
     }
 
-    public void randerSpriteStack(float camX, float camY, Vector3 angelCamera, float viewingAngle, float deltaTime, MyGdxGame mgg) {
+    public void randerSpriteStack(float camX, float camY, Vector3 angelCamera, float viewingAngle, float deltaTime, ZombiKiller mgg) {
         // System.out.println(angelCamera);
         this.hide -= speed * deltaTime;
         if (hide < 0) {
             restart(camX, camY);
-            mgg.addSnowdrift(x, y);
+          //  mgg.addSnowdrift(x, y);
         }
         // System.out.println(hide);
 
@@ -81,7 +82,8 @@ public class SpriteStackPrecipitation implements SpriteStackInterface {
         if (Math.abs(camX - x) > 600) return;
         dy = ((camY - y) / -300) + (angelCamera.y * viewingAngle / 10);
         if (Math.abs(camY - y) > 600) return;
-        float h = MathUtils.map(0, 50, 5, 10, hide);
+       // float h = MathUtils.map(0, 50, 5, 10, hide);
+        float h = 22;
 
         sb.setColor(1, 1, 1, 1f - h / 50f);
         sb.draw(texture, (x + this.hide * dx) - h / 2, (y + this.hide * dy), h, h);

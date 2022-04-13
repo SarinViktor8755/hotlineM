@@ -86,7 +86,7 @@ public class MenuScreen implements Screen {
         textField.setText(NikName.getNikName());
 ///////////////////////////
         textButton = new TextButton("Play Game", skinMenu);
-        textButton.setPosition(40, textField.getX() +40);
+        textButton.setPosition(40, textField.getY() -180);
         textButton.setSize(260, 80);
         textButton.addListener(new InputListener() {
             @Override

@@ -38,23 +38,28 @@ public class SlidingAd {
         if (endTime - timer < endTime / 10) alpha -= delta * 100;
     }
 
-    public void renderAd(SpriteBatch spriteBatch, MainGaming mainGaming) {
-        //System.out.println(MathUtils.sin(timer));
-        Vector2 rot = new Vector2(mainGaming.getCamera().up.x, mainGaming.getCamera().up.y);
-        float x = (mainGaming.getHero().getPosition().x + rot.x * 700) - textureRegion.getRegionWidth() / 2;
-        float y = (mainGaming.getHero().getPosition().y + rot.y * 700) - textureRegion.getRegionHeight() / 2;
-        spriteBatch.setColor(1, 1, 1, alpha);
-        spriteBatch.draw(this.textureRegion,
-                x, y,
-                textureRegion.getRegionWidth() / 2, textureRegion.getRegionHeight() / 2,
-                textureRegion.getRegionWidth(), textureRegion.getRegionHeight(),
-                scale, scale, rot.angle() - 90);
-        spriteBatch.setColor(1, 1, 1, 1);
-    }
+//    public void renderAd(SpriteBatch spriteBatch, MainGaming mainGaming) {
+//        //System.out.println(MathUtils.sin(timer));
+//        Vector2 rot = new Vector2(mainGaming.getCamera().up.x, mainGaming.getCamera().up.y);
+//        float x = (mainGaming.getCamera().viewportWidth) - textureRegion.getRegionWidth() / 2;
+//        float y = (mainGaming.getCamera().viewportHeight) - textureRegion.getRegionHeight() / 2;
+//        spriteBatch.setColor(1, 1, 1, alpha);
+//        spriteBatch.draw(this.textureRegion,
+//                x, y,
+//                textureRegion.getRegionWidth() / 2, textureRegion.getRegionHeight() / 2,
+//                textureRegion.getRegionWidth(), textureRegion.getRegionHeight(),
+//                scale, scale, rot.angle() - 90);
+//        spriteBatch.setColor(1, 1, 1, 1);
+//    }
 
-    public void renderAd(SpriteBatch spriteBatch) {
+    public void renderAd(SpriteBatch spriteBatch, float w, float h) {
+        float x = (720 / 2) - textureRegion.getRegionWidth();
+        float y = (1520 / 2) - textureRegion.getRegionHeight();
         spriteBatch.setColor(1, 1, 1, alpha);
-        spriteBatch.draw(this.textureRegion, 40, 500);
+        spriteBatch.draw(this.textureRegion, x, y,
+                this.textureRegion.getRegionWidth() * 2,
+                this.textureRegion.getRegionHeight() * 2);
+
         spriteBatch.setColor(1, 1, 1, 1);
     }
 

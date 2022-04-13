@@ -514,19 +514,15 @@ public class PoolBlood {
         }
     }
 
-    public void renderAd(SpriteBatch spriteBatch, MainGaming mainGaming) {
-        for (SlidingAd slidingAd : slidingAdDeque) {
-            if (!slidingAd.isLive()) continue;
-            slidingAd.renderAd(spriteBatch, mainGaming);
-        }
 
 
-    }
+
+
 
     public void renderAd(SpriteBatch spriteBatch) {
         for (SlidingAd slidingAd : slidingAdDeque) {
             if (!slidingAd.isLive()) continue;
-            slidingAd.renderAd(spriteBatch);
+            slidingAd.renderAd(spriteBatch,mainGaming.getCamera().viewportHeight,mainGaming.getCamera().viewportWidth);
         }
     }
 

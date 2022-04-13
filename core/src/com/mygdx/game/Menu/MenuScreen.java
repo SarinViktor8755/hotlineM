@@ -81,13 +81,13 @@ public class MenuScreen implements Screen {
         logo = zombiKiller.assetsManagerGame.get("menuAsset/logo.png", Texture.class);
 ///////////////////////
         textField.setMaxLength(10);
-        textField.setPosition(40, 180);
-        textField.setSize(250, 50);
+        textField.setPosition(40, 520);
+        textField.setSize(260, 35);
         textField.setText(NikName.getNikName());
 ///////////////////////////
         textButton = new TextButton("Play Game", skinMenu);
-        textButton.setPosition(40, 80);
-        textButton.setSize(250, 80);
+        textButton.setPosition(40, textField.getX() +40);
+        textButton.setSize(260, 80);
         textButton.addListener(new InputListener() {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {

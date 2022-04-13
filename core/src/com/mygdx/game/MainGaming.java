@@ -82,11 +82,7 @@ public class MainGaming implements Screen {
         this.startScreen = new StartScreen(zk);
 
         this.world = new World(new Vector2(0, 0), true);
-        //zk.setScreen(startScreen);
-        //        System.out.println("------------");
-        //        System.out.println(Gdx.graphics.getWidth());
-        //        System.out.println(Gdx.graphics.getHeight());
-        //        System.out.println(" -- ");
+
         setAssetsManagerGame(AssetsManagerGame.loadAllAsset(getAssetsManagerGame()));
         this.audioEngine = new AudioEngine(this);
         this.gSpace = new GameSpace();
@@ -99,7 +95,7 @@ public class MainGaming implements Screen {
         this.gHero = new Group();
         gHero.addActor(hero);
         batch = new SpriteBatch();
-        camera = new OrthographicCamera();
+        camera = new OrthographicCamera(zk.WHIDE_SCREEN, zk.HIDE_SCREEN);
         viewport = new FillViewport(zk.WHIDE_SCREEN, zk.HIDE_SCREEN, camera);
 
         // System.out.println(zk.isAndroid() + "1111111111111111111111");

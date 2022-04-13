@@ -586,7 +586,7 @@ public class MainCharacter extends Actor {
         while (id >= names.size()) {
             id = id / 2;
         }
-        return names.get(id) + ":Bot";
+        return names.get(id) + "@Bot";
     }
 
 

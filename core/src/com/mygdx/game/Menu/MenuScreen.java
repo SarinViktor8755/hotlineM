@@ -81,11 +81,11 @@ public class MenuScreen implements Screen {
         logo = zombiKiller.assetsManagerGame.get("menuAsset/logo.png", Texture.class);
 ///////////////////////
         textField.setMaxLength(10);
-        textField.setPosition(40, 520);
+        textField.setPosition(40, 420);
         textField.setSize(260, 35);
         textField.setText(NikName.getNikName());
 ///////////////////////////
-        textButton = new TextButton("Play Game", skinMenu);
+        textButton = new TextButton("Start game", skinMenu);
         textButton.setPosition(40, textField.getY() -180);
         textButton.setSize(260, 80);
         textButton.addListener(new InputListener() {
@@ -114,6 +114,7 @@ public class MenuScreen implements Screen {
         Gdx.input.setInputProcessor(stageMenu);
         alphaScreen = 1;
         audioEngineMenumain = new AudioEngineMenumain(this);
+        zombiKiller.createGame();
 
     }
 
@@ -244,5 +245,7 @@ public class MenuScreen implements Screen {
     public void dispose() {
         batch.dispose();
         wallpaper.dispose();
+        logo.dispose();
+        skinMenu.dispose();
     }
 }

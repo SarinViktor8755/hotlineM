@@ -74,6 +74,8 @@ public class MainGaming implements Screen {
 
     public MainGaming(ZombiKiller zk) {
         this.zk = zk;
+        mainClient = new MainClient(this);
+        mainClient.coonectToServerNewThred();
     }
 
     @Override
@@ -86,9 +88,6 @@ public class MainGaming implements Screen {
         setAssetsManagerGame(AssetsManagerGame.loadAllAsset(getAssetsManagerGame()));
         this.audioEngine = new AudioEngine(this);
         this.gSpace = new GameSpace();
-
-        mainClient = new MainClient(this);
-        mainClient.coonectToServer();
 
         this.indexMap = new IndexMap(this);
         this.hero = new MainCharacter(this);

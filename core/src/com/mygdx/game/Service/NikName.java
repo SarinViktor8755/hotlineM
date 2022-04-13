@@ -8,7 +8,7 @@ import com.badlogic.gdx.Preferences;
 public class NikName {
     public static String getNikName() {
         Preferences prefs = Gdx.app.getPreferences("NikName");
-        return prefs.getString("nik", "UserName_" + random(1024));
+        return prefs.getString("nik", "UserName_" + random(2048));
     }
 
     public static void setNikName(String nik) {

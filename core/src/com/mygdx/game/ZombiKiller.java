@@ -67,8 +67,11 @@ public class ZombiKiller extends Game {
 
     }
 
-    public void startGamePlay(){
+    public void createGame(){
         this.mGaming = new MainGaming(this);
+    }
+
+    public void startGamePlay(){
         this.setScreen(this.mGaming);
     }
 

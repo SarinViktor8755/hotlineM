@@ -41,6 +41,7 @@ public class MainClient {
         client = new Client();
         client.start();
 
+
         // FrameworkMessage.Ping ping = new FrameworkMessage.Ping();
         Network.register(client);
 
@@ -49,8 +50,6 @@ public class MainClient {
             public void connected(Connection connection) {
                 setMyIdConnect(connection.getID());
                 sendMyNik();
-
-
             }
 
             public void received(Connection connection, Object object) {
@@ -126,8 +125,8 @@ public class MainClient {
     }
 
     public boolean coonectToServer() {
-        try {
 
+        try {
             client.start();
             client.connect(5000, Network.ip, Network.tcpPort, Network.udpPort);
             //client.start();
@@ -137,6 +136,17 @@ public class MainClient {
             Gdx.app.error("MyTag", "!!!!!!ConcurrentModificationException");
             return false;
         }
+    }
+
+
+    public void coonectToServerNewThred() {
+        Thread t = new Thread(new Runnable() {
+            public void run() {
+                coonectToServer();
+            }
+        });
+
+        t.start();
     }
 
 
@@ -280,7 +290,7 @@ public class MainClient {
                 String name = s.substring(0,s.indexOf("||__||"));
                 int id = Integer.valueOf(s.substring(name.length()+6,ub.names[i].length()));
                 mg.getHero().getOtherPlayers().setNikName(id,name);
-                 System.out.println("name  " + name + "  " + id);
+               //  System.out.println("name  " + name + "  " + id);
 
             }
 

@@ -140,13 +140,16 @@ public class MainClient {
 
 
     public void coonectToServerNewThred() {
+        System.out.println("coonectToServerNewThred");
         Thread t = new Thread(new Runnable() {
             public void run() {
                 coonectToServer();
             }
-        });
 
+        });
         t.start();
+
+
     }
 
 

@@ -75,6 +75,11 @@ public class ZombiKiller extends Game {
         this.setScreen(this.mGaming);
     }
 
+
+    public MainGaming getmGaming() {
+        return mGaming;
+    }
+
     public void getPauseScreen() {
         this.pauseScreen = new com.mygdx.game.Pause.PauseScreen(this, true);
         this.setScreen(this.pauseScreen);

@@ -76,7 +76,6 @@ public class PauseScreen implements Screen {
 
     @Override
     public void show() {
-
         this.timer = 0;
         spriteBatch = new SpriteBatch();
         camera = new OrthographicCamera(zk.WHIDE_SCREEN, zk.HIDE_SCREEN);
@@ -128,6 +127,7 @@ public class PauseScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        System.out.println();
         updaeteVolmeMusic();
         this.timer += Gdx.graphics.getDeltaTime();
         if (timer > durationPause / 1000) zk.getMainGaming();

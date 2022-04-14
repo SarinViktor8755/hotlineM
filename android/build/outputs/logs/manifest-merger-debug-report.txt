@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
+ADDED from C:\hotlineM\android\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-29:12
 MERGED from [com.google.android.gms:play-services-ads:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\4201799246fc9c6bb439312209a5d3da\transformed\play-services-ads-15.0.0\AndroidManifest.xml:17:1-25:12
 MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\3fef5a809d1a60446c6905ea36c4b6db\transformed\customtabs-26.1.0\AndroidManifest.xml:17:1-28:12
 MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\689c4280790abf66e79610d8659e04fd\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:17:1-36:12
@@ -18,20 +18,20 @@ MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gra
 MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\ae308fb8f8acb720f771554684328c30\transformed\support-core-ui-26.1.0\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\367cb949026cf214c88d697911a702f8\transformed\support-compat-26.1.0\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\ce24e4a5bad8c885e4402de84681fba9\transformed\runtime-1.0.0\AndroidManifest.xml:17:1-30:12
-INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
-INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\hotlineM\android\AndroidManifest.xml:2:1-29:12
 	package
 		ADDED from C:\hotlineM\android\AndroidManifest.xml:3:5-29
 		INJECTED from C:\hotlineM\android\AndroidManifest.xml
 		INJECTED from C:\hotlineM\android\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\hotlineM\android\AndroidManifest.xml
-		ADDED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:2:1-29:12
 		INJECTED from C:\hotlineM\android\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\hotlineM\android\AndroidManifest.xml
-		ADDED from C:\hotlineM\android\AndroidManifest.xml:2:1-27:12
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:2:1-29:12
 		INJECTED from C:\hotlineM\android\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\hotlineM\android\AndroidManifest.xml:2:11-69
@@ -95,12 +95,12 @@ MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\vikt
 MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\689c4280790abf66e79610d8659e04fd\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:24:5-79
 	android:name
 		ADDED from C:\hotlineM\android\AndroidManifest.xml:8:22-76
-uses-permission#com.android.vending.BILLING
-ADDED from C:\hotlineM\android\AndroidManifest.xml:9:5-66
+uses-permission#android.Manifest.permission
+ADDED from C:\hotlineM\android\AndroidManifest.xml:11:5-66
 	android:name
-		ADDED from C:\hotlineM\android\AndroidManifest.xml:9:22-64
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:11:22-64
 application
-ADDED from C:\hotlineM\android\AndroidManifest.xml:10:5-25:19
+ADDED from C:\hotlineM\android\AndroidManifest.xml:12:5-27:19
 MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\3fef5a809d1a60446c6905ea36c4b6db\transformed\customtabs-26.1.0\AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\3fef5a809d1a60446c6905ea36c4b6db\transformed\customtabs-26.1.0\AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\689c4280790abf66e79610d8659e04fd\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:26:5-34:19
@@ -128,33 +128,33 @@ MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\ce24e4a5bad8c885e4402de84681fba9\transformed\runtime-1.0.0\AndroidManifest.xml:24:5-28:19
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\ce24e4a5bad8c885e4402de84681fba9\transformed\runtime-1.0.0\AndroidManifest.xml:24:5-28:19
 	android:label
-		ADDED from C:\hotlineM\android\AndroidManifest.xml:13:9-41
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:15:9-41
 	android:icon
-		ADDED from C:\hotlineM\android\AndroidManifest.xml:12:9-45
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:14:9-45
 	android:allowBackup
-		ADDED from C:\hotlineM\android\AndroidManifest.xml:11:9-35
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:13:9-35
 	android:theme
-		ADDED from C:\hotlineM\android\AndroidManifest.xml:14:9-40
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:16:9-40
 activity#com.mygdx.game.AndroidLauncher
-ADDED from C:\hotlineM\android\AndroidManifest.xml:15:9-24:20
+ADDED from C:\hotlineM\android\AndroidManifest.xml:17:9-26:20
 	android:screenOrientation
-		ADDED from C:\hotlineM\android\AndroidManifest.xml:18:13-49
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:20:13-49
 	android:label
-		ADDED from C:\hotlineM\android\AndroidManifest.xml:17:13-45
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:19:13-45
 	android:configChanges
-		ADDED from C:\hotlineM\android\AndroidManifest.xml:19:13-94
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:21:13-94
 	android:name
-		ADDED from C:\hotlineM\android\AndroidManifest.xml:16:13-58
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:18:13-58
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\hotlineM\android\AndroidManifest.xml:20:13-23:29
+ADDED from C:\hotlineM\android\AndroidManifest.xml:22:13-25:29
 action#android.intent.action.MAIN
-ADDED from C:\hotlineM\android\AndroidManifest.xml:21:17-69
+ADDED from C:\hotlineM\android\AndroidManifest.xml:23:17-69
 	android:name
-		ADDED from C:\hotlineM\android\AndroidManifest.xml:21:25-66
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:23:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\hotlineM\android\AndroidManifest.xml:22:17-77
+ADDED from C:\hotlineM\android\AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from C:\hotlineM\android\AndroidManifest.xml:22:27-74
+		ADDED from C:\hotlineM\android\AndroidManifest.xml:24:27-74
 meta-data#android.support.VERSION
 ADDED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\3fef5a809d1a60446c6905ea36c4b6db\transformed\customtabs-26.1.0\AndroidManifest.xml:23:9-25:38
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\b32d327e2f70436bdd074be3e2fe0a7e\transformed\support-v4-26.1.0\AndroidManifest.xml:26:9-28:38

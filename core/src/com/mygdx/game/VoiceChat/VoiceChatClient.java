@@ -34,6 +34,7 @@ public class VoiceChatClient implements Disposable{
 	private short[] data;
 	private float timer;
 	private boolean ready = true;
+	private boolean inVoise = false;
 	
 	/**
 	 * Creates a new {@link VoiceChatClient} and registers net objects.
@@ -115,10 +116,11 @@ public class VoiceChatClient implements Disposable{
 		
 		client.addListener(new Listener(){
 			public void received(Connection connection, Object object) {
-				
+				inVoise = false;
 				// Only read objects of the correct type.
 				if(object instanceof VoiceNetData){
 					System.out.println("<<--- IN VOISE");
+					inVoise = true;
 					// Read data
 					VoiceNetData message = (VoiceNetData)object;					
 					short[] data = message.getData();
@@ -231,5 +233,9 @@ public class VoiceChatClient implements Disposable{
 		this.player = null;
 		this.recorder.dispose();
 		this.recorder = null;
+	}
+
+	public boolean isInVoise() {
+		return inVoise;
 	}
 }

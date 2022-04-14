@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
-
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
     <uses-permission android:name="android.Manifest.permission"/>
     <application
         android:allowBackup="true"

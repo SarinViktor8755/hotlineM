@@ -2,6 +2,7 @@ package com.mygdx.game.ClientNetWork;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
+import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.FrameworkMessage;
@@ -15,6 +16,7 @@ import com.mygdx.game.MainGaming;
 import com.mygdx.game.Service.Key_cod;
 import com.mygdx.game.Service.NikName;
 import com.mygdx.game.Service.TimeService;
+import com.mygdx.game.VoiceChat.VoiceChatClient;
 
 import java.io.IOException;
 import java.net.SocketTimeoutException;
@@ -33,17 +35,24 @@ public class MainClient {
 
     public int myIdConnect; //Мой ИД
 
+    private VoiceChatClient voiceChatClient;
+
 
     public MainClient(MainGaming mg) {
+        int bufferSize = 22050; // Recommened value.
         pingError = 0;
         this.mg = mg;
 
-        client = new Client();
+        client = new Client(bufferSize,bufferSize);
         client.start();
-
 
         // FrameworkMessage.Ping ping = new FrameworkMessage.Ping();
         Network.register(client);
+
+        /////////////////VC
+        voiceChatClient = new VoiceChatClient(client.getKryo());
+        voiceChatClient.addReceiver(client);
+//////////////////
 
         client.addListener(new Listener() {
 
@@ -65,6 +74,9 @@ public class MainClient {
         // messageQueue = new MessageQueue();
     }
 
+    public VoiceChatClient getVoiceChatClient() {
+        return voiceChatClient;
+    }
 
     public boolean reconnect() {
 

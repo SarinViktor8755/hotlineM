@@ -183,4 +183,9 @@ public class AndroidInputProcessorGamePley implements InputProc {
         Gdx.app.error("MyTag", "косание " + this.tuachScreen);
         return this.tuachScreen;
     }
+
+    @Override
+    public boolean isVoice() {
+        return true;
+    }
 }

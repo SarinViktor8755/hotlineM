@@ -15,6 +15,7 @@ public class DesktopInputProcessorGamePley implements InputProc {
     private boolean move;
     private Vector2 move_vector;
     private Integer mauseX;
+    private boolean voceChat;
 
     boolean leftB, rideB, bottomB, upB, lefButtonMause;
 
@@ -29,12 +30,17 @@ public class DesktopInputProcessorGamePley implements InputProc {
         bottomB = false;
         upB = false;
         lefButtonMause = false;
+        voceChat = false;
     }
 
 
     @Override
     public boolean keyUp(int keycode) {
-       // System.out.println(keycode);
+
+        if (keycode == 50) {
+            voceChat = false;
+        }
+
         if (keycode == 32) {
 //            move = true;
 //            move_vector.add(-1000, 0);
@@ -61,9 +67,10 @@ public class DesktopInputProcessorGamePley implements InputProc {
             bottomB = false;
         }
 
+
+
         if(keycode == 131) {
             Gdx.app.exit();
-
         }
         return false;
     }
@@ -95,6 +102,11 @@ public class DesktopInputProcessorGamePley implements InputProc {
 //            move = true;
 //            move_vector.add(0, -1000);
             bottomB = true;
+        }
+
+
+        if (keycode == 50) {
+            voceChat = true;
         }
         return false;
     }
@@ -220,7 +232,7 @@ public class DesktopInputProcessorGamePley implements InputProc {
 
     @Override
     public void act(float deltTime) {
-
+      //  System.out.println("voceChat " + voceChat);
         if(lefButtonMause) mg.getHero().makeHit();
         move_vector.setZero();
         if (leftB) move_vector.x -= 1000;
@@ -242,5 +254,10 @@ public class DesktopInputProcessorGamePley implements InputProc {
     @Override
     public boolean isTuach() {
         return false;
+    }
+
+    @Override
+    public boolean isVoice() {
+        return voceChat;
     }
 }

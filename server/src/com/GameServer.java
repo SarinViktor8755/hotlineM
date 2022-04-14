@@ -10,6 +10,7 @@ import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 import com.esotericsoftware.kryonet.Server;
 import com.logicMatch.IndexMatch;
+import com.mygdx.game.VoiceChat.VoiceChatServer;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,6 +33,8 @@ public class GameServer extends Listener {
     public RouteResponseRequests responseRequests;
     public CalculationСontact calculationСontact;
     public NikNamesPlayer nikNamesPlayer;
+
+    private VoiceChatServer relay;
 
 
 
@@ -103,12 +106,19 @@ public class GameServer extends Listener {
                 e.printStackTrace();
             }
             snapShots = new SnapShots(this);
-            server = new Server();
+
+            server = new Server(22050, 22050);
             responseRequests = new RouteResponseRequests(this);
             calculationСontact = new CalculationСontact(this);
             register(server);
             server.bind(Network.tcpPort, Network.udpPort);
             server.start();
+
+            relay = new VoiceChatServer(server.getKryo());
+
+
+
+
             indexMatch = new IndexMatch(this);
             indexBot.start();
             indexMatch.start();
@@ -119,6 +129,8 @@ public class GameServer extends Listener {
 
             server.addListener(new Listener() {
                                    public void received(Connection c, Object object) { // ответы
+                                       relay.relayVoice(c, object, server);
+
                                        if (object instanceof Network.StockMess) {  // получение из стока сообщения - и отпрвка ответа
                                            Network.Answer answer = new Network.Answer();
 //                                       synchronized (answer) {

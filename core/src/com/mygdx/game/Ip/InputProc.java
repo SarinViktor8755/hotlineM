@@ -10,6 +10,7 @@ public interface InputProc extends InputProcessor {
     boolean isMove();
     public void act(float deltTime);
     boolean isTuach();
+    boolean isVoice();
 }
 
 

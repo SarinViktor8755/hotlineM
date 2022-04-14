@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -54,7 +55,7 @@ public class MainGaming implements Screen {
     private RenderStartScreen renderStartScreen;
     private float timeInGame;
     Vector2 rot;
-
+    boolean sendAudio = true;
     private StartScreen startScreen;
 
     public Hud getHud() {
@@ -128,6 +129,8 @@ public class MainGaming implements Screen {
             return;
         }
 
+
+        updateVC();
         getHud().update();
 
         //   System.out.println("assets:: " + AssetsManagerGame.loadAsset(zk.assetsManagerGame));
@@ -174,6 +177,25 @@ public class MainGaming implements Screen {
         getBatch().end();
     }
 
+    private void updateVC() {
+        // This is some sort of update method that is called periodically in you app.
+        // In LibGDX it is called render(). You know the drill.
+
+        // This variable is the time, in seconds, between the calls to update().
+        // LibGDX has done this for you!
+        ;
+        float deltaTime = Gdx.graphics.getDeltaTime();
+
+        // This would be replaced with some sort of user input, such as pressing a button.
+
+
+        if(apInput.isVoice()){
+          //  System.out.println("VOISE "+ MathUtils.random(3));
+            // Sends audio data to the server.
+            mainClient.getVoiceChatClient().sendVoice(mainClient.client, deltaTime);
+        }
+
+    }
 
 
     public void renderAim() { // отрисовать прицел

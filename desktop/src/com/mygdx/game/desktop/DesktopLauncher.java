@@ -12,7 +12,6 @@ public class DesktopLauncher implements AdAds {
         config.title = "HotLINE D";
         config.width = ZombiKiller.WHIDE_SCREEN / 2;
         config.height = ZombiKiller.HIDE_SCREEN / 2;
-//        config.
 
       //  config.setWindowedMode(ZombiKiller.WHIDE_SCREEN / 2,ZombiKiller.HIDE_SCREEN / 2);
         new LwjglApplication(new ZombiKiller(3), config);

@@ -127,7 +127,7 @@ public class PauseScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        System.out.println();
+
         updaeteVolmeMusic();
         this.timer += Gdx.graphics.getDeltaTime();
         if (timer > durationPause / 1000) zk.getMainGaming();

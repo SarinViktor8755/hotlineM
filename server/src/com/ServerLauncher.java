@@ -21,7 +21,7 @@ public class ServerLauncher {
                         Thread.sleep(10);
                     } catch (Exception e) {
                        // e.printStackTrace();
-                        FileLog.saveToFileNewThred("__________________________Exception >>");
+           //             FileLog.saveToFileNewThred("__________________________Exception >>");
 //                        FileLog.saveToFileNewThred(e.toString());
 //                        FileLog.saveToFileNewThred("<<<<<<<<__________________________Exception");
                     }

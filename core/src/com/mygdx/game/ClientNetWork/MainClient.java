@@ -63,6 +63,7 @@ public class MainClient {
 
             public void received(Connection connection, Object object) {
                 router(object);
+
             }
 
             public void disconnected(Connection connection) {

@@ -118,7 +118,7 @@ public class VoiceChatClient implements Disposable{
 				
 				// Only read objects of the correct type.
 				if(object instanceof VoiceNetData){
-					
+					System.out.println("<<--- IN VOISE");
 					// Read data
 					VoiceNetData message = (VoiceNetData)object;					
 					short[] data = message.getData();

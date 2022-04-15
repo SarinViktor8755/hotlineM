@@ -50,8 +50,8 @@ public class MainClient {
         Network.register(client);
 
         /////////////////VC
-//        voiceChatClient = new VoiceChatClient(client.getKryo());
-//        voiceChatClient.addReceiver(client);
+        voiceChatClient = new VoiceChatClient(client.getKryo());
+        voiceChatClient.addReceiver(client);
 //////////////////
 
         client.addListener(new Listener() {

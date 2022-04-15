@@ -1,6 +1,10 @@
 package com.mygdx.game;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.android.AndroidApplication;
@@ -17,6 +21,16 @@ public class AndroidLauncher extends AndroidApplication implements AdAds {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+//            // The app has the camera permission.
+//            Log.v("ERROR", "CAMERA YESSS !!!!!!");
+//        } else {
+//            // Apply for the camera permission.
+//            Log.v("ERROR", "CAMERA NOOO !!!!!!!!!!!!!! ");
+//        }
+
+
         super.onCreate(savedInstanceState);
         AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
         config.useAccelerometer = false;

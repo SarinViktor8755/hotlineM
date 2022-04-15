@@ -80,11 +80,19 @@ public class VoiceChatClient implements Disposable{
 	public float getSendRate(){
 		return this.sendRate;
 	}
-	
+
 	private void createRecorder(){
+
+
+
+
 		this.recorder = Gdx.audio.newAudioRecorder(this.getSampleRate(), true);
 	}
-	
+
+
+
+
+
 	private void createPlayer(){
 		this.player = Gdx.audio.newAudioDevice(this.getSampleRate(), true);
 	}
@@ -211,7 +219,7 @@ public class VoiceChatClient implements Disposable{
 
 					// This will block! We need to do this in a separate thread!
 					if (VoiceChatClient.this.recorder == null)
-						VoiceChatClient.this.createRecorder();
+						VoiceChatClient.this. createRecorder();
 					VoiceChatClient.this.recorder.read(data, 0, packetSize);
 
 					// Send to server, this will not block but may affect networking...

@@ -15,7 +15,6 @@ import com.mygdx.game.BloodBullet.PoolBlood;
 import com.mygdx.game.Characters.Animation.AnimationPers;
 import com.mygdx.game.ClientNetWork.SteckApi.RequestStock;
 import com.mygdx.game.HUDAudio.HelperScreen;
-import com.mygdx.game.HUDAudio.MusicGame;
 import com.mygdx.game.Lighting.B2lights;
 import com.mygdx.game.MainGaming;
 import com.mygdx.game.Service.Key_cod;
@@ -27,13 +26,10 @@ import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 import java.util.Iterator;
 
-/**
- * Created by 1 on 04.08.2019.
- */
 
 public class MainCharacter extends Actor {
     MainGaming mg;
-    public static final String myNikName = NikName.getNikName();
+
 
     AnimationPers animationPers;
 
@@ -46,7 +42,6 @@ public class MainCharacter extends Actor {
     private float deathValleyTime = 0; // счетчик времени смерт
     private OtherPlayers otherPlayers;
     private PoolBlood poolBlood;
-    public int fragWithLife;
     public int myPositionTablica;
     private Weapons weapons;
     TextureRegion tr;
@@ -331,7 +326,7 @@ public class MainCharacter extends Actor {
         mg.getMainClient().getOutStock().addStockInQuery(new RequestStock(// отправить на сервер
                 mg.getMainClient().getAndUpdateRealTime(), Key_cod.STICK_ATTACK,
                 x, y,
-                null, null, null, null, null, myNikName
+                null, null, null, null, null, null
         ));
 
 
@@ -661,7 +656,7 @@ public class MainCharacter extends Actor {
     public String getMyNikNamePlayer(int id) {
         String result = "";
         if (id < 0) result = getNikNameGen(id);
-        else if (id == mg.getMainClient().myIdConnect) result = MainCharacter.myNikName; else result = otherPlayers.getNikName(id);
+        else if (id == mg.getMainClient().myIdConnect) result = mg.getZk().getMyNikName(); else result = otherPlayers.getNikName(id);
         if (result==null) return "";
 
         return result;

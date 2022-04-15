@@ -9,11 +9,14 @@ import com.mygdx.game.LoadingScreen.LoadingScreen;
 import com.mygdx.game.LoadingScreen.StartScreen;
 import com.mygdx.game.Menu.MenuScreen;
 import com.mygdx.game.Pause.PauseScreen;
+import com.mygdx.game.Service.NikName;
 import com.mygdx.game.adMod.AdAds;
 
 
 public class ZombiKiller extends Game {
     public AssetManager assetsManagerGame;
+
+    public static String myNikName;
 
     static public final int WHIDE_SCREEN = 720;
     static public final int HIDE_SCREEN = 1520;
@@ -37,6 +40,8 @@ public class ZombiKiller extends Game {
         this.tip = (byte) tip;
 
     }
+
+
 
     public ZombiKiller(int tip) {
         this.tip = (byte) tip;
@@ -72,13 +77,17 @@ public class ZombiKiller extends Game {
     }
 
     public void startGamePlay(){
+
         this.setScreen(this.mGaming);
+        this.myNikName = NikName.getNikName();
     }
 
 
     public MainGaming getmGaming() {
         return mGaming;
     }
+
+
 
     public void getPauseScreen() {
         this.pauseScreen = new com.mygdx.game.Pause.PauseScreen(this, true);
@@ -118,7 +127,9 @@ public class ZombiKiller extends Game {
         this.setScreen(this.mGaming);
     }
 
-
+    public static String getMyNikName() {
+        return myNikName;
+    }
 
     public void getMainGameScreen() {
         this.setScreen(this.mGaming);

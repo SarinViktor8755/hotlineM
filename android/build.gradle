@@ -13,15 +13,16 @@ android {
         }
 
     }
+
     packagingOptions {
         exclude 'META-INF/robovm/ios/robovm.xml'
     }
     defaultConfig {
-        applicationId "com.mygdx.game"
+        applicationId "com.mygdx.game.Deathmatch"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode 110
+        versionName "2.0"
     }
     buildTypes {
         release {

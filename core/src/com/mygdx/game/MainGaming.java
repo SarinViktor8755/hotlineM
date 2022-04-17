@@ -100,7 +100,7 @@ public class MainGaming implements Screen {
         camera = new OrthographicCamera(zk.WHIDE_SCREEN, zk.HIDE_SCREEN);
         viewport = new FillViewport(zk.WHIDE_SCREEN, zk.HIDE_SCREEN, camera);
 
-        // System.out.println(zk.isAndroid() + "1111111111111111111111");
+
         if (zk.isAndroid()) apInput = new AndroidInputProcessorGamePley(this);
 
 
@@ -190,11 +190,11 @@ public class MainGaming implements Screen {
         // This would be replaced with some sort of user input, such as pressing a button.
 
 /////////////////
-        if(apInput.isVoice() && !mainClient.getVoiceChatClient().isInVoise()){
-            if(MathUtils.randomBoolean())System.out.println("VOISE > >"); else System.out.println("VOISE > ");
-            // Sends audio data to the server.
-            mainClient.getVoiceChatClient().sendVoice(mainClient.client, deltaTime);
-        }
+//        if(apInput.isVoice() && !mainClient.getVoiceChatClient().isInVoise()){
+//            if(MathUtils.randomBoolean())System.out.println("VOISE > >"); else System.out.println("VOISE > ");
+//            // Sends audio data to the server.
+//            mainClient.getVoiceChatClient().sendVoice(mainClient.client, deltaTime);
+//        }
 ///////////////////
     }
 

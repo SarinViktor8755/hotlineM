@@ -35,10 +35,8 @@ public class ZombiKiller extends Game {
     private MenuScreen menuScreen;
 
     public ZombiKiller(int tip, AdAds adMod) {
-
         this.adMod = adMod;
         this.tip = (byte) tip;
-
     }
 
 

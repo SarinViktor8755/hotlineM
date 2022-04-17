@@ -116,7 +116,7 @@ public class MenuScreen implements Screen {
         Gdx.input.setInputProcessor(stageMenu);
         alphaScreen = 1;
         audioEngineMenumain = new AudioEngineMenumain(this);
-        zombiKiller.createGame();
+      //  zombiKiller.createGame();
 
     }
 

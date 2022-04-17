@@ -77,7 +77,8 @@ public class MainGaming implements Screen {
     public MainGaming(ZombiKiller zk) {
         this.zk = zk;
         mainClient = new MainClient(this);
-        mainClient.coonectToServerNewThred();
+        mainClient.coonectToServer();
+      //  mainClient.coonectToServerNewThred();
     }
 
     @Override

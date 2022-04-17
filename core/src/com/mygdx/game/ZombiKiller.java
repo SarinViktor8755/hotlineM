@@ -77,7 +77,7 @@ public class ZombiKiller extends Game {
     }
 
     public void startGamePlay(){
-
+        this.mGaming = new MainGaming(this);
         this.setScreen(this.mGaming);
         this.myNikName = NikName.getNikName();
     }
